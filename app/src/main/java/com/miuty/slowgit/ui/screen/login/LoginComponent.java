@@ -8,7 +8,9 @@ import dagger.android.AndroidInjector;
  */
 
 @Subcomponent(modules = {LoginModule.class})
-public interface LoginComponent {
+public interface LoginComponent extends AndroidInjector<LoginActivity> {
+
+    @Subcomponent.Builder
     abstract class Builder extends AndroidInjector.Builder<LoginActivity> {
 
     }

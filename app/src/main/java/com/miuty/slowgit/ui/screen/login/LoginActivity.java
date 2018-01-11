@@ -31,6 +31,7 @@ public class LoginActivity extends BaseMvpActivity implements LoginMvpView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loginPresenter.f1();
+        loginPresenter.f2();
     }
 }
 
