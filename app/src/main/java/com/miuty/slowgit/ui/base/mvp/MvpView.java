@@ -5,4 +5,10 @@ package com.miuty.slowgit.ui.base.mvp;
  */
 
 public interface MvpView {
+
+    void noInternetConnection();
+
+    void showProgress();
+
+    void hideProgress();
 }

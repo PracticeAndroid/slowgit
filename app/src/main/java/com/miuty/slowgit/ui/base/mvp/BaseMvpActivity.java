@@ -12,7 +12,8 @@ import dagger.android.DaggerActivity;
  */
 
 
-public class BaseMvpActivity<V extends MvpView, P extends BasePresenter<V>> extends AppCompatActivity {
+public class BaseMvpActivity<V extends MvpView, P extends BasePresenter<V>> extends AppCompatActivity
+        implements MvpView {
 
 
     @Override
@@ -23,6 +24,21 @@ public class BaseMvpActivity<V extends MvpView, P extends BasePresenter<V>> exte
 
     public void setUpDependencyInjection() {
         AndroidInjection.inject(this);
+    }
+
+    @Override
+    public void noInternetConnection() {
+
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
     }
 }
 
