@@ -1,12 +1,17 @@
 package com.miuty.slowgit.provider.network;
 
 import android.content.Context;
-import android.util.Log;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 import com.google.gson.Gson;
+import com.miuty.slowgit.di.qualifier.DefaultOkHtppClientContext;
+import com.miuty.slowgit.util.ApiConst;
 import com.miuty.slowgit.util.HttpHelper;
 
-import java.net.HttpRetryException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
@@ -15,35 +20,77 @@ import io.reactivex.ObservableSource;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-
-/**
- * Created by Asus on 1/10/2018.
- */
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DefaultNetworkProvider implements NetworkProvider {
 
-    private static final String TAG = "DefaultNetworkProvider";
+    private static final String TAG = "DefaultNetworkProviderContext";
 
     private Context context;
-
-    @Inject
-    private Retrofit retrofit;
-
-    @Inject
     private Gson gson;
-
-    @Inject
     private OkHttpClient okHttpClient;
 
-    @Inject
-    public DefaultNetworkProvider(Context context) {
+    private Map<String, String> headers;
+
+    public DefaultNetworkProvider(Context context, OkHttpClient okHttpClient, Gson gson) {
         this.context = context;
+        this.headers = new HashMap<>();
+        this.okHttpClient = okHttpClient;
+        this.gson = gson;
     }
 
     @Override
     public boolean isNetworkAvailable() {
-        return true;
+        ConnectivityManager connectivityManager = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    @Override
+    public DefaultNetworkProvider setTimeOut(int time, TimeUnit timeUnit) {
+        return this;
+    }
+
+    @Override
+    public DefaultNetworkProvider addHeader(String key, String value) {
+        headers.put(key, value);
+        return this;
+    }
+
+    @Override
+    public DefaultNetworkProvider addDefaultHeader() {
+        this.headers.put("Content-Type", "application/json");
+        return this;
+    }
+
+    @Override
+    public <T> T provideApi(String url, Class<T> service) {
+
+        //Set interceptor
+        okHttpClient.newBuilder().addInterceptor(chain -> {
+            Request.Builder requestBuilder = chain.request().newBuilder();
+            if (headers == null || headers.size() == 0) {
+                //addDefaultHeader();
+            }
+            for (Map.Entry<String, String> keyValueEntry : headers.entrySet()) {
+                requestBuilder.addHeader(keyValueEntry.getKey(), keyValueEntry.getValue());
+            }
+            return chain.proceed(requestBuilder.build());
+        });
+
+        Retrofit restAdapter = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .client(okHttpClient)
+                .build();
+
+        return restAdapter.create(service);
     }
 
     @Override

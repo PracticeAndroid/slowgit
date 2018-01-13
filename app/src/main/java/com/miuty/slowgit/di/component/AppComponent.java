@@ -3,6 +3,9 @@ package com.miuty.slowgit.di.component;
 import com.miuty.slowgit.SlowGitApplication;
 import com.miuty.slowgit.di.module.AppModule;
 import com.miuty.slowgit.di.module.BuilderModule;
+import com.miuty.slowgit.di.module.NetworkModule;
+import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
+import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
 
 import javax.inject.Singleton;
 
@@ -15,7 +18,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
  */
 
 @Singleton
-@Component(modules = {AppModule.class, BuilderModule.class, AndroidSupportInjectionModule.class})
+@Component(modules = {AppModule.class, NetworkModule.class,
+        BuilderModule.class, AndroidSupportInjectionModule.class})
 public interface AppComponent {
 
     @Component.Builder
@@ -27,4 +31,7 @@ public interface AppComponent {
     }
 
     void inject(SlowGitApplication slowGitApplication);
+
+    @DefaultNetworkProviderContext
+    DefaultNetworkProvider getDefaultNetworkProvider();
 }
