@@ -1,9 +1,9 @@
 package com.miuty.slowgit.ui.screen.login;
 
-import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
-import com.miuty.slowgit.provider.network.NetworkProvider;
-import com.miuty.slowgit.repo.LoginRepository;
-import com.miuty.slowgit.repo.LoginRepositoryImpl;
+import android.support.annotation.NonNull;
+
+import com.miuty.slowgit.data.repository.login.AuthRepository;
+import com.miuty.slowgit.data.repository.login.AuthRepositoryImpl;
 import com.miuty.slowgit.ui.base.mvp.BasePresenter;
 import com.miuty.slowgit.ui.base.mvp.MvpView;
 
@@ -15,20 +15,17 @@ import javax.inject.Inject;
 
 public class LoginPresenter extends BasePresenter<MvpView> {
 
-    private LoginRepository loginRepository;
-    private NetworkProvider networkProvider;
+    private AuthRepository loginRepository;
 
     @Inject
-    public LoginPresenter(LoginRepositoryImpl loginRepository, DefaultNetworkProvider networkProvider) {
+    public LoginPresenter(AuthRepositoryImpl loginRepository) {
         this.loginRepository = loginRepository;
-        this.networkProvider = networkProvider;
     }
 
-    public void f1() {
-        loginRepository.insert();
-    }
-
-    public void f2() {
-        networkProvider.makeRequest(null);
+    public void doBasicLogin(@NonNull String userName, @NonNull String password) {
+        loginRepository.doBasicLogin(userName, password).subscribe(response -> {
+            loginRepository.saveToken(response);
+        }, throwable -> {
+        });
     }
 }

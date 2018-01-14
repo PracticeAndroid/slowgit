@@ -1,7 +1,23 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.novoda.build-properties'
 
 android {
     compileSdkVersion 26
+
+    buildProperties {
+        notThere {
+            file rootProject.file('debug_gradle.properties')
+        }
+    }
+
+    // Configure only for each module that uses Java 8
+    // language features (either in its source code or
+    // through dependencies).
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     defaultConfig {
         applicationId "com.miuty.slowgit"
         minSdkVersion 21
@@ -9,6 +25,11 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //Build Config
+        buildConfigString "GITHUB_CLIENT_ID", (buildProperties.notThere['github_client_id']).string
+        buildConfigString "GITHUB_SECRET", (buildProperties.notThere['github_secret']).string
+        buildConfigField "String", "REST_URL", '"https://api.github.com/"'
     }
     buildTypes {
         release {
@@ -36,6 +57,18 @@ dependencies {
     // rx
     implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    // gson
+    implementation 'com.google.code.gson:gson:2.8.2'
+
+    //retrofit2
+    implementation "com.squareup.retrofit2:retrofit:2.3.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.3.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava:2.3.0"
+
+    // okhttp
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

@@ -19,6 +19,9 @@ import dagger.android.AndroidInjection;
 
 interface LoginMvpView extends MvpView {
 
+    void onBasicLogin();
+
+    void onBasicLoginFailed();
 }
 
 public class LoginActivity extends BaseMvpActivity implements LoginMvpView {
@@ -30,8 +33,16 @@ public class LoginActivity extends BaseMvpActivity implements LoginMvpView {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loginPresenter.f1();
-        loginPresenter.f2();
+    }
+
+    @Override
+    public void onBasicLogin() {
+
+    }
+
+    @Override
+    public void onBasicLoginFailed() {
+
     }
 }
 
