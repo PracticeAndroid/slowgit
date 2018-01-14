@@ -9,11 +9,13 @@ import com.miuty.slowgit.ui.base.mvp.MvpView;
 
 import javax.inject.Inject;
 
+import io.reactivex.disposables.Disposable;
+
 /**
  * Created by Asus on 1/9/2018.
  */
 
-public class LoginPresenter extends BasePresenter<MvpView> {
+public class LoginPresenter extends BasePresenter<LoginMvpView> {
 
     private AuthRepository loginRepository;
 
@@ -23,9 +25,14 @@ public class LoginPresenter extends BasePresenter<MvpView> {
     }
 
     public void doBasicLogin(@NonNull String userName, @NonNull String password) {
-        loginRepository.doBasicLogin(userName, password).subscribe(response -> {
-            loginRepository.saveToken(response);
-        }, throwable -> {
-        });
+        Disposable disposable = loginRepository.doBasicLogin(userName, password)
+                .subscribe(response -> {
+                    loginRepository.saveToken(response);
+                    view.onBasicLogin();
+                }, throwable -> {
+                    view.onBasicLoginFailed();
+                });
+
+        disposeOnDestroy(disposable);
     }
 }

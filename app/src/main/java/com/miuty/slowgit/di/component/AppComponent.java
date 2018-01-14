@@ -31,7 +31,4 @@ public interface AppComponent {
     }
 
     void inject(SlowGitApplication slowGitApplication);
-
-    @DefaultNetworkProviderContext
-    DefaultNetworkProvider getDefaultNetworkProvider();
 }

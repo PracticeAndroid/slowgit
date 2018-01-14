@@ -1,8 +1,14 @@
 package com.miuty.slowgit.ui.base.mvp;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+
+import com.miuty.slowgit.ui.base.BaseActivity;
+
+import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
 import dagger.android.DaggerActivity;
@@ -12,18 +18,25 @@ import dagger.android.DaggerActivity;
  */
 
 
-public class BaseMvpActivity<V extends MvpView, P extends BasePresenter<V>> extends AppCompatActivity
+public class BaseMvpActivity<V extends MvpView, P extends BasePresenter<V>> extends BaseActivity
         implements MvpView {
 
+    private static final String TAG = "BaseMvpActivity";
+
+    @Inject
+    protected P presenter;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setUpDependencyInjection();
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        Log.d(TAG, "onCreate: ");
+        super.onCreate(savedInstanceState, persistentState);
+        getLifecycle().addObserver(presenter);
+        presenter.bindView((V) this);
     }
 
-    public void setUpDependencyInjection() {
-        AndroidInjection.inject(this);
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @Override

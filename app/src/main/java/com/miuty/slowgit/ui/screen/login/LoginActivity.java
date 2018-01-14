@@ -2,6 +2,7 @@ package com.miuty.slowgit.ui.screen.login;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpActivity;
@@ -24,25 +25,25 @@ interface LoginMvpView extends MvpView {
     void onBasicLoginFailed();
 }
 
-public class LoginActivity extends BaseMvpActivity implements LoginMvpView {
+public class LoginActivity extends BaseMvpActivity<LoginMvpView, LoginPresenter> implements LoginMvpView {
 
-    @Inject
-    protected LoginPresenter loginPresenter;
+    private static final String TAG = "LoginActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        presenter.doBasicLogin("nguyenhung.uit@gmail.com", "hungpncm1");
     }
 
     @Override
     public void onBasicLogin() {
-
+        Log.d(TAG, "onBasicLogin: ");
     }
 
     @Override
     public void onBasicLoginFailed() {
-
+        Log.e(TAG, "onBasicLoginFailed: ");
     }
 }
 

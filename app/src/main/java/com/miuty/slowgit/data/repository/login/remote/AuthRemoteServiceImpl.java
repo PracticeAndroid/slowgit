@@ -3,6 +3,7 @@ package com.miuty.slowgit.data.repository.login.remote;
 import com.miuty.slowgit.BuildConfig;
 import com.miuty.slowgit.data.dao.model.request.BasicAuthRequest;
 import com.miuty.slowgit.data.dao.model.response.BasicAuthResponse;
+import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
 import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
 import com.miuty.slowgit.provider.network.NetworkProvider;
 import com.miuty.slowgit.util.ApiConst;
@@ -23,7 +24,7 @@ public class AuthRemoteServiceImpl implements AuthRemoteService {
     protected NetworkProvider networkProvider;
 
     @Inject
-    public AuthRemoteServiceImpl(DefaultNetworkProvider networkProvider) {
+    public AuthRemoteServiceImpl(@DefaultNetworkProviderContext DefaultNetworkProvider networkProvider) {
         this.networkProvider = networkProvider;
     }
 
@@ -39,7 +40,7 @@ public class AuthRemoteServiceImpl implements AuthRemoteService {
                 .addHeader("Authorization", authToken);
 
         return networkProvider.makeRequest(
-                networkProvider.provideApi(ApiConst.DEFAULT_BASE_URL, AuthRestService.class)
+                networkProvider.provideApi(BuildConfig.REST_URL, AuthRestService.class)
                         .doBasicLogin(basicAuthRequest));
     }
 

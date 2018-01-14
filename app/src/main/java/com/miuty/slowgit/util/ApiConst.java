@@ -7,5 +7,4 @@ package com.miuty.slowgit.util;
 public class ApiConst {
 
     public static int DEFAULT_TIME_OUT_IN_SECONDS = 120; // in seconds
-    public static String DEFAULT_BASE_URL = "test";
 }
