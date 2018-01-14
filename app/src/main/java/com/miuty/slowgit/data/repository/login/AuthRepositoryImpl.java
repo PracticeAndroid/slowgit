@@ -31,7 +31,8 @@ public class AuthRepositoryImpl implements AuthRepository {
     }
 
     @Override
-    public void saveToken(BasicAuthResponse authResponse) {
-        //TODO
+    public Observable<BasicAuthResponse> saveToken(BasicAuthResponse authResponse) {
+        //TODO save into local
+        return Observable.just(authResponse);
     }
 }

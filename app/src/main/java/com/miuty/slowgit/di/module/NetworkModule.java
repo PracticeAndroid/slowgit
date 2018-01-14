@@ -3,6 +3,7 @@ package com.miuty.slowgit.di.module;
 import android.content.Context;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
 import com.miuty.slowgit.di.qualifier.DefaultOkHtppClientContext;
 import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
@@ -24,7 +25,9 @@ public class NetworkModule {
 
     @Provides
     Gson provideGson() {
-        return new Gson();
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setPrettyPrinting();
+        return gsonBuilder.create();
     }
 
     @Provides

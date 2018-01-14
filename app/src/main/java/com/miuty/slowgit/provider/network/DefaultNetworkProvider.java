@@ -24,6 +24,7 @@ import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DefaultNetworkProvider implements NetworkProvider {
@@ -72,7 +73,7 @@ public class DefaultNetworkProvider implements NetworkProvider {
     public <T> T provideApi(String url, Class<T> service) {
 
         //Set interceptor
-        okHttpClient.newBuilder().addInterceptor(chain -> {
+        okHttpClient = okHttpClient.newBuilder().addInterceptor(chain -> {
             Request.Builder requestBuilder = chain.request().newBuilder();
             if (headers == null || headers.size() == 0) {
                 //addDefaultHeader();
@@ -81,12 +82,12 @@ public class DefaultNetworkProvider implements NetworkProvider {
                 requestBuilder.addHeader(keyValueEntry.getKey(), keyValueEntry.getValue());
             }
             return chain.proceed(requestBuilder.build());
-        });
+        }).build();
 
         Retrofit restAdapter = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) // tell to retrifit need to use Rxjava2
                 .client(okHttpClient)
                 .build();
 

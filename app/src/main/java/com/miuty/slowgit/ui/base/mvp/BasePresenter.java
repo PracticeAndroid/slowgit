@@ -16,7 +16,7 @@ public class BasePresenter<V extends MvpView> implements LifecycleObserver {
 
     private static final String TAG = "BasePresenter";
 
-    protected CompositeDisposable disposables;
+    protected CompositeDisposable disposables = new CompositeDisposable();
 
     protected V view;
 

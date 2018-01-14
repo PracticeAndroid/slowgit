@@ -15,5 +15,5 @@ public interface AuthRepository {
     Observable<BasicAuthResponse> doBasicLogin(String user, String password);
 
     // local
-    void saveToken(BasicAuthResponse authResponse);
+    Observable<BasicAuthResponse> saveToken(BasicAuthResponse authResponse);
 }
