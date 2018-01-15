@@ -1,13 +1,14 @@
 package com.miuty.slowgit.data.repository;
 
+import com.miuty.slowgit.data.dao.model.User;
 import com.miuty.slowgit.data.dao.response.BasicAuthResponse;
-import com.miuty.slowgit.data.repository.local.AuthLocalService;
 import com.miuty.slowgit.data.repository.local.AuthLocalServiceImpl;
-import com.miuty.slowgit.data.repository.remote.AuthRemoteService;
 import com.miuty.slowgit.data.repository.remote.AuthRemoteServiceImpl;
 
 import javax.inject.Inject;
 
+import io.reactivex.Completable;
+import io.reactivex.Maybe;
 import io.reactivex.Observable;
 
 /**
@@ -16,8 +17,8 @@ import io.reactivex.Observable;
 
 public class AuthRepositoryImpl implements AuthRepository {
 
-    private AuthRemoteService authRemoteService;
-    private AuthLocalService authLocalService;
+    private AuthRepository authRemoteService;
+    private AuthRepository authLocalService;
 
     @Inject
     public AuthRepositoryImpl(AuthRemoteServiceImpl authRemoteService, AuthLocalServiceImpl authLocalService) {
@@ -34,5 +35,15 @@ public class AuthRepositoryImpl implements AuthRepository {
     public Observable<BasicAuthResponse> saveToken(BasicAuthResponse authResponse) {
         //TODO save into local
         return Observable.just(authResponse);
+    }
+
+    @Override
+    public Maybe<User> getUser() {
+        return null;
+    }
+
+    @Override
+    public Completable saveUser(User user) {
+        return null;
     }
 }

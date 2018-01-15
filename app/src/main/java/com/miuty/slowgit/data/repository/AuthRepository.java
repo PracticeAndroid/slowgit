@@ -1,7 +1,10 @@
 package com.miuty.slowgit.data.repository;
 
+import com.miuty.slowgit.data.dao.model.User;
 import com.miuty.slowgit.data.dao.response.BasicAuthResponse;
 
+import io.reactivex.Completable;
+import io.reactivex.Maybe;
 import io.reactivex.Observable;
 
 
@@ -16,4 +19,9 @@ public interface AuthRepository {
 
     // local
     Observable<BasicAuthResponse> saveToken(BasicAuthResponse authResponse);
+
+    // for user data
+    Maybe<User> getUser();
+
+    Completable saveUser(User user);
 }

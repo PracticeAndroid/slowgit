@@ -14,7 +14,7 @@ public class BasicAuthRequest {
     private String clientId;
 
     @SerializedName("client_secret")
-    private String clientSecrect;
+    private String clientSecret;
 
     private List<String> scopes;
 
@@ -26,12 +26,12 @@ public class BasicAuthRequest {
         this.clientId = clientId;
     }
 
-    public String getClientSecrect() {
-        return clientSecrect;
+    public String getClientSecret() {
+        return clientSecret;
     }
 
-    public void setClientSecrect(String clientSecrect) {
-        this.clientSecrect = clientSecrect;
+    public void setClientSecret(String clientSecret) {
+        this.clientSecret = clientSecret;
     }
 
     public List<String> getScopes() {
