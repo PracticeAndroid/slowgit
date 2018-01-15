@@ -6,7 +6,6 @@ import com.miuty.slowgit.data.dao.model.response.BasicAuthResponse;
 import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
 import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
 import com.miuty.slowgit.provider.network.NetworkProvider;
-import com.miuty.slowgit.util.ApiConst;
 
 import java.util.Arrays;
 

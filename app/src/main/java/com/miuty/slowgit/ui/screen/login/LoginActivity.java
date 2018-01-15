@@ -8,12 +8,6 @@ import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpActivity;
 import com.miuty.slowgit.ui.base.mvp.MvpView;
 
-import javax.inject.Inject;
-
-import dagger.Module;
-import dagger.Subcomponent;
-import dagger.android.AndroidInjection;
-
 /**
  * Created by Asus on 1/9/2018.
  */

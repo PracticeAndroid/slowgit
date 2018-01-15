@@ -5,25 +5,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import com.google.gson.Gson;
-import com.miuty.slowgit.di.qualifier.DefaultOkHtppClientContext;
-import com.miuty.slowgit.util.ApiConst;
 import com.miuty.slowgit.util.HttpHelper;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import javax.inject.Inject;
-
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -87,7 +79,7 @@ public class DefaultNetworkProvider implements NetworkProvider {
         Retrofit restAdapter = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) // tell to retrifit need to use Rxjava2
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) // tell to Retrofit need to use RxJava2
                 .client(okHttpClient)
                 .build();
 
@@ -98,16 +90,13 @@ public class DefaultNetworkProvider implements NetworkProvider {
     public <Response> Observable<Response> makeRequest(Observable<Response> observable) {
         Observable<Response> responseObservable = observable
                 .observeOn(Schedulers.computation())
-                .onErrorResumeNext(new Function<Throwable, ObservableSource<? extends Response>>() {
-                    @Override
-                    public ObservableSource<? extends Response> apply(Throwable throwable) throws Exception {
-                        if (!isNetworkAvailable()) {
-                            return Observable.error(new Exception("No internet"));
-                        } else if (HttpHelper.getStatusCode(throwable) == 401) {
-                            return Observable.error(new Exception("session expired"));
-                        }
-                        return Observable.error(throwable);
+                .onErrorResumeNext(throwable -> {
+                    if (!isNetworkAvailable()) {
+                        return Observable.error(new Exception("No internet"));
+                    } else if (HttpHelper.getStatusCode(throwable) == 401) {
+                        return Observable.error(new Exception("session expired"));
                     }
+                    return Observable.error(throwable);
                 });
         return responseObservable;
     }

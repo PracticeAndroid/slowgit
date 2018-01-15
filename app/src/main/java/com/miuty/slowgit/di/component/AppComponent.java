@@ -4,8 +4,6 @@ import com.miuty.slowgit.SlowGitApplication;
 import com.miuty.slowgit.di.module.AppModule;
 import com.miuty.slowgit.di.module.BuilderModule;
 import com.miuty.slowgit.di.module.NetworkModule;
-import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
-import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
 
 import javax.inject.Singleton;
 

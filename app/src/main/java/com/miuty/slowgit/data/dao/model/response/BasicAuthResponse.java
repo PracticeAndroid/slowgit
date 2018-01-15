@@ -2,8 +2,6 @@ package com.miuty.slowgit.data.dao.model.response;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
 /**
  * Created by Asus on 1/12/2018.
  */
