@@ -1,6 +1,6 @@
-package com.miuty.slowgit.data.repository.login;
+package com.miuty.slowgit.data.repository;
 
-import com.miuty.slowgit.data.dao.model.response.BasicAuthResponse;
+import com.miuty.slowgit.data.dao.response.BasicAuthResponse;
 
 import io.reactivex.Observable;
 

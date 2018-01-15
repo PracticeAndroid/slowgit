@@ -2,8 +2,8 @@ package com.miuty.slowgit.ui.screen.login;
 
 import android.support.annotation.NonNull;
 
-import com.miuty.slowgit.data.repository.login.AuthRepository;
-import com.miuty.slowgit.data.repository.login.AuthRepositoryImpl;
+import com.miuty.slowgit.data.repository.AuthRepository;
+import com.miuty.slowgit.data.repository.AuthRepositoryImpl;
 import com.miuty.slowgit.provider.scheduler.SchedulerProvider;
 import com.miuty.slowgit.provider.scheduler.SchedulerProviderImpl;
 import com.miuty.slowgit.ui.base.mvp.BasePresenter;

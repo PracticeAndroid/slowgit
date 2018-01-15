@@ -1,8 +1,8 @@
-package com.miuty.slowgit.data.repository.login.remote;
+package com.miuty.slowgit.data.repository.remote;
 
 import com.miuty.slowgit.BuildConfig;
-import com.miuty.slowgit.data.dao.model.request.BasicAuthRequest;
-import com.miuty.slowgit.data.dao.model.response.BasicAuthResponse;
+import com.miuty.slowgit.data.dao.request.BasicAuthRequest;
+import com.miuty.slowgit.data.dao.response.BasicAuthResponse;
 import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
 import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
 import com.miuty.slowgit.provider.network.NetworkProvider;

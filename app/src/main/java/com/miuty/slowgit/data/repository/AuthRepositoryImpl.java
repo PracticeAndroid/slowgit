@@ -1,10 +1,10 @@
-package com.miuty.slowgit.data.repository.login;
+package com.miuty.slowgit.data.repository;
 
-import com.miuty.slowgit.data.dao.model.response.BasicAuthResponse;
-import com.miuty.slowgit.data.repository.login.local.AuthLocalService;
-import com.miuty.slowgit.data.repository.login.local.AuthLocalServiceImpl;
-import com.miuty.slowgit.data.repository.login.remote.AuthRemoteService;
-import com.miuty.slowgit.data.repository.login.remote.AuthRemoteServiceImpl;
+import com.miuty.slowgit.data.dao.response.BasicAuthResponse;
+import com.miuty.slowgit.data.repository.local.AuthLocalService;
+import com.miuty.slowgit.data.repository.local.AuthLocalServiceImpl;
+import com.miuty.slowgit.data.repository.remote.AuthRemoteService;
+import com.miuty.slowgit.data.repository.remote.AuthRemoteServiceImpl;
 
 import javax.inject.Inject;
 

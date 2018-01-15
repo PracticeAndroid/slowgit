@@ -1,4 +1,4 @@
-package com.miuty.slowgit.data.repository.login.local;
+package com.miuty.slowgit.data.repository.local;
 
 /**
  * Created by Asus on 1/13/2018.
