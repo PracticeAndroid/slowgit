@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="left_menu_width">240dp</dimen>
+    <dimen name="single_line_width">30dp</dimen>
+    <dimen name="dialog_width">300dp</dimen>
+    <dimen name="main_button_radius">10dp</dimen>
+    <dimen name="default_radius">5dp</dimen>
+    <dimen name="default_border_background">1dp</dimen>
+</resources>

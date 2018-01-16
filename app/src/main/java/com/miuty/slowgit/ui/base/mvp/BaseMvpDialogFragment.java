@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 
 import com.miuty.slowgit.ui.base.dialog.BaseDialogFragment;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * Created by Asus on 1/16/2018.
  */
@@ -19,6 +22,9 @@ public abstract class BaseMvpDialogFragment<V extends MvpView, P extends BasePre
         implements MvpView {
 
     protected V callBack;
+
+    @Nullable
+    protected Unbinder unbinder;
 
     @LayoutRes
     protected abstract int fragmentLayout();
@@ -36,9 +42,18 @@ public abstract class BaseMvpDialogFragment<V extends MvpView, P extends BasePre
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (fragmentLayout() != 0) {
             View view = inflater.inflate(fragmentLayout(), container, false);
+            unbinder = ButterKnife.bind(this, view);
             return view;
         }
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public void onDestroy() {
+        if (unbinder != null) {
+            unbinder.unbind();
+        }
+        super.onDestroy();
     }
 
     @Override

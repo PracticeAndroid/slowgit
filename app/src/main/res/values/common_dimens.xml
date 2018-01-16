@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--HEADER DIMENSIONS-->
+    <dimen name="default_status_bar_height">25dp</dimen>
+    <dimen name="default_toolbar_size">@dimen/abc_action_bar_default_height_material</dimen>
+    <dimen name="default_toolbar_login_size">80dp</dimen>
+    <dimen name="default_toolbar_statusbar_height">81dp</dimen>
+
+    <!--DEFAULT FONT SIZE-->
+    <dimen name="font_size_small">8sp</dimen>
+    <dimen name="font_size_xsmall">10sp</dimen>
+    <dimen name="font_size_normal">12sp</dimen>
+    <dimen name="font_size_medium">14sp</dimen>
+    <dimen name="font_size_xmedium">16sp</dimen>
+    <dimen name="font_size_xxmedium">20sp</dimen>
+    <dimen name="font_size_large">24sp</dimen>
+    <dimen name="font_size_xlarge">26sp</dimen>
+    <dimen name="font_size_xxlarge">28sp</dimen>
+    <dimen name="font_size_huge">34sp</dimen>
+    <dimen name="font_size_xhuge">38sp</dimen>
+    <dimen name="font_size_xxhuge">45sp</dimen>
+    <dimen name="font_size_button">13sp</dimen>
+    <dimen name="font_size_large_h">26sp</dimen>
+    <dimen name="font_size_payment_currency">20sp</dimen>
+    <dimen name="font_size_large_payment">30dp</dimen>
+
+    <!-- DEFAULT ROUND CONNER -->
+    <dimen name="default_round_conner">5dp</dimen>
+    <dimen name="default_round_conner_normal">7dp</dimen>
+    <dimen name="default_round_conner_medium">10dp</dimen>
+    <dimen name="default_round_conner_huge">30dp</dimen>
+    <dimen name="default_round_conner_xhuge">50dp</dimen>
+
+    <!-- DEFAULT MARGIN-->
+    <dimen name="default_margin_half">2dp</dimen>
+    <dimen name="default_margin">5dp</dimen>
+    <dimen name="default_margin_normal">7dp</dimen>
+    <dimen name="default_margin_medium">10dp</dimen>
+    <dimen name="default_margin_large">15dp</dimen>
+    <dimen name="default_margin_xlarge">20dp</dimen>
+    <dimen name="default_margin_xxlarge">25dp</dimen>
+    <dimen name="default_margin_huge">30dp</dimen>
+    <dimen name="default_margin_xhuge">50dp</dimen>
+
+    <!-- DEFAULT PADDING-->
+    <dimen name="default_padding">5dp</dimen>
+    <dimen name="default_padding_normal">7dp</dimen>
+    <dimen name="default_padding_medium">10dp</dimen>
+    <dimen name="default_padding_large">15dp</dimen>
+    <dimen name="default_padding_xlarge">20dp</dimen>
+    <dimen name="default_padding_xxlarge">25dp</dimen>
+    <dimen name="default_padding_huge">30dp</dimen>
+    <dimen name="default_padding_xhuge">50dp</dimen>
+
+    <dimen name="default_padding_half">2dp</dimen>
+    <dimen name="drawable_padding_left">4dp</dimen>
+    <dimen name="default_currency_padding_top">5dp</dimen>
+    <dimen name="loan_text_field_margin">7dp</dimen>
+    <dimen name="default_button_small_height">25dp</dimen>
+    <dimen name="default_button_small_width">60dp</dimen>
+
+    <!--VIEW-->
+    <dimen name="default_view_size_small">27dp</dimen>
+    <dimen name="default_view_size_normal">40dp</dimen>
+    <dimen name="default_view_size_max_width">300dp</dimen>
+    <dimen name="default_view_small_half">20dp</dimen>
+    <dimen name="default_view_quote_min_height">100dp</dimen>
+    <dimen name="page_indicator_radius_size">5dp</dimen>
+
+</resources>

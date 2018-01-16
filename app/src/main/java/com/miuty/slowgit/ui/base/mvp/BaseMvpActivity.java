@@ -1,26 +1,33 @@
 package com.miuty.slowgit.ui.base.mvp;
 
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.ProgressBar;
 
 import com.miuty.slowgit.ui.base.activity.BaseActivity;
 import com.miuty.slowgit.ui.dialog.CommonProgressDialogFragment;
 
 import javax.inject.Inject;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * Created by Asus on 1/9/2018.
  */
 
 
-public class BaseMvpActivity<V extends MvpView, P extends BasePresenter<V>> extends BaseActivity
+public abstract class BaseMvpActivity<V extends MvpView, P extends BasePresenter<V>> extends BaseActivity
         implements MvpView {
 
     private static final String TAG = "BaseMvpActivity";
 
     protected CommonProgressDialogFragment progressDialogFragment;
+    private Unbinder unbinder;
+
+    @LayoutRes
+    protected abstract int layoutId();
 
     @Inject
     protected P presenter;
@@ -29,12 +36,20 @@ public class BaseMvpActivity<V extends MvpView, P extends BasePresenter<V>> exte
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: ");
         super.onCreate(savedInstanceState);
+        if (layoutId() != 0) {
+            setContentView(layoutId());
+            unbinder = ButterKnife.bind(this);
+        }
+
         getLifecycle().addObserver(presenter);
         presenter.bindView((V) this);
     }
 
     @Override
     protected void onDestroy() {
+        if (unbinder != null) {
+            unbinder.unbind();
+        }
         super.onDestroy();
     }
 

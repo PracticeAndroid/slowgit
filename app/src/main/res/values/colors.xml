@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="transparent">@android:color/transparent</color>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#6dac57</color>
 
+    <color name="textColorPrimary">#ffffff</color>
+
+    <color name="transparent">@android:color/transparent</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorRed">#ff0000</color>
+    <color name="colorRed_op10">#1Aff0000</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorWhite_op10">#1Affffff</color>
+    <color name="colorWhite_op90">#E6ffffff</color>
+    <color name="colorAccentDark">#7d2b15</color>
+    <color name="colorGreen">#008000</color>
+    <color name="colorLimeGreen">#32CD32</color>
+
+    <color name="colorTextViewTitle">#7A2A15</color>
+    <color name="colorGray">#dfdfdf</color>
+    <color name="colorGray9c9c9c">#9c9c9c</color>
+
+    <color name="colorBackgroundFooterDialog">#dfdfdf</color>
+    <color name="colorBackgroundButtonDialog">#ff8080</color>
+    <color name="colorBlackAlpha50">#50000000</color>
+    <color name="colorBlackAlpha90">#90000000</color>
+
+    <color name="color_task_number">#7d2a15</color>
+
+    <!--default-->
+    <color name="default_text_color_gray">#423232</color>
 </resources>

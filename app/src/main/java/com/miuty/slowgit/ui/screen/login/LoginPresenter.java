@@ -37,7 +37,7 @@ public class LoginPresenter extends BasePresenter<LoginMvpView> {
                 })
                 .doOnTerminate(() -> {
                     if (view != null) {
-                        //view.hideProgress();
+                        view.hideProgress();
                     }
                 })
                 .flatMap(authResponse -> loginRepository.saveToken(authResponse))
