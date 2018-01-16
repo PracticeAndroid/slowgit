@@ -1,4 +1,4 @@
-package com.miuty.slowgit.data.dao.model;
+package com.miuty.slowgit.data.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;

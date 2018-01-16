@@ -4,7 +4,7 @@ package com.miuty.slowgit;
 import android.arch.persistence.room.Room;
 import android.support.test.InstrumentationRegistry;
 
-import com.miuty.slowgit.data.dao.model.User;
+import com.miuty.slowgit.data.model.User;
 import com.miuty.slowgit.data.repository.local.AppDatabase;
 
 import org.junit.After;

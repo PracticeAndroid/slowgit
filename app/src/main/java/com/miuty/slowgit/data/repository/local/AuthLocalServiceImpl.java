@@ -1,7 +1,7 @@
 package com.miuty.slowgit.data.repository.local;
 
-import com.miuty.slowgit.data.dao.model.User;
-import com.miuty.slowgit.data.dao.response.BasicAuthResponse;
+import com.miuty.slowgit.data.model.User;
+import com.miuty.slowgit.data.model.response.BasicAuthResponse;
 import com.miuty.slowgit.data.repository.AuthRepository;
 
 import javax.inject.Inject;

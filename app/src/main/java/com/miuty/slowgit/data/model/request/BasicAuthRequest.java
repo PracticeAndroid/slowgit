@@ -1,4 +1,4 @@
-package com.miuty.slowgit.data.dao.request;
+package com.miuty.slowgit.data.model.request;
 
 import com.google.gson.annotations.SerializedName;
 

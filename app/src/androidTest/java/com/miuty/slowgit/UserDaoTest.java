@@ -2,7 +2,7 @@ package com.miuty.slowgit;
 
 import android.support.test.runner.AndroidJUnit4;
 
-import com.miuty.slowgit.data.dao.model.User;
+import com.miuty.slowgit.data.model.User;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

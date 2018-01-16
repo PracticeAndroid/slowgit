@@ -1,7 +1,7 @@
 package com.miuty.slowgit.data.repository;
 
-import com.miuty.slowgit.data.dao.model.User;
-import com.miuty.slowgit.data.dao.response.BasicAuthResponse;
+import com.miuty.slowgit.data.model.User;
+import com.miuty.slowgit.data.model.response.BasicAuthResponse;
 import com.miuty.slowgit.data.repository.local.AuthLocalServiceImpl;
 import com.miuty.slowgit.data.repository.remote.AuthRemoteServiceImpl;
 

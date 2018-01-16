@@ -1,4 +1,4 @@
-package com.miuty.slowgit.data.dao.model;
+package com.miuty.slowgit.data.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -6,7 +6,8 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import io.reactivex.Completable;
+import com.miuty.slowgit.data.model.User;
+
 import io.reactivex.Maybe;
 
 @Dao

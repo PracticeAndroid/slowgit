@@ -1,9 +1,9 @@
 package com.miuty.slowgit.data.repository.remote;
 
 import com.miuty.slowgit.BuildConfig;
-import com.miuty.slowgit.data.dao.model.User;
-import com.miuty.slowgit.data.dao.request.BasicAuthRequest;
-import com.miuty.slowgit.data.dao.response.BasicAuthResponse;
+import com.miuty.slowgit.data.model.User;
+import com.miuty.slowgit.data.model.request.BasicAuthRequest;
+import com.miuty.slowgit.data.model.response.BasicAuthResponse;
 import com.miuty.slowgit.data.repository.AuthRepository;
 import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
 import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
@@ -37,7 +37,7 @@ public class AuthRemoteServiceImpl implements AuthRepository {
         BasicAuthRequest basicAuthRequest = new BasicAuthRequest();
         basicAuthRequest.setScopes(Arrays.asList("user", "repo", "gist", "notifications", "read:org"));
         basicAuthRequest.setClientId(BuildConfig.GITHUB_CLIENT_ID);
-        basicAuthRequest.setClientSecrect(BuildConfig.GITHUB_SECRET);
+        basicAuthRequest.setClientSecret(BuildConfig.GITHUB_SECRET);
 
         networkProvider = networkProvider
                 .addHeader("Authorization", authToken);

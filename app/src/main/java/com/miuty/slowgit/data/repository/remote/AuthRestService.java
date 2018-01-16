@@ -1,8 +1,8 @@
 package com.miuty.slowgit.data.repository.remote;
 
-import com.miuty.slowgit.data.dao.model.User;
-import com.miuty.slowgit.data.dao.request.BasicAuthRequest;
-import com.miuty.slowgit.data.dao.response.BasicAuthResponse;
+import com.miuty.slowgit.data.model.User;
+import com.miuty.slowgit.data.model.request.BasicAuthRequest;
+import com.miuty.slowgit.data.model.response.BasicAuthResponse;
 
 import io.reactivex.Maybe;
 import io.reactivex.Observable;
