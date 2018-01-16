@@ -30,6 +30,16 @@ public class LoginPresenter extends BasePresenter<LoginMvpView> {
     public void doBasicLogin(@NonNull String userName, @NonNull String password) {
         Disposable disposable = loginRepository.doBasicLogin(userName, password)
                 .compose(schedulerProvider.observableComputationScheduler())
+                .doOnSubscribe(disposable1 -> {
+                    if (view != null) {
+                        view.showProgress("Login...", true);
+                    }
+                })
+                .doOnTerminate(() -> {
+                    if (view != null) {
+                        //view.hideProgress();
+                    }
+                })
                 .flatMap(authResponse -> loginRepository.saveToken(authResponse))
                 .subscribe(response -> {
                     view.onBasicLogin();

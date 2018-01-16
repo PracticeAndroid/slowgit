@@ -1,4 +1,4 @@
-package com.miuty.slowgit.ui.base;
+package com.miuty.slowgit.ui.base.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

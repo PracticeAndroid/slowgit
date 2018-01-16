@@ -6,7 +6,7 @@ import retrofit2.HttpException;
  * Created by Asus on 1/12/2018.
  */
 
-public class HttpHelper {
+public final class HttpUtils {
 
     public static int getStatusCode(Throwable throwable) {
         if (throwable instanceof HttpException) {
@@ -16,5 +16,4 @@ public class HttpHelper {
             return -1;
         }
     }
-
 }

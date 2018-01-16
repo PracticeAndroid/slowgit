@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import com.google.gson.Gson;
-import com.miuty.slowgit.util.HttpHelper;
+import com.miuty.slowgit.util.HttpUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -93,7 +93,7 @@ public class DefaultNetworkProvider implements NetworkProvider {
                 .onErrorResumeNext(throwable -> {
                     if (!isNetworkAvailable()) {
                         return Observable.error(new Exception("No internet"));
-                    } else if (HttpHelper.getStatusCode(throwable) == 401) {
+                    } else if (HttpUtils.getStatusCode(throwable) == 401) {
                         return Observable.error(new Exception("session expired"));
                     }
                     return Observable.error(throwable);

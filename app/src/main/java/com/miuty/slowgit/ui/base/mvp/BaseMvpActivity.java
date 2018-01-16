@@ -3,8 +3,10 @@ package com.miuty.slowgit.ui.base.mvp;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.widget.ProgressBar;
 
-import com.miuty.slowgit.ui.base.BaseActivity;
+import com.miuty.slowgit.ui.base.activity.BaseActivity;
+import com.miuty.slowgit.ui.dialog.CommonProgressDialogFragment;
 
 import javax.inject.Inject;
 
@@ -17,6 +19,8 @@ public class BaseMvpActivity<V extends MvpView, P extends BasePresenter<V>> exte
         implements MvpView {
 
     private static final String TAG = "BaseMvpActivity";
+
+    protected CommonProgressDialogFragment progressDialogFragment;
 
     @Inject
     protected P presenter;
@@ -40,13 +44,21 @@ public class BaseMvpActivity<V extends MvpView, P extends BasePresenter<V>> exte
     }
 
     @Override
-    public void showProgress() {
-
+    public void showProgress(String msg, boolean isCancelable) {
+        if (!isFinishing()) { // check to prevent leak memory
+            progressDialogFragment = (CommonProgressDialogFragment) getSupportFragmentManager().findFragmentByTag(CommonProgressDialogFragment.TAG);
+            if (progressDialogFragment == null) {
+                progressDialogFragment = CommonProgressDialogFragment.newInstance(msg, isCancelable);
+            }
+            progressDialogFragment.show(getSupportFragmentManager(), CommonProgressDialogFragment.TAG);
+        }
     }
 
     @Override
     public void hideProgress() {
-
+        if (progressDialogFragment != null) {
+            progressDialogFragment.dismiss();
+        }
     }
 }
 
