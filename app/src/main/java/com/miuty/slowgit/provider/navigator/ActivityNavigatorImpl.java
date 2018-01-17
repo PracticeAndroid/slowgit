@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 
 /**
  * Created by Asus on 1/16/2018.
@@ -21,7 +22,7 @@ public class ActivityNavigatorImpl implements ActivityNavigator {
 
     @Override
     public void finish() {
-
+        ((AppCompatActivity) context).finish();
     }
 
     @Override
@@ -31,7 +32,8 @@ public class ActivityNavigatorImpl implements ActivityNavigator {
 
     @Override
     public void startActivity(@NonNull Class<? extends Activity> clazz) {
-
+        Intent intent = new Intent(context, clazz);
+        context.startActivity(intent);
     }
 
     @Override

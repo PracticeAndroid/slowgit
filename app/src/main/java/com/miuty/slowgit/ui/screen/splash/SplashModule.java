@@ -1,4 +1,4 @@
-package com.miuty.slowgit.ui.screen.main;
+package com.miuty.slowgit.ui.screen.splash;
 
 
 import android.content.Context;
@@ -12,11 +12,11 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public abstract class MainModule {
+public abstract class SplashModule {
 
     @Binds
     @ActivityContext
-    abstract Context provideActivity(MainActivity activity);
+    abstract Context provideActivity(SplashActivity activity);
 
     @Provides
     public static ActivityNavigator provideActivityNavigator(@ActivityContext Context context) {

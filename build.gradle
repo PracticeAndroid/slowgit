@@ -2,6 +2,10 @@
 
 buildscript {
 
+    ext {
+        supportVersion = '27.0.2'
+    }
+
     repositories {
         google()
         jcenter()
