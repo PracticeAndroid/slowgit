@@ -71,8 +71,11 @@ public class DefaultNetworkProvider implements NetworkProvider {
             if (headers == null || headers.size() == 0) {
                 //addDefaultHeader();
             }
-            for (Map.Entry<String, String> keyValueEntry : headers.entrySet()) {
-                requestBuilder.addHeader(keyValueEntry.getKey(), keyValueEntry.getValue());
+            if (headers != null) {
+                for (Map.Entry<String, String> keyValueEntry : headers.entrySet()) {
+                    requestBuilder.removeHeader(keyValueEntry.getKey());
+                    requestBuilder.addHeader(keyValueEntry.getKey(), keyValueEntry.getValue());
+                }
             }
             return chain.proceed(requestBuilder.build());
         }).build();
@@ -89,7 +92,7 @@ public class DefaultNetworkProvider implements NetworkProvider {
 
     @Override
     public <Response> Observable<Response> makeRequest(Observable<Response> observable) {
-        Observable<Response> responseObservable = observable
+        return observable
                 .observeOn(Schedulers.computation())
                 .onErrorResumeNext(throwable -> {
                     if (!isNetworkAvailable()) {
@@ -97,6 +100,5 @@ public class DefaultNetworkProvider implements NetworkProvider {
                     }
                     return Observable.error(DefaultApiException.getError(throwable));
                 });
-        return responseObservable;
     }
 }
