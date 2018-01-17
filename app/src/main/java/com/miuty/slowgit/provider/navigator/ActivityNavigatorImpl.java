@@ -2,6 +2,7 @@ package com.miuty.slowgit.provider.navigator;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,10 +13,10 @@ import android.support.annotation.NonNull;
 
 public class ActivityNavigatorImpl implements ActivityNavigator {
 
-    protected final Activity activity;
+    protected final Context context;
 
-    public ActivityNavigatorImpl(Activity activity) {
-        this.activity = activity;
+    public ActivityNavigatorImpl(Context context) {
+        this.context = context;
     }
 
     @Override
@@ -25,7 +26,7 @@ public class ActivityNavigatorImpl implements ActivityNavigator {
 
     @Override
     public void startActivity(@NonNull Intent intent) {
-
+        context.startActivity(intent);
     }
 
     @Override

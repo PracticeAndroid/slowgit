@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.miuty.slowgit.di.qualifier.ApplicationContext;
 import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
 import com.miuty.slowgit.di.qualifier.DefaultOkHtppClientContext;
 import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
@@ -50,7 +51,9 @@ public class NetworkModule {
 
     @Provides
     @DefaultNetworkProviderContext
-    DefaultNetworkProvider provideDefaultNetworkProvider(Context context, @DefaultOkHtppClientContext OkHttpClient okHttpClient, Gson gson) {
+    DefaultNetworkProvider provideDefaultNetworkProvider(@ApplicationContext Context context,
+                                                         @DefaultOkHtppClientContext OkHttpClient okHttpClient,
+                                                         Gson gson) {
         return new DefaultNetworkProvider(context, okHttpClient, gson)
                 .addDefaultHeader();
     }

@@ -1,5 +1,6 @@
 package com.miuty.slowgit.ui.screen.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpActivity;
 import com.miuty.slowgit.ui.base.mvp.MvpView;
+import com.miuty.slowgit.ui.screen.main.MainActivity;
 import com.miuty.slowgit.util.InputUtils;
 
 import butterknife.BindView;
@@ -78,6 +80,7 @@ public class LoginActivity extends BaseMvpActivity<LoginMvpView, LoginPresenter>
     @Override
     public void onBasicLoginSuccessfully() {
         Log.d(TAG, "onBasicLoginSuccessfully: ");
+        activityNavigator.startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override

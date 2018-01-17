@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.miuty.slowgit.provider.navigator.ActivityNavigator;
+
+import javax.inject.Inject;
+
 import dagger.android.AndroidInjection;
 
 /**
@@ -11,6 +15,9 @@ import dagger.android.AndroidInjection;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
+
+    @Inject
+    protected ActivityNavigator activityNavigator;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

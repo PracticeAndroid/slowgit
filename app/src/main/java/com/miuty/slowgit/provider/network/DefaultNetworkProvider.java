@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import com.google.gson.Gson;
+import com.miuty.slowgit.di.qualifier.ApplicationContext;
 import com.miuty.slowgit.util.HttpUtils;
 
 import java.io.IOException;
@@ -30,7 +31,7 @@ public class DefaultNetworkProvider implements NetworkProvider {
 
     private Map<String, String> headers;
 
-    public DefaultNetworkProvider(Context context, OkHttpClient okHttpClient, Gson gson) {
+    public DefaultNetworkProvider(@ApplicationContext Context context, OkHttpClient okHttpClient, Gson gson) {
         this.context = context;
         this.headers = new HashMap<>();
         this.okHttpClient = okHttpClient;

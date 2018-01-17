@@ -6,6 +6,7 @@ import android.content.Context;
 
 import com.miuty.slowgit.SlowGitApplication;
 import com.miuty.slowgit.data.repository.local.AppDatabase;
+import com.miuty.slowgit.di.qualifier.ApplicationContext;
 
 import dagger.Module;
 import dagger.Provides;
@@ -18,6 +19,7 @@ import dagger.Provides;
 public class AppModule {
 
     @Provides
+    @ApplicationContext
     Context provideAppContext(SlowGitApplication application) {
         return application.getApplicationContext();
     }
@@ -28,7 +30,7 @@ public class AppModule {
     }
 
     @Provides
-    AppDatabase provideAppDatabase(Context context) {
+    AppDatabase provideAppDatabase(@ApplicationContext Context context) {
         return Room.databaseBuilder(context, AppDatabase.class, "app-db").build();
     }
 }

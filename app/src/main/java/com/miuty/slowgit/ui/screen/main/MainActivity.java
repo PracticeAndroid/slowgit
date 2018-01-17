@@ -1,11 +1,11 @@
 package com.miuty.slowgit.ui.screen.main;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.miuty.slowgit.R;
+import com.miuty.slowgit.ui.base.activity.BaseActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
