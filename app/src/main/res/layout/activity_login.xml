@@ -16,7 +16,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_normal"
+        android:layout_marginTop="@dimen/default_margin_large"
         android:text="@string/sign_in_to_github"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/font_size_large" />
@@ -27,7 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_margin_normal"
         android:background="@drawable/bg_incorrect_auth_msg"
-        android:padding="@dimen/default_padding_large">
+        android:padding="@dimen/default_padding_large"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,7 +49,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin_normal"
+        android:layout_marginTop="@dimen/default_margin_large"
         android:background="@drawable/bg_white_fill_gray_bored"
         android:orientation="vertical"
         android:padding="@dimen/default_padding_large">
@@ -67,7 +68,8 @@
             android:layout_marginTop="@dimen/default_margin_normal"
             android:background="@drawable/bg_white_fill_gray_bored"
             android:inputType="textEmailAddress"
-            android:padding="@dimen/default_padding" />
+            android:padding="@dimen/default_padding_medium"
+            android:textSize="@dimen/font_size_medium" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -84,26 +86,27 @@
             android:layout_marginTop="@dimen/default_margin_normal"
             android:background="@drawable/bg_white_fill_gray_bored"
             android:inputType="textPassword"
-            android:padding="@dimen/default_padding" />
+            android:padding="@dimen/default_padding_medium"
+            android:textSize="@dimen/font_size_medium" />
 
         <Button
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/default_margin_normal"
+            android:layout_marginTop="@dimen/default_margin_large"
+            android:alpha="1"
             android:background="@drawable/bg_green_fill_gray_bored"
+            android:foreground="?attr/selectableItemBackground"
             android:text="@string/sign_in"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/font_size_button" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/tv_create_account"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="@dimen/default_padding_large">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New to GitHub? Create an account." />
-    </LinearLayout>
+        android:layout_marginTop="@dimen/default_margin_large"
+        android:text="New to GitHub? Create an account." />
 </LinearLayout>

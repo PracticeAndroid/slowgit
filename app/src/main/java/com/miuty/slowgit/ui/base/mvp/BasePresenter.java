@@ -3,10 +3,15 @@ package com.miuty.slowgit.ui.base.mvp;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.OnLifecycleEvent;
+import android.support.annotation.NonNull;
 import android.util.Log;
+
+import com.miuty.slowgit.provider.network.DefaultApiException;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+
+import static com.miuty.slowgit.provider.network.DefaultApiException.*;
 
 /**
  * Created by Asus on 1/9/2018.
@@ -42,5 +47,16 @@ public class BasePresenter<V extends MvpView> implements LifecycleObserver {
     public void unbindView() {
         Log.d(TAG, "unbindView: ");
         this.view = null;
+    }
+
+    public void onError(@NonNull Throwable throwable) {
+        DefaultApiException apiException = getError(throwable);
+        if (apiException.getKind() == KIND.NETWORK) {
+            if (apiException.getCode() == NETWORK_UNAVAILABLE_ERROR_CODE) { //rot cmn internet rui`
+                view.noInternetConnection();
+            }
+        } else if (apiException.getKind() == KIND.UNEXPECTED) {
+            view.someThingError(OOPS);
+        }
     }
 }

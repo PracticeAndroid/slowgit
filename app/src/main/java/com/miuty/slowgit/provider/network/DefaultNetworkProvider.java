@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import com.google.gson.Gson;
 import com.miuty.slowgit.util.HttpUtils;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -92,11 +93,9 @@ public class DefaultNetworkProvider implements NetworkProvider {
                 .observeOn(Schedulers.computation())
                 .onErrorResumeNext(throwable -> {
                     if (!isNetworkAvailable()) {
-                        return Observable.error(new Exception("No internet"));
-                    } else if (HttpUtils.getStatusCode(throwable) == 401) {
-                        return Observable.error(new Exception("session expired"));
+                        return Observable.error(DefaultApiException.getError(new IOException()));
                     }
-                    return Observable.error(throwable);
+                    return Observable.error(DefaultApiException.getError(throwable));
                 });
         return responseObservable;
     }

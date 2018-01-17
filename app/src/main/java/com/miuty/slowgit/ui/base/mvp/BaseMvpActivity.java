@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.miuty.slowgit.provider.network.DefaultApiException;
 import com.miuty.slowgit.ui.base.activity.BaseActivity;
 import com.miuty.slowgit.ui.dialog.CommonProgressDialogFragment;
 
@@ -55,7 +57,12 @@ public abstract class BaseMvpActivity<V extends MvpView, P extends BasePresenter
 
     @Override
     public void noInternetConnection() {
+        Toast.makeText(this, DefaultApiException.NETWORK_UNAVAILABLE, Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
+    public void someThingError(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override

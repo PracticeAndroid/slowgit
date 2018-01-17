@@ -8,6 +8,8 @@ public interface MvpView {
 
     void noInternetConnection();
 
+    void someThingError(String msg);
+
     void showProgress(String msg, boolean isCancelable);
 
     void hideProgress();

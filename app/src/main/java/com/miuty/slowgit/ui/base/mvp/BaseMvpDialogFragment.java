@@ -70,4 +70,9 @@ public abstract class BaseMvpDialogFragment<V extends MvpView, P extends BasePre
     public void hideProgress() {
         callBack.hideProgress();
     }
+
+    @Override
+    public void someThingError(String msg) {
+        callBack.someThingError(msg);
+    }
 }
