@@ -20,4 +20,8 @@ public abstract class BaseFragment extends Fragment {
     public void setUpDependencyInjection() {
         AndroidSupportInjection.inject(this);
     }
+
+    public String getTitle() {
+        return "";
+    }
 }
