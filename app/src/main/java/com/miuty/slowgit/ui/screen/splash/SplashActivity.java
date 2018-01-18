@@ -5,8 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.miuty.slowgit.ui.base.activity.BaseActivity;
 import com.miuty.slowgit.ui.screen.login.LoginActivity;
-import com.miuty.slowgit.ui.screen.main.MainActivity;
-import com.miuty.slowgit.ui.screen.main.profile.ProfileActivity;
+import com.miuty.slowgit.ui.screen.profile.ProfileActivity;
 
 public class SplashActivity extends BaseActivity {
 

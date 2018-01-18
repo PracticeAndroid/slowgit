@@ -27,7 +27,7 @@
         </activity>
 
         <activity android:name=".ui.screen.login.LoginActivity" />
-        <activity android:name=".ui.screen.main.profile.ProfileActivity" />
+        <activity android:name=".ui.screen.profile.ProfileActivity" />
     </application>
 
 </manifest>
