@@ -1,4 +1,6 @@
 package com.miuty.slowgit.ui.screen.profile.repositories;
 
-public class ProfileRepositoriesFragment {
+import android.support.v4.app.Fragment;
+
+public class ProfileRepositoriesFragment extends Fragment {
 }

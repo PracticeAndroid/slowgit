@@ -13,6 +13,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import dagger.android.support.HasSupportFragmentInjector;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
  * Created by Asus on 1/9/2018.
@@ -31,7 +32,16 @@ public class SlowGitApplication extends Application implements HasActivityInject
     @Override
     public void onCreate() {
         super.onCreate();
+        setupFontSize();
         setUpDependencyInject();
+    }
+
+    private void setupFontSize() {
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/Roboto-Light.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
     }
 
     @Override

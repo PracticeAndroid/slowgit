@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://E:\GitStore\slowgit\SlowGit.iml" filepath="E:\GitStore\slowgit\SlowGit.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://E:\GitStore\slowgit\app\app.iml" filepath="E:\GitStore\slowgit\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/slowgit.iml" filepath="$PROJECT_DIR$/slowgit.iml" />
-      <module fileurl="file://E:\GitStore\slowgit\slowgit.iml" filepath="E:\GitStore\slowgit\slowgit.iml" />
     </modules>
   </component>
 </project>
