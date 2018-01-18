@@ -7,5 +7,5 @@
     app:itemBackground="@color/colorPrimary"
     app:itemIconTint="@color/colorAccent"
     app:itemTextColor="@color/colorAccent"
-    app:layout_behavior=".ui.widget.behavior.BottomNavigationBehavior"
+    app:layout_behavior="com.miuty.slowgit.ui.widget.behavior.BottomNavigationBehavior"
     app:menu="@menu/nav_bottom_menu" />
