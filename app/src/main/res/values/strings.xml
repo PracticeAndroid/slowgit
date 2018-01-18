@@ -9,4 +9,5 @@
     <string name="password_is_empty">Password is empty</string>
     <string name="signing_in">SIGNING IN ...</string>
     <string name="sign_in_1">SIGN IN</string>
+    <string name="follow">Follow</string>
 </resources>

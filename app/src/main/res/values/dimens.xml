@@ -7,6 +7,9 @@
     <dimen name="default_radius">5dp</dimen>
     <dimen name="default_border_background">1dp</dimen>
 
+    <dimen name="spacing_normal">8dp</dimen>
+    <dimen name="spacing_xs_large">16dp</dimen>
+
     <dimen name="keyline_1">72dp</dimen>
     <dimen name="keyline_2">76dp</dimen>
 </resources>
