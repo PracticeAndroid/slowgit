@@ -1,4 +1,4 @@
-package com.miuty.slowgit;
+package com.miuty.slowgit.room;
 
 
 import android.arch.persistence.room.Room;

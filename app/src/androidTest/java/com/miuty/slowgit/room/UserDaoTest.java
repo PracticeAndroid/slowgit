@@ -1,8 +1,9 @@
-package com.miuty.slowgit;
+package com.miuty.slowgit.room;
 
 import android.support.test.runner.AndroidJUnit4;
 
 import com.miuty.slowgit.data.model.User;
+import com.miuty.slowgit.room.BaseAppDatabaseTest;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

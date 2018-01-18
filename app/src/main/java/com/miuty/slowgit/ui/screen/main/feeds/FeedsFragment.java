@@ -1,13 +1,29 @@
 package com.miuty.slowgit.ui.screen.main.feeds;
 
 
-import com.miuty.slowgit.ui.base.mvp.BaseMvpFragment;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.util.Log;
+import android.view.View;
 
-public class FeedsFragment extends BaseMvpFragment<FeedsMvpView, FeedsPresenter> implements FeedsMvpView {
+import com.miuty.slowgit.R;
+import com.miuty.slowgit.ui.base.mvp.BaseMvpListFragment;
+import com.miuty.slowgit.ui.screen.main.feeds.adapter.FeedsAdapter;
+
+public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresenter, FeedsAdapter> implements FeedsMvpView {
+
+    private static final String TAG = "FeedsFragment";
 
     @Override
     protected int layoutId() {
-        return 0;
+        return R.layout.fragment_feeds;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.e(TAG, mAdapter.toString());
     }
 
     @Override
