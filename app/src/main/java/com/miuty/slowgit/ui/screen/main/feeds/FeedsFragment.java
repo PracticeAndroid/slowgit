@@ -9,9 +9,10 @@ import android.view.View;
 
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpListFragment;
+import com.miuty.slowgit.ui.screen.main.feeds.adapter.BaseFeedsItem;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.FeedsAdapter;
 
-public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresenter, FeedsAdapter> implements FeedsMvpView {
+public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresenter, FeedsAdapter, BaseFeedsItem> implements FeedsMvpView {
 
     private static final String TAG = "FeedsFragment";
 
@@ -24,6 +25,7 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Log.e(TAG, mAdapter.toString());
+        Log.e(TAG, mItems.size() + "");
     }
 
     @Override

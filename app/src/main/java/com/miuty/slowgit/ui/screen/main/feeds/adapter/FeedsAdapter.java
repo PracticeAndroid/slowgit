@@ -1,8 +1,10 @@
 package com.miuty.slowgit.ui.screen.main.feeds.adapter;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 
+import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.adapter.BaseAdapter;
 import com.miuty.slowgit.ui.base.adapter.BaseViewHolder;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.CreatedItem;
@@ -23,8 +25,8 @@ public class FeedsAdapter extends BaseAdapter {
     public static final int ITEM_FEEDS_PUSHED_TO = 3;
     public static final int ITEM_FEEDS_STARRED = 4;
 
-    public FeedsAdapter(@NonNull List<BaseFeedsItem> items) {
-        super(items);
+    public FeedsAdapter(@NonNull Context context, @NonNull List<BaseFeedsItem> items) {
+        super(context, items);
     }
 
     @Override
@@ -32,7 +34,7 @@ public class FeedsAdapter extends BaseAdapter {
         if (viewType == ITEM_FEEDS_CREATED) {
 
         } else if (viewType == ITEM_FEEDS_FORKED) {
-
+            return new ForkedViewHolder(createViewFromLayout(R.layout.item_new_feed_action));
         } else if (viewType == ITEM_FEEDS_PUSHED_TO) {
 
         } else if (viewType == ITEM_FEEDS_STARRED) {
@@ -60,8 +62,9 @@ public class FeedsAdapter extends BaseAdapter {
             StarredViewHolder starredViewHolder = (StarredViewHolder) holder;
             StarredItem starredItem = (StarredItem) mItems.get(position);
 
+        } else {
+            throw new IllegalArgumentException("Do not support view type: " + viewType);
         }
-        throw new IllegalArgumentException("Do not support view type: " + viewType);
     }
 
 }

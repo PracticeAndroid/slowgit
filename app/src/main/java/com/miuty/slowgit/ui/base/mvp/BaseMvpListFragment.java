@@ -18,8 +18,8 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public abstract class BaseMvpListFragment<V extends MvpListView, P extends BasePresenter<V>, A extends BaseAdapter>
-        extends BaseMvpFragment<V, P> {
+public abstract class BaseMvpListFragment<V extends MvpListView, P extends BasePresenter<V>,
+        A extends BaseAdapter, I extends DisplayableItem> extends BaseMvpFragment<V, P> {
 
     @BindView(R.id.swipe_refresh_layout)
     SwipeRefreshLayout mSwipeRefreshLayout;
@@ -28,7 +28,10 @@ public abstract class BaseMvpListFragment<V extends MvpListView, P extends BaseP
     RecyclerView mRecyclerView;
 
     @Inject
-    protected List<DisplayableItem> mItems;
+    protected RecyclerView.LayoutManager mLayoutManager;
+
+    @Inject
+    protected List<I> mItems;
 
     @Inject
     protected A mAdapter;
@@ -37,5 +40,7 @@ public abstract class BaseMvpListFragment<V extends MvpListView, P extends BaseP
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
     }
 }

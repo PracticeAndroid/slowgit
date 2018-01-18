@@ -1,17 +1,21 @@
 package com.miuty.slowgit.ui.base.mvp;
 
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.miuty.slowgit.R;
 import com.miuty.slowgit.provider.network.DefaultApiException;
 import com.miuty.slowgit.ui.base.activity.BaseActivity;
 import com.miuty.slowgit.ui.dialog.CommonProgressDialogFragment;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -27,6 +31,9 @@ public abstract class BaseMvpActivity<V extends MvpView, P extends BasePresenter
 
     protected CommonProgressDialogFragment progressDialogFragment;
     private Unbinder unbinder;
+
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     @LayoutRes
     protected abstract int layoutId();
@@ -45,6 +52,18 @@ public abstract class BaseMvpActivity<V extends MvpView, P extends BasePresenter
 
         getLifecycle().addObserver(presenter);
         presenter.bindView((V) this);
+        setupToolbarAndStatusBar();
+    }
+
+    protected void setupToolbarAndStatusBar() {
+        setSupportActionBar(mToolbar);
+    }
+
+    protected void setToolbarIcon(@DrawableRes int res) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setHomeAsUpIndicator(res);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
