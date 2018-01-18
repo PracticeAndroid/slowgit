@@ -90,11 +90,14 @@ dependencies {
     implementation "android.arch.persistence.room:rxjava2:$roomVersion"
 
     // ButterKnife
-    compile "com.jakewharton:butterknife:$butterKnifeVersion"
+    implementation "com.jakewharton:butterknife:$butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
     // Lightweight-Stream-API
     implementation 'com.annimon:stream:1.1.9'
+
+    // font size
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
