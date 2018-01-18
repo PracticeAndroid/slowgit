@@ -1,9 +1,9 @@
-package com.miuty.slowgit.ui.screen.main.pull_requests;
+package com.miuty.slowgit.ui.screen.main.feeds;
 
 
 import com.miuty.slowgit.ui.base.mvp.BaseMvpFragment;
 
-public class PullRequestsFragment extends BaseMvpFragment<PullRequestsMvpView, PullRequestsPresenter> implements PullRequestsMvpView {
+public class FeedsFragment extends BaseMvpFragment<FeedsMvpView, FeedsPresenter> implements FeedsMvpView {
 
     @Override
     protected int layoutId() {
