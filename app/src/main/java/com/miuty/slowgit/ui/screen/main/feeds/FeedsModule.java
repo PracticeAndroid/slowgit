@@ -37,8 +37,8 @@ public class FeedsModule {
     }
 
     @Provides
-    FeedsAdapter provideFeedsAdapter(@ActivityContext Context context, List<BaseFeedsItem> items) {
-        return new FeedsAdapter(context, items);
+    FeedsAdapter provideFeedsAdapter(@ActivityContext Context context) {
+        return new FeedsAdapter(context);
     }
 
 }

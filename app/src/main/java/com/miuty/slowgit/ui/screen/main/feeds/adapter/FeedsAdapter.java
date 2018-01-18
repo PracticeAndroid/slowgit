@@ -2,6 +2,7 @@ package com.miuty.slowgit.ui.screen.main.feeds.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.miuty.slowgit.R;
@@ -18,15 +19,15 @@ import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.StarredViewHolder;
 
 import java.util.List;
 
-public class FeedsAdapter extends BaseAdapter {
+public class FeedsAdapter extends BaseAdapter<BaseFeedsItem> {
 
     public static final int ITEM_FEEDS_CREATED = 1;
     public static final int ITEM_FEEDS_FORKED = 2;
     public static final int ITEM_FEEDS_PUSHED_TO = 3;
     public static final int ITEM_FEEDS_STARRED = 4;
 
-    public FeedsAdapter(@NonNull Context context, @NonNull List<BaseFeedsItem> items) {
-        super(context, items);
+    public FeedsAdapter(@NonNull Context context) {
+        super(context);
     }
 
     @Override
@@ -45,26 +46,25 @@ public class FeedsAdapter extends BaseAdapter {
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
-        int viewType = mItems.get(position).getItemViewType();
+        int viewType = items.get(position).getItemViewType();
         if (viewType == ITEM_FEEDS_CREATED) {
             CreatedViewHolder createdViewHolder = (CreatedViewHolder) holder;
-            CreatedItem createdItem = (CreatedItem) mItems.get(position);
+            CreatedItem createdItem = (CreatedItem) items.get(position);
 
         } else if (viewType == ITEM_FEEDS_FORKED) {
             ForkedViewHolder forkedViewHolder = (ForkedViewHolder) holder;
-            ForkedItem forkedItem = (ForkedItem) mItems.get(position);
+            ForkedItem forkedItem = (ForkedItem) items.get(position);
 
         } else if (viewType == ITEM_FEEDS_PUSHED_TO) {
             PushedToViewHolder pushedToViewHolder = (PushedToViewHolder) holder;
-            PushedToItem pushedToItem = (PushedToItem) mItems.get(position);
+            PushedToItem pushedToItem = (PushedToItem) items.get(position);
 
         } else if (viewType == ITEM_FEEDS_STARRED) {
             StarredViewHolder starredViewHolder = (StarredViewHolder) holder;
-            StarredItem starredItem = (StarredItem) mItems.get(position);
+            StarredItem starredItem = (StarredItem) items.get(position);
 
         } else {
             throw new IllegalArgumentException("Do not support view type: " + viewType);
         }
     }
-
 }

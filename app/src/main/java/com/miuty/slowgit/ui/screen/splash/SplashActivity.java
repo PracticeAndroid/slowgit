@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.miuty.slowgit.ui.base.activity.BaseActivity;
 import com.miuty.slowgit.ui.screen.login.LoginActivity;
+import com.miuty.slowgit.ui.screen.main.MainActivity;
 import com.miuty.slowgit.ui.screen.profile.ProfileActivity;
 
 public class SplashActivity extends BaseActivity {
@@ -15,8 +16,8 @@ public class SplashActivity extends BaseActivity {
 
         boolean isLoggedIn = false;
         if (!isLoggedIn) {
-//            activityNavigator.startActivity(MainActivity.class);
-            activityNavigator.startActivity(ProfileActivity.class);
+            activityNavigator.startActivity(MainActivity.class);
+            //activityNavigator.startActivity(ProfileActivity.class);
             activityNavigator.finish();
         } else {
             activityNavigator.startActivity(LoginActivity.class);
