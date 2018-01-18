@@ -1,4 +1,4 @@
-package com.miuty.slowgit.custom;
+package com.miuty.slowgit.ui.widget.custom;
 
 
 /*
