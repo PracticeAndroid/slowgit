@@ -1,5 +1,4 @@
-package com.miuty.slowgit.ui.widget.custom;
-
+package com.miuty.slowgit.ui.widget.behavior;
 
 /*
  * BottomNavigationLayout library for Android
@@ -33,6 +32,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
+
+import com.miuty.slowgit.ui.widget.behavior.VerticalScrollingBehavior;
 
 /**
  * Created by Nikola D. on 3/15/2016.

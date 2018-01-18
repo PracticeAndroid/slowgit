@@ -1,5 +1,4 @@
-package com.miuty.slowgit.ui.widget.custom;
-
+package com.miuty.slowgit.ui.widget.behavior;
 
 import android.content.Context;
 import android.os.Parcelable;
