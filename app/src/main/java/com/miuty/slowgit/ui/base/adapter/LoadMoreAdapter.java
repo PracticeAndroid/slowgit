@@ -16,7 +16,7 @@ import butterknife.BindView;
  * Created by Asus on 1/19/2018.
  */
 
-public class LoadMoreAdapter extends BaseAdapter {
+public class LoadMoreAdapter<I extends DisplayableItem> extends BaseAdapter<I> {
 
     private static final int TYPE_LOAD_MORE = -1;
     private static final int TYPE_ITEM = 0;
@@ -56,18 +56,18 @@ public class LoadMoreAdapter extends BaseAdapter {
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view;
+    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = null;
         switch (viewType) {
             case TYPE_LOAD_MORE:
                 view = layoutInflater.inflate(R.layout.item_default_layout_loadmore, parent, false);
-                break;
+                return new LoadMoreViewHolder(view);
         }
-        return null;
+        throw new IllegalArgumentException();
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
 
     }
 
