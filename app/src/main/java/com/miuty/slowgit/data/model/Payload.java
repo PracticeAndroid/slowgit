@@ -31,4 +31,29 @@ public class Payload {
 
     @SerializedName("commits")
     private List<Commit> commits;
+
+    // forkee
+    @SerializedName("forkee")
+    private Forkee forkee;
+
+    // action starred
+    @SerializedName("action")
+    private String action;
+
+    // created event
+//    @SerializedName("ref")
+//    private String ref;
+
+    @SerializedName("ref_type")
+    private String refType;
+
+    @SerializedName("master_branch")
+    private String masterBranch;
+
+    @SerializedName("description")
+    private String description;
+
+    @SerializedName("pusher_type")
+    private String pusherType;
+
 }
