@@ -1,13 +1,17 @@
 package com.miuty.slowgit.data.model.response;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by Asus on 1/12/2018.
  */
-
+@Entity
 public class BasicAuthResponse extends BaseDataResponse {
 
+    @PrimaryKey
     @SerializedName("id")
     private long id;
 

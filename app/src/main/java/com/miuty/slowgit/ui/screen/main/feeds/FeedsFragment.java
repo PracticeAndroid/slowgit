@@ -35,6 +35,8 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
         mAdapter.addItem(new ForkedItem());
         Log.e(TAG, mAdapter.toString());
         Log.e(TAG, mItems.size() + "");
+
+        presenter.getFeeds();
     }
 
     @Override
