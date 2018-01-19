@@ -9,7 +9,9 @@ import com.miuty.slowgit.di.qualifier.ApplicationContext;
 import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
 import com.miuty.slowgit.di.qualifier.DefaultOkHtppClientContext;
 import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
+import com.miuty.slowgit.provider.network.FeedsTypeDeserializer;
 import com.miuty.slowgit.util.ApiConst;
+import com.miuty.slowgit.util.FeedsType;
 
 import java.util.concurrent.TimeUnit;
 
@@ -31,6 +33,8 @@ public class NetworkModule {
     Gson provideGson() {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setPrettyPrinting();
+        // feeds parser
+        gsonBuilder.registerTypeAdapter(FeedsType.class, new FeedsTypeDeserializer());
         return gsonBuilder.create();
     }
 

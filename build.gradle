@@ -12,6 +12,7 @@ buildscript {
         rxAndroidVersion = '2.0.1'
         roomVersion = '1.0.0'
         lifecycleVersion = '1.0.0'
+        glideVersion = '4.5.0'
     }
 
     repositories {

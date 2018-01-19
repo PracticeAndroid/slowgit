@@ -32,7 +32,6 @@ public class FeedsModule {
     @Provides
     List<BaseFeedsItem> provideDataForRecyclerView() {
         List<BaseFeedsItem> items = new ArrayList<>();
-        items.add(new ForkedItem());
         return items;
     }
 

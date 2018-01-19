@@ -4,16 +4,15 @@ package com.miuty.slowgit.ui.screen.main.feeds;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 
 import com.miuty.slowgit.R;
-import com.miuty.slowgit.ui.base.adapter.DisplayableItem;
-import com.miuty.slowgit.ui.base.adapter.LoadMoreAdapter;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpListFragment;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.BaseFeedsItem;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.FeedsAdapter;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.ForkedItem;
+
+import java.util.List;
 
 public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresenter, FeedsAdapter, BaseFeedsItem>
         implements FeedsMvpView {
@@ -63,5 +62,10 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
     @Override
     public void hideProgress() {
 
+    }
+
+    @Override
+    public void showFeedsOnRecyclerView(List<BaseFeedsItem> items) {
+        mAdapter.addItems(items);
     }
 }
