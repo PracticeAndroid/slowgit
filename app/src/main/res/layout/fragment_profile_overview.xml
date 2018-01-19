@@ -1,7 +1,242 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipToPadding="false"
     android:orientation="vertical">
 
-</LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="0dp"
+                app:contentPaddingBottom="@dimen/spacing_normal"
+                app:contentPaddingLeft="@dimen/spacing_xs_large"
+                app:contentPaddingRight="@dimen/spacing_xs_large"
+                app:contentPaddingTop="@dimen/spacing_normal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/userInformation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?selectableItemBackground"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/avatarLayout"
+                            android:layout_width="@dimen/keyline_1"
+                            android:layout_height="@dimen/keyline_1"
+                            tools:src="@drawable/ic_github" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/fullname"
+                                style="@style/Base.TextAppearance.AppCompat.Medium"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                tools:text="Cum classis nocere" />
+
+                            <TextView
+                                android:id="@+id/username"
+                                style="@style/Base.TextAppearance.AppCompat.Title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                tools:text="Cum classis nocere" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoLink="all"
+                        android:paddingBottom="@dimen/spacing_normal"
+                        android:paddingTop="@dimen/spacing_normal"
+                        tools:text="What’s the secret to large and cold peanut butter? Always use quartered szechuan pepper." />
+
+                    <include layout="@layout/include_profile_follow_action" />
+
+                    <LinearLayout
+                        android:id="@+id/section_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/default_margin">
+
+                            <ImageView
+                                android:id="@+id/imv_organization"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:scaleType="centerInside"
+                                tools:src="@drawable/ic_github_icon" />
+
+                            <TextView
+                                android:id="@+id/desc_organization"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginLeft="@dimen/default_margin_medium"
+                                android:layout_toRightOf="@id/imv_organization"
+                                android:drawablePadding="@dimen/spacing_xs_large"
+                                android:paddingBottom="@dimen/spacing_xs_large"
+                                android:paddingTop="@dimen/spacing_xs_large"
+                                android:text="Cum classis nocere"
+                                android:textSize="@dimen/font_size_medium" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/default_margin">
+
+                            <ImageView
+                                android:id="@+id/imv_location"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:scaleType="centerInside"
+                                tools:src="@drawable/ic_github_icon" />
+
+                            <TextView
+                                android:id="@+id/desc_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginLeft="@dimen/default_margin_medium"
+                                android:layout_toRightOf="@id/imv_location"
+                                android:drawablePadding="@dimen/spacing_xs_large"
+                                android:paddingBottom="@dimen/spacing_xs_large"
+                                android:paddingTop="@dimen/spacing_xs_large"
+                                android:text="Cum classis nocere"
+                                android:textSize="@dimen/font_size_medium" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/default_margin">
+
+                            <ImageView
+                                android:id="@+id/imv_email"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:scaleType="centerInside"
+                                tools:src="@drawable/ic_github_icon" />
+
+                            <TextView
+                                android:id="@+id/desc_email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginLeft="@dimen/default_margin_medium"
+                                android:layout_toRightOf="@id/imv_email"
+                                android:drawablePadding="@dimen/spacing_xs_large"
+                                android:paddingBottom="@dimen/spacing_xs_large"
+                                android:paddingTop="@dimen/spacing_xs_large"
+                                android:text="Cum classis nocere"
+                                android:textSize="@dimen/font_size_medium" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/default_margin">
+
+                            <ImageView
+                                android:id="@+id/imv_link"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:scaleType="centerInside"
+                                tools:src="@drawable/ic_github_icon" />
+
+                            <TextView
+                                android:id="@+id/desc_link"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginLeft="@dimen/default_margin_medium"
+                                android:layout_toRightOf="@id/imv_link"
+                                android:drawablePadding="@dimen/spacing_xs_large"
+                                android:paddingBottom="@dimen/spacing_xs_large"
+                                android:paddingTop="@dimen/spacing_xs_large"
+                                android:text="Cum classis nocere"
+                                android:textSize="@dimen/font_size_medium" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/default_margin">
+
+                            <ImageView
+                                android:id="@+id/imv_joined"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:scaleType="centerInside"
+                                tools:src="@drawable/ic_github_icon" />
+
+                            <TextView
+                                android:id="@+id/desc_joined"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginLeft="@dimen/default_margin_medium"
+                                android:layout_toRightOf="@id/imv_joined"
+                                android:drawablePadding="@dimen/spacing_xs_large"
+                                android:paddingBottom="@dimen/spacing_xs_large"
+                                android:paddingTop="@dimen/spacing_xs_large"
+                                android:text="Cum classis nocere"
+                                android:textSize="@dimen/font_size_medium" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
