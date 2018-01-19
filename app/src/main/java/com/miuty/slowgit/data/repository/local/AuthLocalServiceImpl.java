@@ -24,13 +24,14 @@ public class AuthLocalServiceImpl implements AuthRepository {
     }
 
     @Override
-    public Observable<BasicAuthResponse> doBasicLogin(String user, String password) {
-        return null;
+    public Observable<BasicAuthResponse> doBasicLogin(String user, String password) throws UnsupportedOperationException {
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Observable<BasicAuthResponse> saveToken(BasicAuthResponse authResponse) {
-        return null;
+
+        return Observable.just(authResponse);
     }
 
     @Override

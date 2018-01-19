@@ -31,21 +31,24 @@ public abstract class BasePresenter<V extends MvpView> implements LifecycleObser
 
     /*@OnLifecycleEvent(Lifecycle.Event.ON_CREATE)*/
     public void bindView(V view) {
-        Log.d(TAG, "bindView: ");
+        Log.d(TAG, "BasePresenter bindView: ");
         this.view = view;
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     protected void onDestroy() {
-        Log.d(TAG, "onDestroy: ");
+        Log.d(TAG, "BasePresenter onDestroy: ");
         if (!disposables.isDisposed()) {
             disposables.dispose();
         }
         unbindView();
     }
 
+    /**
+     * unbindView on Destroy
+     */
     public void unbindView() {
-        Log.d(TAG, "unbindView: ");
+        Log.d(TAG, "BasePresenter unbindView: ");
         this.view = null;
     }
 

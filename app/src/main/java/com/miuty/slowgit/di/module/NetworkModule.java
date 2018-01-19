@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.miuty.slowgit.BuildConfig;
 import com.miuty.slowgit.di.qualifier.ApplicationContext;
 import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
 import com.miuty.slowgit.di.qualifier.DefaultOkHtppClientContext;
@@ -11,6 +12,8 @@ import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
 import com.miuty.slowgit.util.ApiConst;
 
 import java.util.concurrent.TimeUnit;
+
+import javax.inject.Named;
 
 import dagger.Module;
 import dagger.Provides;
@@ -56,5 +59,11 @@ public class NetworkModule {
                                                          Gson gson) {
         return new DefaultNetworkProvider(context, okHttpClient, gson)
                 .addDefaultHeader();
+    }
+
+    @Provides
+    @Named(ApiConst.MAIN_API_URL_NAMED)
+    String provideApiUrl() {
+        return BuildConfig.REST_URL;
     }
 }
