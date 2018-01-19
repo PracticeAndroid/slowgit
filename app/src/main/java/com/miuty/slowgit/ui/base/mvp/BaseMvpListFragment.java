@@ -19,7 +19,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 
 public abstract class BaseMvpListFragment<V extends MvpListView, P extends BasePresenter<V>,
-        A extends BaseAdapter, I extends DisplayableItem> extends BaseMvpFragment<V, P> {
+        A extends BaseAdapter, I extends DisplayableItem> extends BaseMvpFragment<V, P> implements MvpListView {
 
     @BindView(R.id.swipe_refresh_layout)
     protected SwipeRefreshLayout mSwipeRefreshLayout;
@@ -39,7 +39,20 @@ public abstract class BaseMvpListFragment<V extends MvpListView, P extends BaseP
         mAdapter = createAdapter();
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
+        mSwipeRefreshLayout.setOnRefreshListener(() -> {
+            doRefresh();
+        });
     }
 
     protected abstract A createAdapter();
+
+    protected abstract void doRefresh();
+
+    @Override
+    public void hideRefreshLayout() {
+        if (mSwipeRefreshLayout.isRefreshing()) {
+            mSwipeRefreshLayout.setRefreshing(false);
+        }
+    }
 }

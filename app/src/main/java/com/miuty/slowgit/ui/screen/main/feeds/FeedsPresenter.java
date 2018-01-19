@@ -35,6 +35,9 @@ public class FeedsPresenter extends BasePresenter<FeedsMvpView> {
                 .doOnSubscribe(disposable1 -> {
                 })
                 .doOnTerminate(() -> {
+                    if (view != null) {
+                        view.hideRefreshLayout();
+                    }
                 })
                 .subscribe(this::processFeedsResponse, throwable -> {
                 });
