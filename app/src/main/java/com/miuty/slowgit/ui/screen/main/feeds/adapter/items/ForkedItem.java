@@ -7,6 +7,10 @@ import com.miuty.slowgit.ui.screen.main.feeds.adapter.FeedsAdapter;
 
 public class ForkedItem extends BaseFeedsItem {
 
+    public ForkedItem() {
+        super();
+    }
+
     public ForkedItem(Feed feed) {
         super(feed);
     }

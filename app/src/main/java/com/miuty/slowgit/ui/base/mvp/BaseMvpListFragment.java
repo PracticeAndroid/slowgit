@@ -22,25 +22,20 @@ public abstract class BaseMvpListFragment<V extends MvpListView, P extends BaseP
         A extends BaseAdapter, I extends DisplayableItem> extends BaseMvpFragment<V, P> {
 
     @BindView(R.id.swipe_refresh_layout)
-    SwipeRefreshLayout mSwipeRefreshLayout;
+    protected SwipeRefreshLayout mSwipeRefreshLayout;
 
     @BindView(R.id.recycler_view)
-    RecyclerView mRecyclerView;
+    protected RecyclerView mRecyclerView;
 
-    @Inject
     protected RecyclerView.LayoutManager mLayoutManager;
-
-    @Inject
     protected List<I> mItems;
-
-    @Inject
     protected A mAdapter;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
+       /* mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);*/
     }
 }

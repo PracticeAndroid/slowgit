@@ -4,17 +4,18 @@ package com.miuty.slowgit.ui.screen.main.feeds;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpListFragment;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.BaseFeedsItem;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.FeedsAdapter;
+import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.ForkedItem;
 
 import java.util.List;
 
-public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresenter, FeedsAdapter, BaseFeedsItem> implements FeedsMvpView {
+public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresenter, FeedsAdapter, BaseFeedsItem>
+        implements FeedsMvpView {
 
     private static final String TAG = "FeedsFragment";
 
@@ -26,8 +27,19 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.e(TAG, mAdapter.toString());
-        Log.e(TAG, mItems.size() + "");
+        mAdapter = new FeedsAdapter(getContext());
+
+        mAdapter.addItem(new ForkedItem());
+        mAdapter.addItem(new ForkedItem());
+        mAdapter.addItem(new ForkedItem());
+        mAdapter.addItem(new ForkedItem());
+        mAdapter.addItem(new ForkedItem());
+        mAdapter.addItem(new ForkedItem());
+        mAdapter.addItem(new ForkedItem());
+        mAdapter.addItem(new ForkedItem());
+
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
 
         presenter.getFeeds();
     }

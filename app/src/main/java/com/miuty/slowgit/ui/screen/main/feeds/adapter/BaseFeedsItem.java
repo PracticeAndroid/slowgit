@@ -8,6 +8,10 @@ public abstract class BaseFeedsItem implements DisplayableItem {
 
     protected final Feed feed;
 
+    protected BaseFeedsItem() {
+        feed = new Feed();
+    }
+
     protected BaseFeedsItem(Feed feed) {
         this.feed = feed;
     }
