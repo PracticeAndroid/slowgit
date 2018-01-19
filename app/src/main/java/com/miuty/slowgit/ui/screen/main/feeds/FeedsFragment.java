@@ -27,7 +27,7 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mAdapter = new FeedsAdapter(getContext());
+        /*mAdapter = new FeedsAdapter(getContext());
 
         mAdapter.addItem(new ForkedItem());
         mAdapter.addItem(new ForkedItem());
@@ -39,9 +39,14 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
         mAdapter.addItem(new ForkedItem());
 
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);*/
 
         presenter.getFeeds();
+    }
+
+    @Override
+    protected FeedsAdapter createAdapter() {
+        return new FeedsAdapter(getContext());
     }
 
     @Override

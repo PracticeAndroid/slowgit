@@ -14,8 +14,6 @@ import java.util.List;
 public abstract class BaseAdapter<I extends DisplayableItem>
         extends RecyclerView.Adapter<BaseViewHolder> {
 
-    private final static int PROGRESS_TYPE = 69;
-
     protected Context context;
     protected LayoutInflater layoutInflater;
     protected List<I> items;

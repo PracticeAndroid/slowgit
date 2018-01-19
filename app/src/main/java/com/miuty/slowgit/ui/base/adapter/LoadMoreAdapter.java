@@ -22,19 +22,19 @@ public abstract class LoadMoreAdapter<I extends DisplayableItem> extends BaseAda
     private static final int TYPE_ITEM = 0;
 
     //Load more
-    private boolean isLoadMore = true;
+    private boolean isLoadMore = false;
     private boolean isLoading = false;
     private int visibleThreshold = 3;
     private int lastVisibleItem;
     private int totalItemCount;
-    private OnLoadMoreListener listener;
+    private OnLoadMoreListener loadMoreListener;
 
     public LoadMoreAdapter(@NonNull Context context) {
         super(context);
     }
 
-    public void initLoadMore(OnLoadMoreListener listener, RecyclerView recyclerView) {
-        this.listener = listener;
+    public void initLoadMore(OnLoadMoreListener loadMoreListener, RecyclerView recyclerView) {
+        this.loadMoreListener = loadMoreListener;
 
         final LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -46,8 +46,8 @@ public abstract class LoadMoreAdapter<I extends DisplayableItem> extends BaseAda
                 lastVisibleItem = layoutManager.findLastVisibleItemPosition();
 
                 if (!isLoading && totalItemCount <= (lastVisibleItem + visibleThreshold)) {
-                    if (listener != null) {
-                        listener.onLoadMore();
+                    if (loadMoreListener != null) {
+                        loadMoreListener.onLoadMore();
                     }
                     isLoading = true;
                 }
@@ -75,8 +75,9 @@ public abstract class LoadMoreAdapter<I extends DisplayableItem> extends BaseAda
     public int getItemViewType(int position) {
         if (getItemCount() == position) {
             return TYPE_LOAD_MORE;
+        } else {
+            return super.getItemViewType(position);
         }
-        return TYPE_ITEM;
     }
 
     @Override

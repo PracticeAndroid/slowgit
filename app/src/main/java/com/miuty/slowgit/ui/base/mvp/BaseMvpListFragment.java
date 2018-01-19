@@ -27,6 +27,7 @@ public abstract class BaseMvpListFragment<V extends MvpListView, P extends BaseP
     @BindView(R.id.recycler_view)
     protected RecyclerView mRecyclerView;
 
+    @Inject
     protected RecyclerView.LayoutManager mLayoutManager;
     protected List<I> mItems;
     protected A mAdapter;
@@ -35,7 +36,10 @@ public abstract class BaseMvpListFragment<V extends MvpListView, P extends BaseP
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-       /* mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);*/
+        mAdapter = createAdapter();
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
     }
+
+    protected abstract A createAdapter();
 }
