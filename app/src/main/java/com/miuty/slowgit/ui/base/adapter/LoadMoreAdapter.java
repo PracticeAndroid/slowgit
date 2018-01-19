@@ -16,7 +16,7 @@ import butterknife.BindView;
  * Created by Asus on 1/19/2018.
  */
 
-public class LoadMoreAdapter<I extends DisplayableItem> extends BaseAdapter<I> {
+public abstract class LoadMoreAdapter<I extends DisplayableItem> extends BaseAdapter<I> {
 
     private static final int TYPE_LOAD_MORE = -1;
     private static final int TYPE_ITEM = 0;
@@ -61,7 +61,7 @@ public class LoadMoreAdapter<I extends DisplayableItem> extends BaseAdapter<I> {
         switch (viewType) {
             case TYPE_LOAD_MORE:
                 view = layoutInflater.inflate(R.layout.item_default_layout_loadmore, parent, false);
-                return new LoadMoreViewHolder(view);
+                return new LoadMoreViewHolder(context, view);
         }
         throw new IllegalArgumentException("Do not support view type: " + viewType);
     }
@@ -89,8 +89,8 @@ public class LoadMoreAdapter<I extends DisplayableItem> extends BaseAdapter<I> {
         @BindView(R.id.pb_load_more)
         ProgressBar progressBar;
 
-        public LoadMoreViewHolder(View itemView) {
-            super(itemView);
+        public LoadMoreViewHolder(Context context, View itemView) {
+            super(context, itemView);
         }
     }
 
