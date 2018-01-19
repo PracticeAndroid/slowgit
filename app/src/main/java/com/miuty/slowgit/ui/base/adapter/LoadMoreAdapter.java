@@ -63,7 +63,7 @@ public class LoadMoreAdapter<I extends DisplayableItem> extends BaseAdapter<I> {
                 view = layoutInflater.inflate(R.layout.item_default_layout_loadmore, parent, false);
                 return new LoadMoreViewHolder(view);
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Do not support view type: " + viewType);
     }
 
     @Override
@@ -84,7 +84,7 @@ public class LoadMoreAdapter<I extends DisplayableItem> extends BaseAdapter<I> {
         return super.getItemCount() + (isLoadMore ? 1 : 0);
     }
 
-    private class LoadMoreViewHolder extends BaseViewHolder {
+    public class LoadMoreViewHolder extends BaseViewHolder {
 
         @BindView(R.id.pb_load_more)
         ProgressBar progressBar;

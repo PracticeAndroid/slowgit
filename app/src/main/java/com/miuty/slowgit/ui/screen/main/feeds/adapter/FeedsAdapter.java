@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.adapter.BaseAdapter;
 import com.miuty.slowgit.ui.base.adapter.BaseViewHolder;
+import com.miuty.slowgit.ui.base.adapter.LoadMoreAdapter;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.CreatedItem;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.CreatedViewHolder;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.ForkedItem;
@@ -19,7 +20,7 @@ import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.StarredViewHolder;
 
 import java.util.List;
 
-public class FeedsAdapter extends BaseAdapter<BaseFeedsItem> {
+public class FeedsAdapter extends LoadMoreAdapter<BaseFeedsItem> {
 
     public static final int ITEM_FEEDS_CREATED = 1;
     public static final int ITEM_FEEDS_FORKED = 2;
@@ -41,7 +42,7 @@ public class FeedsAdapter extends BaseAdapter<BaseFeedsItem> {
         } else if (viewType == ITEM_FEEDS_STARRED) {
 
         }
-        throw new IllegalArgumentException("Do not support view type: " + viewType);
+        return super.onCreateViewHolder(parent, viewType);
     }
 
     @Override
