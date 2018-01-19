@@ -4,6 +4,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
+import com.miuty.slowgit.util.FeedsType;
 
 import java.util.Date;
 
@@ -20,7 +21,7 @@ public class Feed {
     private String id;
 
     @SerializedName("type")
-    private String type;
+    private FeedsType type;
 
     @SerializedName("actor")
     private Actor actor;
