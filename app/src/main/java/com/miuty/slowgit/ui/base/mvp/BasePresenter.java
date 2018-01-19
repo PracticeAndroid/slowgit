@@ -17,7 +17,7 @@ import static com.miuty.slowgit.provider.network.DefaultApiException.*;
  * Created by Asus on 1/9/2018.
  */
 
-public class BasePresenter<V extends MvpView> implements LifecycleObserver {
+public abstract class BasePresenter<V extends MvpView> implements LifecycleObserver {
 
     private static final String TAG = "BasePresenter";
 

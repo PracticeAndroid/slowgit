@@ -10,13 +10,6 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
 
-    public interface OnItemClickListener<T> {
-
-        void onItemClick(int position, View v, T item);
-
-        void onItemLongClick(int position, View v, T item);
-    }
-
     public BaseViewHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);

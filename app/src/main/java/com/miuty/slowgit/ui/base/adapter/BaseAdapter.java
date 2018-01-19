@@ -19,14 +19,15 @@ public abstract class BaseAdapter<I extends DisplayableItem>
     protected Context context;
     protected LayoutInflater layoutInflater;
     protected List<I> items;
-    protected BaseViewHolder.OnItemClickListener mListener;
+    protected OnItemClickListener listener;
 
     public BaseAdapter(@NonNull Context context) {
         this(context, null);
     }
 
-    public BaseAdapter(@NonNull Context context, BaseViewHolder.OnItemClickListener listener) {
+    public BaseAdapter(@NonNull Context context, OnItemClickListener listener) {
         this.context = context;
+        this.listener = listener;
         this.layoutInflater = LayoutInflater.from(context);
         this.items = new ArrayList<>();
     }
