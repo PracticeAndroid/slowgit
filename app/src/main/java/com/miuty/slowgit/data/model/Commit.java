@@ -30,4 +30,7 @@ public class Commit {
     @SerializedName("url")
     private String url;
 
+    @SerializedName("message")
+    private String message;
+
 }

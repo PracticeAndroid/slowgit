@@ -37,13 +37,17 @@ public final class SpannableBuilder extends SpannableStringBuilder {
 
     @Override
     public SpannableBuilder append(char text) {
-        if (text != 0) super.append(text);
+        if (text != 0) {
+            super.append(text);
+        }
         return this;
     }
 
     @Override
     public SpannableBuilder append(CharSequence text) {
-        if (text != null) super.append(text);
+        if (text != null) {
+            super.append(text);
+        }
         return this;
     }
 
@@ -78,18 +82,23 @@ public final class SpannableBuilder extends SpannableStringBuilder {
     }
 
     public SpannableBuilder bold(final CharSequence text) {
-        if (!InputHelper.isEmpty(text)) return append(text, new StyleSpan(BOLD));
+        if (!InputHelper.isEmpty(text)) {
+            return append(text, new StyleSpan(BOLD));
+        }
         return this;
     }
 
     public SpannableBuilder background(final CharSequence text, final int color) {
-        if (!InputHelper.isEmpty(text))
+        if (!InputHelper.isEmpty(text)) {
             return append(text, new BackgroundColorSpan(color));
+        }
         return this;
     }
 
     public SpannableBuilder foreground(final CharSequence text, @ColorInt int color) {
-        if (!InputHelper.isEmpty(text)) return append(text, new ForegroundColorSpan(color));
+        if (!InputHelper.isEmpty(text)) {
+            return append(text, new ForegroundColorSpan(color));
+        }
         return this;
     }
 
@@ -98,35 +107,44 @@ public final class SpannableBuilder extends SpannableStringBuilder {
     }
 
     public SpannableBuilder url(final CharSequence text, final View.OnClickListener listener) {
-        if (!InputHelper.isEmpty(text))
+        if (!InputHelper.isEmpty(text)) {
             return append(text, new URLSpan(text.toString()) {
                 @Override
                 public void onClick(View widget) {
                     listener.onClick(widget);
                 }
             });
+        }
         return this;
     }
 
     public SpannableBuilder url(final CharSequence text) {
-        if (!InputHelper.isEmpty(text)) return append(text, new URLSpan(text.toString()));
+        if (!InputHelper.isEmpty(text)) {
+            return append(text, new URLSpan(text.toString()));
+        }
         return this;
     }
 
     public SpannableBuilder clickable(final CharSequence text, final View.OnClickListener listener) {
-        if (!InputHelper.isEmpty(text)) return append(text, new ClickableSpan() {
-            @Override
-            public void updateDrawState(TextPaint ds) {
-                ds.setColor(ds.linkColor);
-                ds.setUnderlineText(false);
-            }
+        if (!InputHelper.isEmpty(text)) {
+            return append(text, new ClickableSpan() {
+                @Override
+                public void updateDrawState(TextPaint ds) {
+                    ds.setColor(ds.linkColor);
+                    ds.setUnderlineText(false);
+                }
 
-            @Override
-            public void onClick(View widget) {
-                listener.onClick(widget);
-            }
-        });
+                @Override
+                public void onClick(View widget) {
+                    listener.onClick(widget);
+                }
+            });
+        }
         return this;
     }
 
+    public SpannableBuilder beginANewLine() {
+        super.append("\n");
+        return this;
+    }
 }

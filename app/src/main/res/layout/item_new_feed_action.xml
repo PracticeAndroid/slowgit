@@ -1,41 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
     android:orientation="horizontal">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imv_avatar"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="@dimen/default_margin"
-        android:layout_marginRight="@dimen/default_margin"
+        android:layout_marginLeft="@dimen/default_margin_medium"
+        android:layout_marginRight="@dimen/default_margin_medium"
         tools:src="@drawable/ic_github" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingRight="@dimen/default_padding_huge">
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="dutn158 pushed to master at PracticeAndroid/slowgit"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/font_size_xmedium"
             tools:text="dutn158 pushed to master at PracticeAndroid/slowgit" />
 
         <TextView
             android:id="@+id/tv_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin_half"
+            android:textColor="@color/default_text_color_gray"
+            android:textSize="@dimen/font_size_medium"
             tools:text="1 new commit \na4197f1 fix conflict" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin_half"
             android:gravity="center">
 
             <ImageView

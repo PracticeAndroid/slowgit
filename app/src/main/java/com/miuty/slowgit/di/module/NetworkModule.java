@@ -32,7 +32,9 @@ public class NetworkModule {
     @Provides
     Gson provideGson() {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setPrettyPrinting();
+        gsonBuilder
+                .setDateFormat(ApiConst.API_DATE_TIME_FORMAT)
+                .setPrettyPrinting();
         // feeds parser
         gsonBuilder.registerTypeAdapter(FeedsType.class, new FeedsTypeDeserializer());
         return gsonBuilder.create();

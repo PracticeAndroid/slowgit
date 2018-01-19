@@ -4,9 +4,11 @@ package com.miuty.slowgit.ui.screen.main.feeds;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.DividerItemDecoration;
 import android.view.View;
 
 import com.miuty.slowgit.R;
+import com.miuty.slowgit.ui.base.adapter.decoration.VerticalSpacingDecoration;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpListFragment;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.BaseFeedsItem;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.FeedsAdapter;
@@ -26,6 +28,7 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mRecyclerView.addItemDecoration(new VerticalSpacingDecoration(50, true));
         presenter.getFeeds();
     }
 
