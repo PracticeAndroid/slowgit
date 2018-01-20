@@ -21,6 +21,7 @@ public class ProfileRemoteServiceImpl implements ProfileRemoteService {
     private NetworkProvider networkProvider;
     private String apiUrl;
     private String apiUr2;
+    private static final String CONTRIBUTION_URL = "https://github.com/users/%s/contributions";
 
     @Inject
     public ProfileRemoteServiceImpl(@DefaultNetworkProviderContext DefaultNetworkProvider networkProvider,
@@ -28,6 +29,7 @@ public class ProfileRemoteServiceImpl implements ProfileRemoteService {
                                     @Named(ApiConst.SECOND_API_URL_NAMED) String apiUr2 ){
         this.networkProvider = networkProvider;
         this.apiUrl = apiUrl;
+        this.apiUr2 = apiUr2;
     }
 
     @Override

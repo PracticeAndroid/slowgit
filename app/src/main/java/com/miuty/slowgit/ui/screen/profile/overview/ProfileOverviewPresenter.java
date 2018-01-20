@@ -48,4 +48,32 @@ public class ProfileOverviewPresenter extends BasePresenter<ProfileOverviewMvpVi
                     }
                 });
     }
+
+    public void getContributions(String loginId){
+        if (view == null) {
+            return;
+        }
+        profileRepository.getContributions(loginId)
+                .compose(schedulerProvider.observableComputationScheduler())
+                .doOnSubscribe(disposable1 -> {
+                    if (view != null) {
+                        //view.showProgress("loading...", true);
+                    }
+                })
+                .doOnTerminate(() -> {
+                    if (view != null) {
+                        view.setVisibleMainView(false);
+                        //view.hideProgress();
+                    }
+                })
+                .subscribe(response -> {
+                    if (view != null){
+                        view.onGetContributionsSuccessfully(response);
+                }
+                }, throwable -> {
+                    if (view != null) {
+                        view.onGetContributionsFailed(throwable);
+                    }
+                });
+    }
 }

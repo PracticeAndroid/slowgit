@@ -76,6 +76,6 @@ public class NetworkModule {
     @Provides
     @Named(ApiConst.SECOND_API_URL_NAMED)
     String provideApiUrl2() {
-        return BuildConfig.REST_URL;
+        return BuildConfig.GIT_URL;
     }
 }

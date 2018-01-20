@@ -86,6 +86,9 @@ dependencies {
         transitive = false
     }
 
+    //load svg
+    implementation 'com.caverock:androidsvg:1.2.0'
+
     // Arch Lifecycle & ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$lifecycleVersion"

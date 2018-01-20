@@ -1,10 +1,11 @@
 package com.miuty.slowgit.ui.screen.profile.overview;
 
 
+import android.graphics.Picture;
+import android.graphics.drawable.PictureDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -13,16 +14,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.caverock.androidsvg.SVG;
+import com.caverock.androidsvg.SVGParseException;
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.data.model.profile.BasicProfile;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpFragment;
 import com.miuty.slowgit.util.BundleKeyConst;
 import com.miuty.slowgit.util.InputUtils;
 
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 
 import butterknife.BindView;
 import de.hdodenhof.circleimageview.CircleImageView;
+import okhttp3.ResponseBody;
 
 public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpView, ProfileOverviewPresenter>
         implements ProfileOverviewMvpView {
@@ -63,6 +68,8 @@ public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpV
     RelativeLayout rlJoined;
     @BindView(R.id.fl_main)
     FrameLayout flMain;
+    @BindView(R.id.imv_contributions)
+    ImageView imvContributions;
 
     private String loginId;
 
@@ -78,7 +85,9 @@ public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpV
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         this.loginId = getArguments().getString(BundleKeyConst.EXTRA_1);
+        view.setLayerType(ImageView.LAYER_TYPE_SOFTWARE, null);
         presenter.getBasicProfile(loginId);
+        presenter.getContributions(loginId);
     }
 
     @Override
@@ -151,5 +160,28 @@ public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpV
         } else {
             flMain.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onGetContributionsSuccessfully(ResponseBody responseBody) {
+        if(responseBody != null){
+            InputStream inputStream = responseBody.byteStream();
+            try {
+                SVG svg = SVG.getFromInputStream(inputStream);
+                imvContributions.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+                PictureDrawable picture = new PictureDrawable(svg.renderToPicture());
+                Glide.with(this)
+                        .asDrawable()
+                        .load(picture)
+                        .into(imvContributions);
+            } catch (SVGParseException e) {
+
+            }
+        }
+    }
+
+    @Override
+    public void onGetContributionsFailed(Throwable throwable) {
+
     }
 }
