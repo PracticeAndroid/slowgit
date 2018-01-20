@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpActivity;
+import com.miuty.slowgit.ui.screen.profile.overview.ProfileOverviewFragment;
 
 import javax.inject.Inject;
 
@@ -21,8 +22,9 @@ public class ProfileActivity extends BaseMvpActivity<ProfileMvpView, ProfilePres
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
 
-    @Inject
     FragmentsPagerAdapter fragmentsPagerAdapter;
+
+    private String loginId = "du158";
 
     @Override
     protected int layoutId() {
