@@ -65,6 +65,15 @@ public class BasicProfile {
     @SerializedName("location")
     private String location;
 
+    @SerializedName("company")
+    private String company;
+
+    @SerializedName("email")
+    private  String email;
+
+    @SerializedName("name")
+    private String name;
+
     @SerializedName("public_repos")
     private long publicRepos;
 

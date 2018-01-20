@@ -6,7 +6,9 @@ import com.miuty.slowgit.ui.base.mvp.MvpView;
 
 public interface ProfileOverviewMvpView extends MvpView {
 
-    void onGetBasicProfileSusscessfully(BasicProfile basicProfile);
+    void onGetBasicProfileSuccessfully(BasicProfile basicProfile);
 
     void onGetBasicProfileFailed(Throwable throwable);
+
+    void setVisibleMainView(boolean isLoading);
 }

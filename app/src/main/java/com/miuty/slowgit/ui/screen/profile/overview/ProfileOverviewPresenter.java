@@ -21,6 +21,10 @@ public class ProfileOverviewPresenter extends BasePresenter<ProfileOverviewMvpVi
     }
 
     public void getBasicProfile(String loginId) {
+        if (view == null){
+            //return;
+        }
+        //view.setVisibleMainView(true);
         profileRepository.getBasicProfile(loginId)
                 .compose(schedulerProvider.observableComputationScheduler())
                 .doOnSubscribe(disposable1 -> {
@@ -30,12 +34,13 @@ public class ProfileOverviewPresenter extends BasePresenter<ProfileOverviewMvpVi
                 })
                 .doOnTerminate(() -> {
                     if (view != null) {
+                        //view.setVisibleMainView(false);
                         view.hideProgress();
                     }
                 })
                 .subscribe(basicProfile -> {
                     if (view != null) {
-                        view.onGetBasicProfileSusscessfully(basicProfile);
+                        view.onGetBasicProfileSuccessfully(basicProfile);
                     }
                 }, throwable -> {
                     if (view != null) {

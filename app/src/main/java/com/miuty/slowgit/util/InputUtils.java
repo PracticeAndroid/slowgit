@@ -30,4 +30,21 @@ public final class InputUtils {
             v.setEnabled(isEnabled);
         }
     }
+
+    public static void goneViewIfEmpty(@NonNull View view, String text){
+        if(view instanceof TextView) {
+            if (TextUtils.isEmpty(text)) {
+                view.setVisibility(View.GONE);
+            } else {
+                view.setVisibility(View.VISIBLE);
+                ((TextView)view).setText(text);
+            }
+        } else{
+            if (TextUtils.isEmpty(text)) {
+                view.setVisibility(View.GONE);
+            } else {
+                view.setVisibility(View.VISIBLE);
+            }
+        }
+    }
 }

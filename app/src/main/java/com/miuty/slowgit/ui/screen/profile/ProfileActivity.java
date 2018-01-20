@@ -32,7 +32,7 @@ public class ProfileActivity extends BaseMvpActivity<ProfileMvpView, ProfilePres
 
     private FragmentsPagerAdapter fragmentsPagerAdapter;
 
-    private String loginId = "du158";
+    private String loginId = "dutn158";
 
     @Override
     protected int layoutId() {
@@ -44,9 +44,9 @@ public class ProfileActivity extends BaseMvpActivity<ProfileMvpView, ProfilePres
         super.onCreate(savedInstanceState);
 
         List<BaseFragment> baseFragmentList = new ArrayList<>();
-        baseFragmentList.add(ProfileOverviewFragment.newInstance(loginId));
-        baseFragmentList.add(ProfileOverviewFragment.newInstance(loginId));
-        baseFragmentList.add(ProfileOverviewFragment.newInstance(loginId));
+        baseFragmentList.add(ProfileOverviewFragment.newInstance("dutn158"));
+        baseFragmentList.add(ProfileOverviewFragment.newInstance("dutn158"));
+        baseFragmentList.add(ProfileOverviewFragment.newInstance("dutn158"));
 
         fragmentsPagerAdapter = new FragmentsPagerAdapter(fragmentManager, baseFragmentList);
         mViewPager.setAdapter(fragmentsPagerAdapter);
