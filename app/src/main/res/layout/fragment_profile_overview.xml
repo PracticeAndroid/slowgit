@@ -188,7 +188,8 @@
                                 android:paddingBottom="@dimen/spacing_xs_large"
                                 android:paddingTop="@dimen/spacing_xs_large"
                                 android:text="Cum classis nocere"
-                                android:textSize="@dimen/font_size_medium" />
+                                android:textSize="@dimen/font_size_medium"
+                                android:autoLink="email"/>
 
                         </RelativeLayout>
 
@@ -219,7 +220,8 @@
                                 android:paddingBottom="@dimen/spacing_xs_large"
                                 android:paddingTop="@dimen/spacing_xs_large"
                                 android:text="Cum classis nocere"
-                                android:textSize="@dimen/font_size_medium" />
+                                android:textSize="@dimen/font_size_medium"
+                                android:autoLink="web"/>
 
                         </RelativeLayout>
 

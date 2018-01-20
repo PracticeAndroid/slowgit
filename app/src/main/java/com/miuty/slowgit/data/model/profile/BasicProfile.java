@@ -89,4 +89,7 @@ public class BasicProfile {
     @SerializedName("created_at")
     private Date createAt;
 
+    @SerializedName("bio")
+    private String bio;
+
 }

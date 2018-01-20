@@ -120,7 +120,7 @@ public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpV
         tvFullName.setText(basicProfile.getName());
         tvUsername.setText(basicProfile.getLoginId());
 
-        InputUtils.goneViewIfEmpty(tvDescription, null);
+        InputUtils.goneViewIfEmpty(tvDescription, basicProfile.getBio());
 
         btnFollowers.setText(String.format("Followers (%d)", basicProfile.getFollowers()));
         btnFollowing.setText(String.format("Following (%d)", basicProfile.getFollowing()));
