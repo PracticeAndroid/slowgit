@@ -30,6 +30,14 @@ public abstract class BaseAdapter<I extends DisplayableItem>
         this.items = new ArrayList<>();
     }
 
+    public OnItemClickListener getListener() {
+        return listener;
+    }
+
+    public void setListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
     @Override
     public int getItemCount() {
         return items.size();

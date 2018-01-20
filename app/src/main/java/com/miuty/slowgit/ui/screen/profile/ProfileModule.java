@@ -36,7 +36,7 @@ public abstract class ProfileModule {
         return new ActivityNavigatorImpl(context);
     }
 
-    @Provides
+   /* @Provides
     public static List<BaseFragment> provideListFragments() {
         return Stream.of(ProfileOverviewFragment.newInstance(),
                 ProfileOverviewFragment.newInstance(),
@@ -47,6 +47,5 @@ public abstract class ProfileModule {
     @Provides
     public static FragmentsPagerAdapter provideFragmentsPagerAdapter(FragmentManager fragmentManager, List<BaseFragment> fragments) {
         return new FragmentsPagerAdapter(fragmentManager, fragments);
-    }
-
+    }*/
 }

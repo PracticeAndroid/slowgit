@@ -2,6 +2,8 @@ package com.miuty.slowgit.data.repository.profile.local;
 
 import com.miuty.slowgit.data.model.profile.BasicProfile;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observable;
 
 /**
@@ -9,6 +11,11 @@ import io.reactivex.Observable;
  */
 
 public class ProfileLocalServiceImpl implements ProfileLocalService {
+
+    @Inject
+    public ProfileLocalServiceImpl() {
+
+    }
 
     @Override
     public Observable<BasicProfile> getCurrentProfile() {
