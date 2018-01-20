@@ -54,7 +54,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
+                            android:layout_gravity="top"
                             android:orientation="vertical">
 
                             <TextView
@@ -63,7 +63,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/colorBlack"
-                                android:textSize="@dimen/font_size_xmedium"
+                                android:textSize="@dimen/font_size_xxmedium"
                                 android:textStyle="bold"
                                 tools:text="Cum classis nocere" />
 
@@ -74,7 +74,6 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="@dimen/font_size_xmedium"
-                                android:textStyle="bold"
                                 tools:text="Cum classis nocere" />
 
                         </LinearLayout>
@@ -82,7 +81,7 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/description"
+                        android:id="@+id/tv_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autoLink="all"

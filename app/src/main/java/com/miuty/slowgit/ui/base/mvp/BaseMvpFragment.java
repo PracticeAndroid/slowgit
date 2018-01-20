@@ -26,6 +26,11 @@ public abstract class BaseMvpFragment<V extends MvpView, P extends BasePresenter
     @Inject
     protected P presenter;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,13 +41,13 @@ public abstract class BaseMvpFragment<V extends MvpView, P extends BasePresenter
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         unbinder = ButterKnife.bind(this, view);
+        getLifecycle().addObserver(presenter);
+        presenter.bindView((V) this);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        getLifecycle().addObserver(presenter);
-        presenter.bindView((V) this);
     }
 
     @Override
