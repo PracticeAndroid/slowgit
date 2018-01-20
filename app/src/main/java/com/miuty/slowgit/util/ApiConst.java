@@ -10,5 +10,7 @@ public final class ApiConst {
 
     public static final String MAIN_API_URL_NAMED = "MAIN_API_URL_NAMED";
 
+    public static final String SECOND_API_URL_NAMED = "SECOND_API_URL_NAMED";
+
     public static final String API_DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 }

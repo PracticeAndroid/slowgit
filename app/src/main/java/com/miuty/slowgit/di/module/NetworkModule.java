@@ -72,4 +72,10 @@ public class NetworkModule {
     String provideApiUrl() {
         return BuildConfig.REST_URL;
     }
+
+    @Provides
+    @Named(ApiConst.SECOND_API_URL_NAMED)
+    String provideApiUrl2() {
+        return BuildConfig.REST_URL;
+    }
 }

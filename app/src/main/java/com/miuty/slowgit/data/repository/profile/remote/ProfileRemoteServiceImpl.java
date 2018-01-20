@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import io.reactivex.Observable;
+import okhttp3.ResponseBody;
 
 /**
  * Created by igneel on 1/20/2018.
@@ -19,10 +20,12 @@ public class ProfileRemoteServiceImpl implements ProfileRemoteService {
 
     private NetworkProvider networkProvider;
     private String apiUrl;
+    private String apiUr2;
 
     @Inject
     public ProfileRemoteServiceImpl(@DefaultNetworkProviderContext DefaultNetworkProvider networkProvider,
-                                    @Named(ApiConst.MAIN_API_URL_NAMED) String apiUrl){
+                                    @Named(ApiConst.MAIN_API_URL_NAMED) String apiUrl,
+                                    @Named(ApiConst.SECOND_API_URL_NAMED) String apiUr2 ){
         this.networkProvider = networkProvider;
         this.apiUrl = apiUrl;
     }
@@ -32,6 +35,14 @@ public class ProfileRemoteServiceImpl implements ProfileRemoteService {
         return networkProvider.makeRequest(
                 networkProvider.provideApi(apiUrl, ProfileRestService.class)
                 .getBasicProfile(loginId)
+        );
+    }
+
+    @Override
+    public Observable<ResponseBody> getContributions(String loginId) {
+        return networkProvider.makeRequest(
+                networkProvider.provideApi(apiUr2, ProfileRestService.class)
+                        .getContributions(loginId)
         );
     }
 }
