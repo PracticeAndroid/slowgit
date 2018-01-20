@@ -31,6 +31,8 @@ public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpV
     CircleImageView imvAvatar;
     @BindView(R.id.tv_fullname)
     TextView tvFullName;
+    @BindView(R.id.tv_description)
+    TextView tvDescription;
     @BindView(R.id.tv_username)
     TextView tvUsername;
     @BindView(R.id.btn_following)
@@ -101,12 +103,12 @@ public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpV
 
     @Override
     public void showProgress(String msg, boolean isCancelable) {
-
+        baseActivity.showProgress(msg, isCancelable);
     }
 
     @Override
     public void hideProgress() {
-
+        baseActivity.hideProgress();
     }
 
     @Override
@@ -117,6 +119,8 @@ public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpV
                 .into(imvAvatar);
         tvFullName.setText(basicProfile.getName());
         tvUsername.setText(basicProfile.getLoginId());
+
+        InputUtils.goneViewIfEmpty(tvDescription, null);
 
         btnFollowers.setText(String.format("Followers (%d)", basicProfile.getFollowers()));
         btnFollowing.setText(String.format("Following (%d)", basicProfile.getFollowing()));
@@ -142,7 +146,7 @@ public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpV
 
     @Override
     public void setVisibleMainView(boolean isLoading) {
-        if(isLoading){
+        if (isLoading) {
             flMain.setVisibility(View.GONE);
         } else {
             flMain.setVisibility(View.VISIBLE);
