@@ -29,13 +29,13 @@ public class ProfileOverviewPresenter extends BasePresenter<ProfileOverviewMvpVi
                 .compose(schedulerProvider.observableComputationScheduler())
                 .doOnSubscribe(disposable1 -> {
                     if (view != null) {
-                        //view.showProgress("loading...", true);
+                        view.showProgress("loading...", true);
                     }
                 })
                 .doOnTerminate(() -> {
                     if (view != null) {
                         view.setVisibleMainView(false);
-                        //view.hideProgress();
+                        view.hideProgress();
                     }
                 })
                 .subscribe(basicProfile -> {
@@ -49,7 +49,7 @@ public class ProfileOverviewPresenter extends BasePresenter<ProfileOverviewMvpVi
                 });
     }
 
-    public void getContributions(String loginId){
+    public void getContributions(String loginId) {
         if (view == null) {
             return;
         }
@@ -67,9 +67,9 @@ public class ProfileOverviewPresenter extends BasePresenter<ProfileOverviewMvpVi
                     }
                 })
                 .subscribe(response -> {
-                    if (view != null){
+                    if (view != null) {
                         view.onGetContributionsSuccessfully(response);
-                }
+                    }
                 }, throwable -> {
                     if (view != null) {
                         view.onGetContributionsFailed(throwable);

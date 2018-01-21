@@ -29,8 +29,8 @@ public class FeedsPresenter extends BasePresenter<FeedsMvpView> {
         this.schedulerProvider = schedulerProvider;
     }
 
-    public void getFeeds() {
-        Disposable disposable = feedsRepository.getFeeds(1)
+    public void getFeeds(int page) {
+        Disposable disposable = feedsRepository.getFeeds(page)
                 .compose(schedulerProvider.observableComputationScheduler())
                 .doOnSubscribe(disposable1 -> {
                 })
