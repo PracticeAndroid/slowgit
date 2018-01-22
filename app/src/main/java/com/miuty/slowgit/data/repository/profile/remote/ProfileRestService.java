@@ -4,10 +4,8 @@ import com.miuty.slowgit.data.model.profile.BasicProfile;
 
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
-import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import retrofit2.http.Url;
 
 /**
  * Created by igneel on 1/20/2018.

@@ -19,7 +19,11 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        baseActivity = (BaseMvpActivity) context;
+        if (context instanceof BaseMvpActivity) {
+            baseActivity = (BaseMvpActivity) context;
+        } else {
+            throw new IllegalArgumentException("Activity contain base fragment must be instance of BaseMvpActivity");
+        }
     }
 
     @Override

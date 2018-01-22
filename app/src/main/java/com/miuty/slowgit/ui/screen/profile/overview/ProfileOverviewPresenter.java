@@ -1,6 +1,8 @@
 package com.miuty.slowgit.ui.screen.profile.overview;
 
 
+import android.util.Log;
+
 import com.miuty.slowgit.data.repository.profile.ProfileRepository;
 import com.miuty.slowgit.data.repository.profile.ProfileRepositoryImpl;
 import com.miuty.slowgit.provider.scheduler.SchedulerProvider;
@@ -11,8 +13,10 @@ import javax.inject.Inject;
 
 public class ProfileOverviewPresenter extends BasePresenter<ProfileOverviewMvpView> {
 
-    ProfileRepository profileRepository;
-    SchedulerProvider schedulerProvider;
+    private static final String TAG = "OverviewPresenter";
+
+    private ProfileRepository profileRepository;
+    private SchedulerProvider schedulerProvider;
 
     @Inject
     public ProfileOverviewPresenter(ProfileRepositoryImpl profileRepository, SchedulerProviderImpl schedulerProvider) {
@@ -29,6 +33,7 @@ public class ProfileOverviewPresenter extends BasePresenter<ProfileOverviewMvpVi
                 .compose(schedulerProvider.observableComputationScheduler())
                 .doOnSubscribe(disposable1 -> {
                     if (view != null) {
+                        Log.e(TAG, "doOnSubscribe");
                         view.showProgress("loading...", true);
                     }
                 })

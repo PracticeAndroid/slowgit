@@ -1,7 +1,7 @@
 package com.miuty.slowgit.ui.screen.profile.overview;
 
 
-import android.graphics.Picture;
+import android.annotation.SuppressLint;
 import android.graphics.drawable.PictureDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -24,6 +24,7 @@ import com.miuty.slowgit.util.InputUtils;
 
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 import butterknife.BindView;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -131,10 +132,10 @@ public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpV
 
         InputUtils.goneViewIfEmpty(tvDescription, basicProfile.getBio());
 
-        btnFollowers.setText(String.format("Followers (%d)", basicProfile.getFollowers()));
-        btnFollowing.setText(String.format("Following (%d)", basicProfile.getFollowing()));
+        btnFollowers.setText(String.format(Locale.ENGLISH, "Followers (%d)", basicProfile.getFollowers()));
+        btnFollowing.setText(String.format(Locale.ENGLISH, "Following (%d)", basicProfile.getFollowing()));
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM d, yyyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM d, yyyy");
         InputUtils.goneViewIfEmpty(rlOrganization, basicProfile.getCompany());
         InputUtils.goneViewIfEmpty(rlLocation, basicProfile.getLocation());
         InputUtils.goneViewIfEmpty(rlEmail, basicProfile.getEmail());

@@ -27,6 +27,7 @@ public class PushedToViewHolder extends BaseFeedsViewHolder<PushedToItem> {
         return R.drawable.ic_commit;
     }
 
+    @NonNull
     @Override
     public SpannableBuilder buildTitle(PushedToItem item) {
         SpannableBuilder spannableBuilder = SpannableBuilder.builder();
@@ -41,6 +42,7 @@ public class PushedToViewHolder extends BaseFeedsViewHolder<PushedToItem> {
         return spannableBuilder;
     }
 
+    @NonNull
     @Override
     public SpannableBuilder buildDescription(PushedToItem item) {
         SpannableBuilder spannableBuilder = SpannableBuilder.builder();

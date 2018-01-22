@@ -1,6 +1,5 @@
 package com.miuty.slowgit.ui.base.dialog;
 
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatDialogFragment;
 
 /**
