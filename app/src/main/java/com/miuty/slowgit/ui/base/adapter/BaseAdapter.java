@@ -19,7 +19,7 @@ public abstract class BaseAdapter<VH extends BaseViewHolder>
     protected BaseViewHolder.OnItemClickListener listener;
 
     public BaseAdapter(Context context) {
-        context = context;
+        this.context = context;
         layoutInflater = LayoutInflater.from(context);
     }
 
