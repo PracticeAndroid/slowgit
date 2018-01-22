@@ -34,6 +34,7 @@ public abstract class LoadMoreAdapter<VH extends BaseViewHolder> extends BaseAda
 
     public void initLoadMore(OnLoadMoreListener loadMoreListener, RecyclerView recyclerView) {
         this.loadMoreListener = loadMoreListener;
+        this.isLoadMore = true;
 
         final LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -54,6 +55,14 @@ public abstract class LoadMoreAdapter<VH extends BaseViewHolder> extends BaseAda
         });
     }
 
+    public void setLoadMore(boolean loadMore) {
+        isLoadMore = loadMore;
+    }
+
+    public void setLoaded() {
+        this.isLoading = false;
+    }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = null;
@@ -67,7 +76,9 @@ public abstract class LoadMoreAdapter<VH extends BaseViewHolder> extends BaseAda
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
-
+        if (holder instanceof LoadMoreAdapter.LoadMoreViewHolder) {
+            ((LoadMoreViewHolder) holder).onBind();
+        }
     }
 
     @Override
@@ -91,6 +102,14 @@ public abstract class LoadMoreAdapter<VH extends BaseViewHolder> extends BaseAda
 
         public LoadMoreViewHolder(Context context, View itemView) {
             super(context, itemView);
+        }
+
+        public void onBind() {
+            if (isLoadMore) {
+                progressBar.setVisibility(View.VISIBLE);
+            } else {
+                progressBar.setVisibility(View.GONE);
+            }
         }
     }
 

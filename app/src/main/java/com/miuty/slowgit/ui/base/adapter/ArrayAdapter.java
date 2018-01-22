@@ -52,4 +52,9 @@ public abstract class ArrayAdapter<T, VH extends BaseViewHolder> extends LoadMor
         this.items.remove(pos);
         notifyItemRemoved(pos);
     }
+
+    public void clear(){
+        this.items.clear();
+        notifyDataSetChanged();
+    }
 }

@@ -6,7 +6,8 @@ public enum FeedsType {
     FORK_EVENT("ForkEvent"),
     PUBLIC_EVENT("PublicEvent"),
     CREATE_EVENT("CreateEvent"),
-    WATCH_EVENT("WatchEvent");
+    WATCH_EVENT("WatchEvent"),
+    NO_DEFINE("NoDefine");
 
     public String key;
 
