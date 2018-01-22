@@ -72,7 +72,7 @@ public abstract class LoadMoreAdapter<VH extends BaseViewHolder> extends BaseAda
 
     @Override
     public int getItemViewType(int position) {
-        if (getItemCount() == position) {
+        if (getItemCount() - 1 == position) {
             return TYPE_LOAD_MORE;
         } else {
             return super.getItemViewType(position);

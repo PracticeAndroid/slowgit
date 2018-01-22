@@ -55,35 +55,43 @@ public class FeedsAdapter extends ArrayAdapter<BaseFeedsItem, BaseFeedsViewHolde
 
     @Override
     public int getItemViewType(int position) {
-        BaseFeedsItem item = items.get(position);
-        if (item instanceof PublicItem) {
-            return TYPE_ITEM_FEEDS_PUBLIC;
-        } else if (item instanceof PushedToItem) {
-            return TYPE_ITEM_FEEDS_PUSHED_TO;
-        } else if (item instanceof StarredItem) {
-            return TYPE_ITEM_FEEDS_STARRED;
-        } else if (item instanceof ForkedItem) {
-            return TYPE_ITEM_FEEDS_FORKED;
-        } else if (item instanceof CreatedItem) {
-            return TYPE_ITEM_FEEDS_CREATED;
+        if (getItemCount() - 1 == position) {
+            return super.getItemViewType(position);
+        } else {
+            BaseFeedsItem item = items.get(position);
+            if (item instanceof PublicItem) {
+                return TYPE_ITEM_FEEDS_PUBLIC;
+            } else if (item instanceof PushedToItem) {
+                return TYPE_ITEM_FEEDS_PUSHED_TO;
+            } else if (item instanceof StarredItem) {
+                return TYPE_ITEM_FEEDS_STARRED;
+            } else if (item instanceof ForkedItem) {
+                return TYPE_ITEM_FEEDS_FORKED;
+            } else if (item instanceof CreatedItem) {
+                return TYPE_ITEM_FEEDS_CREATED;
+            }
+            return super.getItemViewType(position);
         }
-        return super.getItemViewType(position);
     }
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
-        BaseFeedsItem item = items.get(position);
-        if (holder instanceof PublicViewHolder && item instanceof PublicItem) {
-            ((PublicViewHolder) holder).bindData((PublicItem) item);
-        } else if (holder instanceof PushedToViewHolder && item instanceof PushedToItem) {
-            ((PushedToViewHolder) holder).bindData((PushedToItem) item);
-        } else if (holder instanceof StarredViewHolder && item instanceof StarredItem) {
-            ((StarredViewHolder) holder).bindData((StarredItem) item);
-        } else if (holder instanceof ForkedViewHolder && item instanceof ForkedItem) {
-            ((ForkedViewHolder) holder).bindData((ForkedItem) item);
-        } else if (holder instanceof CreatedViewHolder && item instanceof CreatedItem) {
-            ((CreatedViewHolder) holder).bindData((CreatedItem) item);
+        if (getItemCount() - 1 == position) {
+            super.onBindViewHolder(holder, position);
+        } else {
+            BaseFeedsItem item = items.get(position);
+            if (holder instanceof PublicViewHolder && item instanceof PublicItem) {
+                ((PublicViewHolder) holder).bindData((PublicItem) item);
+            } else if (holder instanceof PushedToViewHolder && item instanceof PushedToItem) {
+                ((PushedToViewHolder) holder).bindData((PushedToItem) item);
+            } else if (holder instanceof StarredViewHolder && item instanceof StarredItem) {
+                ((StarredViewHolder) holder).bindData((StarredItem) item);
+            } else if (holder instanceof ForkedViewHolder && item instanceof ForkedItem) {
+                ((ForkedViewHolder) holder).bindData((ForkedItem) item);
+            } else if (holder instanceof CreatedViewHolder && item instanceof CreatedItem) {
+                ((CreatedViewHolder) holder).bindData((CreatedItem) item);
+            }
+            super.onBindViewHolder(holder, position);
         }
-        super.onBindViewHolder(holder, position);
     }
 }
