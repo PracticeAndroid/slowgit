@@ -10,9 +10,4 @@ public class StarredItem extends BaseFeedsItem {
     public StarredItem(Feed feed) {
         super(feed);
     }
-
-    @Override
-    public int getItemViewType() {
-        return FeedsAdapter.ITEM_FEEDS_STARRED;
-    }
 }

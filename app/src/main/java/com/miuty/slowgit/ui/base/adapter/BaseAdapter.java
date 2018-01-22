@@ -11,19 +11,34 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseAdapter<I extends DisplayableItem>
-        extends RecyclerView.Adapter<BaseViewHolder> {
+public abstract class BaseAdapter<VH extends BaseViewHolder>
+        extends RecyclerView.Adapter<VH> {
 
     protected Context context;
     protected LayoutInflater layoutInflater;
-    protected List<I> items;
-    protected OnItemClickListener listener;
+    protected BaseViewHolder.OnItemClickListener listener;
 
-    public BaseAdapter(@NonNull Context context) {
-        this(context, null);
+    public BaseAdapter(Context context) {
+        context = context;
+        layoutInflater = LayoutInflater.from(context);
     }
 
-    public BaseAdapter(@NonNull Context context, OnItemClickListener listener) {
+    public BaseViewHolder.OnItemClickListener getItemClickListener() {
+        return listener;
+    }
+
+    public void setItemClickListener(BaseViewHolder.OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    @Override
+    public void onBindViewHolder(VH holder, int position) {
+        if (listener != null) {
+            holder.setOnItemClickListener(listener);
+        }
+    }
+
+    /* public BaseAdapter(@NonNull Context context, OnItemClickListener listener) {
         this.context = context;
         this.listener = listener;
         this.layoutInflater = LayoutInflater.from(context);
@@ -74,5 +89,5 @@ public abstract class BaseAdapter<I extends DisplayableItem>
     public void remove(int pos) {
         this.items.remove(pos);
         notifyItemRemoved(pos);
-    }
+    }*/
 }

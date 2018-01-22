@@ -21,11 +21,13 @@ public class CreatedViewHolder extends BaseFeedsViewHolder<CreatedItem> {
         return R.drawable.ic_github_icon;
     }
 
+    @NonNull
     @Override
     public SpannableBuilder buildTitle(CreatedItem item) {
         return null;
     }
 
+    @NonNull
     @Override
     public SpannableBuilder buildDescription(CreatedItem item) {
         return null;

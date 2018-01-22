@@ -10,9 +10,4 @@ public class PushedToItem extends BaseFeedsItem {
     public PushedToItem(Feed feed) {
         super(feed);
     }
-
-    @Override
-    public int getItemViewType() {
-        return FeedsAdapter.ITEM_FEEDS_PUSHED_TO;
-    }
 }
