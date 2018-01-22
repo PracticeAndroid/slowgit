@@ -10,25 +10,24 @@ import javax.inject.Inject;
 
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
-import retrofit2.Call;
 
 /**
  * Created by igneel on 1/20/2018.
  */
 
-public class ProfileRepositoryImpl implements ProfileRepository{
+public class ProfileRepositoryImpl implements ProfileRepository {
 
-    ProfileLocalService profileLocalService;
-    ProfileRemoteService profileRemoteService;
+    private ProfileLocalService profileLocalService;
+    private ProfileRemoteService profileRemoteService;
 
     @Inject
-    public ProfileRepositoryImpl(ProfileLocalServiceImpl profileLocalService, ProfileRemoteServiceImpl profileRemoteService){
+    public ProfileRepositoryImpl(ProfileLocalServiceImpl profileLocalService, ProfileRemoteServiceImpl profileRemoteService) {
         this.profileRemoteService = profileRemoteService;
         this.profileLocalService = profileLocalService;
     }
 
     @Override
-    public Observable<BasicProfile> getBasicProfile(String loginId){
+    public Observable<BasicProfile> getBasicProfile(String loginId) {
         return profileRemoteService.getBasicProfile(loginId);
     }
 

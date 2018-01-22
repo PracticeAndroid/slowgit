@@ -26,7 +26,7 @@ public class ProfileRemoteServiceImpl implements ProfileRemoteService {
     @Inject
     public ProfileRemoteServiceImpl(@DefaultNetworkProviderContext DefaultNetworkProvider networkProvider,
                                     @Named(ApiConst.MAIN_API_URL_NAMED) String apiUrl,
-                                    @Named(ApiConst.SECOND_API_URL_NAMED) String apiUr2 ){
+                                    @Named(ApiConst.SECOND_API_URL_NAMED) String apiUr2) {
         this.networkProvider = networkProvider;
         this.apiUrl = apiUrl;
         this.apiUr2 = apiUr2;
@@ -36,7 +36,7 @@ public class ProfileRemoteServiceImpl implements ProfileRemoteService {
     public Observable<BasicProfile> getBasicProfile(String loginId) {
         return networkProvider.makeRequest(
                 networkProvider.provideApi(apiUrl, ProfileRestService.class)
-                .getBasicProfile(loginId)
+                        .getBasicProfile(loginId)
         );
     }
 

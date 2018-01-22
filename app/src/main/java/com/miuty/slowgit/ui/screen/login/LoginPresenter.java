@@ -8,13 +8,11 @@ import com.miuty.slowgit.provider.network.DefaultApiException;
 import com.miuty.slowgit.provider.scheduler.SchedulerProvider;
 import com.miuty.slowgit.provider.scheduler.SchedulerProviderImpl;
 import com.miuty.slowgit.ui.base.mvp.BasePresenter;
-import com.miuty.slowgit.util.HttpUtils;
 import com.miuty.slowgit.util.InputUtils;
 
 import javax.inject.Inject;
 
 import io.reactivex.disposables.Disposable;
-import retrofit2.HttpException;
 
 /**
  * Created by Asus on 1/9/2018.
