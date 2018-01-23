@@ -1,6 +1,7 @@
 package com.miuty.slowgit.ui.base.adapter;
 
 import android.content.Context;
+import android.support.annotation.CallSuper;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,8 +29,8 @@ public abstract class LoadMoreAdapter<VH extends BaseViewHolder> extends BaseAda
     private int totalItemCount;
     private OnLoadMoreListener loadMoreListener;
 
-    public LoadMoreAdapter(@NonNull Context context) {
-        super(context);
+    public LoadMoreAdapter(@NonNull Context context, BaseViewHolder.OnItemClickListener listener) {
+        super(context, listener);
     }
 
     public void initLoadMore(OnLoadMoreListener loadMoreListener, RecyclerView recyclerView) {
@@ -74,8 +75,10 @@ public abstract class LoadMoreAdapter<VH extends BaseViewHolder> extends BaseAda
         throw new IllegalArgumentException("Do not support view type: " + viewType);
     }
 
+    @CallSuper
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
+        super.onBindViewHolder(holder, position);
         if (holder instanceof LoadMoreAdapter.LoadMoreViewHolder) {
             ((LoadMoreViewHolder) holder).onBind();
         }

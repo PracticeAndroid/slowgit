@@ -15,8 +15,8 @@ public abstract class ArrayAdapter<T, VH extends BaseViewHolder> extends LoadMor
 
     protected List<T> items;
 
-    public ArrayAdapter(@NonNull Context context) {
-        super(context);
+    public ArrayAdapter(@NonNull Context context, BaseViewHolder.OnItemClickListener listener) {
+        super(context, listener);
         items = new ArrayList<>();
     }
 
@@ -53,7 +53,7 @@ public abstract class ArrayAdapter<T, VH extends BaseViewHolder> extends LoadMor
         notifyItemRemoved(pos);
     }
 
-    public void clear(){
+    public void clear() {
         this.items.clear();
         notifyDataSetChanged();
     }

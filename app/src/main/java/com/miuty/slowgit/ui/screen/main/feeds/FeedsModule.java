@@ -23,21 +23,4 @@ public class FeedsModule {
     RecyclerView.LayoutManager provideLayoutManager(@ActivityContext Context context) {
         return new LinearLayoutManager(context);
     }
-
-    /**
-     * default data for recycler view at initialization.
-     *
-     * @return
-     */
-    @Provides
-    List<BaseFeedsItem> provideDataForRecyclerView() {
-        List<BaseFeedsItem> items = new ArrayList<>();
-        return items;
-    }
-
-    @Provides
-    FeedsAdapter provideFeedsAdapter(@ActivityContext Context context) {
-        return new FeedsAdapter(context);
-    }
-
 }

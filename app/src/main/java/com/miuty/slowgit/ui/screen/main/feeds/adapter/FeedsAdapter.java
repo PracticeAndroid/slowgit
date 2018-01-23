@@ -29,8 +29,8 @@ public class FeedsAdapter extends ArrayAdapter<BaseFeedsItem, BaseFeedsViewHolde
     public static final int TYPE_ITEM_FEEDS_PUBLIC = 5;
     public static final int TYPE_ITEM_FEEDS_WATCH = 6;
 
-    public FeedsAdapter(@NonNull Context context) {
-        super(context);
+    public FeedsAdapter(@NonNull Context context, BaseViewHolder.OnItemClickListener listener) {
+        super(context, listener);
     }
 
     @Override
@@ -76,9 +76,8 @@ public class FeedsAdapter extends ArrayAdapter<BaseFeedsItem, BaseFeedsViewHolde
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
-        if (getItemCount() - 1 == position) {
-            super.onBindViewHolder(holder, position);
-        } else {
+        super.onBindViewHolder(holder, position);
+        if (getItemCount() - 1 != position) {
             BaseFeedsItem item = items.get(position);
             if (holder instanceof PublicViewHolder && item instanceof PublicItem) {
                 ((PublicViewHolder) holder).bindData((PublicItem) item);
@@ -91,7 +90,6 @@ public class FeedsAdapter extends ArrayAdapter<BaseFeedsItem, BaseFeedsViewHolde
             } else if (holder instanceof CreatedViewHolder && item instanceof CreatedItem) {
                 ((CreatedViewHolder) holder).bindData((CreatedItem) item);
             }
-            super.onBindViewHolder(holder, position);
         }
     }
 }

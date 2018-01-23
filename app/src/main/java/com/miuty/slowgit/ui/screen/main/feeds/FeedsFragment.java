@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.miuty.slowgit.R;
+import com.miuty.slowgit.ui.base.adapter.BaseViewHolder;
 import com.miuty.slowgit.ui.base.adapter.LoadMoreAdapter;
 import com.miuty.slowgit.ui.base.adapter.decoration.VerticalSpacingDecoration;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpListFragment;
@@ -16,6 +17,10 @@ import com.miuty.slowgit.ui.screen.main.feeds.adapter.BaseFeedsItem;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.FeedsAdapter;
 
 import java.util.List;
+
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
+import jp.wasabeef.recyclerview.animators.LandingAnimator;
 
 public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresenter, FeedsAdapter, BaseFeedsItem>
         implements FeedsMvpView {
@@ -33,15 +38,38 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mRecyclerView.addItemDecoration(new VerticalSpacingDecoration(50, true));
+        /*mRecyclerView.setItemAnimator(new LandingAnimator());*/
+        mRecyclerView.setAdapter(new ScaleInAnimationAdapter(mAdapter));
         mAdapter.initLoadMore(() -> {
             Log.d(TAG, "loadmore" + page);
             presenter.getFeeds(page);
         }, mRecyclerView);
+        mAdapter.setItemClickListener(new BaseViewHolder.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                mAdapter.remove(position);
+            }
+
+            @Override
+            public void onItemLongClick(int position, View v) {
+
+            }
+        });
     }
 
     @Override
     protected FeedsAdapter createAdapter() {
-        return new FeedsAdapter(getContext());
+        return new FeedsAdapter(getContext(), new BaseViewHolder.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                //mAdapter.remove(position);
+            }
+
+            @Override
+            public void onItemLongClick(int position, View v) {
+
+            }
+        });
     }
 
     @Override
