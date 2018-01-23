@@ -46,11 +46,11 @@ public abstract class BaseFeedsViewHolder<T extends BaseFeedsItem> extends BaseV
         tvTitle.setText(buildTitle(item));
 
         CharSequence charSequence = buildDescription(item);
-        tvDescription.setText(charSequence);
         if (TextUtils.isEmpty(charSequence)) {
             tvDescription.setVisibility(View.GONE);
         } else {
             tvDescription.setVisibility(View.VISIBLE);
+            tvDescription.setText(charSequence);
         }
 
         tvTime.setText(DateTimeUtils.getTimeAgo(item.getFeed().getCreatedAt()));

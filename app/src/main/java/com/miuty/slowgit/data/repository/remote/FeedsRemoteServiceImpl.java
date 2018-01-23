@@ -31,7 +31,7 @@ public class FeedsRemoteServiceImpl implements FeedsRepository {
     public Observable<List<Feed>> getFeeds(int page) {
         return networkProvider.makeRequest(
                 networkProvider.provideApi(apiUrl, FeedsRestService.class)
-                        .getFeeds("hungpn", page)
+                        .getFeeds("dutn158", page)
         );
     }
 }

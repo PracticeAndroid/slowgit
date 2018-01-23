@@ -15,7 +15,6 @@ public class CreatedViewHolder extends BaseFeedsViewHolder<CreatedItem> {
         super(context, itemView);
     }
 
-    @NonNull
     @Override
     public int setDrawableTimeIcon() {
         return R.drawable.ic_document;
