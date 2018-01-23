@@ -12,6 +12,7 @@ import com.miuty.slowgit.ui.screen.main.feeds.adapter.BaseFeedsItem;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.CreatedItem;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.ForkedItem;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.PushedToItem;
+import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.StarredItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +62,7 @@ public class FeedsPresenter extends BasePresenter<FeedsMvpView> {
                         feedsItems.add(new ForkedItem(feed));
                         break;
                     case WATCH_EVENT:
-
+                        feedsItems.add(new StarredItem(feed));
                         break;
                     case CREATE_EVENT:
                         feedsItems.add(new CreatedItem(feed));

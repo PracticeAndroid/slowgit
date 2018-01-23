@@ -25,12 +25,7 @@ public class ForkedViewHolder extends BaseFeedsViewHolder<ForkedItem> {
     public SpannableBuilder buildTitle(ForkedItem item) {
         SpannableBuilder spannableBuilder = SpannableBuilder.builder();
         spannableBuilder.append(item.getActorName())
-                .bold(" pushed to")
-                .append(" ")
-                .append(item.getPayloadRef())
-                .append(" ")
-                .bold("at")
-                .append(" ")
+                .bold(" forked ")
                 .append(item.getRepoName());
         return spannableBuilder;
     }

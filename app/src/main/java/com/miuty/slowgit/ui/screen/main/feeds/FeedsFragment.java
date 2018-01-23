@@ -21,6 +21,8 @@ import java.util.List;
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 import jp.wasabeef.recyclerview.animators.LandingAnimator;
+import jp.wasabeef.recyclerview.animators.OvershootInLeftAnimator;
+import jp.wasabeef.recyclerview.animators.ScaleInAnimator;
 
 public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresenter, FeedsAdapter, BaseFeedsItem>
         implements FeedsMvpView {
@@ -37,24 +39,17 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mRecyclerView.addItemDecoration(new VerticalSpacingDecoration(50, true));
-        /*mRecyclerView.setItemAnimator(new LandingAnimator());*/
+
+        // setup animation for appearing, additional and removal
+        mRecyclerView.setItemAnimator(new ScaleInAnimator());
         mRecyclerView.setAdapter(new ScaleInAnimationAdapter(mAdapter));
+
+        mRecyclerView.addItemDecoration(new VerticalSpacingDecoration(50, true));
+
         mAdapter.initLoadMore(() -> {
             Log.d(TAG, "loadmore" + page);
             presenter.getFeeds(page);
         }, mRecyclerView);
-        mAdapter.setItemClickListener(new BaseViewHolder.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position, View v) {
-                mAdapter.remove(position);
-            }
-
-            @Override
-            public void onItemLongClick(int position, View v) {
-
-            }
-        });
     }
 
     @Override
@@ -62,7 +57,7 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
         return new FeedsAdapter(getContext(), new BaseViewHolder.OnItemClickListener() {
             @Override
             public void onItemClick(int position, View v) {
-                //mAdapter.remove(position);
+                mAdapter.remove(position);
             }
 
             @Override

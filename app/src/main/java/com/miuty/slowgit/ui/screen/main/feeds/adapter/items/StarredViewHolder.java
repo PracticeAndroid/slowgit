@@ -23,7 +23,14 @@ public class StarredViewHolder extends BaseFeedsViewHolder<StarredItem> {
 
     @Override
     public SpannableBuilder buildTitle(StarredItem item) {
-        return null;
+        SpannableBuilder spannableBuilder = SpannableBuilder.builder();
+
+        spannableBuilder
+                .append(item.getActorName())
+                .bold(" starred ")
+                .append(item.getRepoNamePushTo());
+
+        return spannableBuilder;
     }
 
     @Override

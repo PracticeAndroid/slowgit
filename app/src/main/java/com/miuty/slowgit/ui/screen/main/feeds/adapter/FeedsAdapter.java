@@ -25,9 +25,9 @@ public class FeedsAdapter extends ArrayAdapter<BaseFeedsItem, BaseFeedsViewHolde
     public static final int TYPE_ITEM_FEEDS_CREATED = 1;
     public static final int TYPE_ITEM_FEEDS_FORKED = 2;
     public static final int TYPE_ITEM_FEEDS_PUSHED_TO = 3;
-    public static final int TYPE_ITEM_FEEDS_STARRED = 4;
+    public static final int TYPE_ITEM_FEEDS_WATCH = 6; // starred
     public static final int TYPE_ITEM_FEEDS_PUBLIC = 5;
-    public static final int TYPE_ITEM_FEEDS_WATCH = 6;
+
 
     public FeedsAdapter(@NonNull Context context, BaseViewHolder.OnItemClickListener listener) {
         super(context, listener);
@@ -46,7 +46,7 @@ public class FeedsAdapter extends ArrayAdapter<BaseFeedsItem, BaseFeedsViewHolde
             case TYPE_ITEM_FEEDS_PUSHED_TO:
                 view = layoutInflater.inflate(R.layout.item_new_feed_action, parent, false);
                 return new PushedToViewHolder(context, view);
-            case TYPE_ITEM_FEEDS_STARRED:
+            case TYPE_ITEM_FEEDS_WATCH:
                 view = layoutInflater.inflate(R.layout.item_new_feed_action, parent, false);
                 return new StarredViewHolder(context, view);
         }
@@ -64,7 +64,7 @@ public class FeedsAdapter extends ArrayAdapter<BaseFeedsItem, BaseFeedsViewHolde
             } else if (item instanceof PushedToItem) {
                 return TYPE_ITEM_FEEDS_PUSHED_TO;
             } else if (item instanceof StarredItem) {
-                return TYPE_ITEM_FEEDS_STARRED;
+                return TYPE_ITEM_FEEDS_WATCH;
             } else if (item instanceof ForkedItem) {
                 return TYPE_ITEM_FEEDS_FORKED;
             } else if (item instanceof CreatedItem) {
