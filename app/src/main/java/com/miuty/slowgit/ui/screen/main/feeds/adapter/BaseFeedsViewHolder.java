@@ -17,7 +17,7 @@ import com.miuty.slowgit.util.SpannableBuilder;
 
 import butterknife.BindView;
 
-public abstract class BaseFeedsViewHolder<I extends BaseFeedsItem> extends BaseViewHolder<I> {
+public abstract class BaseFeedsViewHolder<T extends BaseFeedsItem> extends BaseViewHolder {
 
     @BindView(R.id.imv_avatar)
     ImageView imvAvatar;
@@ -38,9 +38,7 @@ public abstract class BaseFeedsViewHolder<I extends BaseFeedsItem> extends BaseV
         super(context, itemView);
     }
 
-    @Override
-    public void bindData(I item) {
-        super.bindData(item);
+    public void bindData(T item) {
         Glide.with(context)
                 .asDrawable()
                 .load(item.getActorAvatar())
@@ -64,8 +62,8 @@ public abstract class BaseFeedsViewHolder<I extends BaseFeedsItem> extends BaseV
     public abstract int setDrawableTimeIcon();
 
     @NonNull
-    public abstract SpannableBuilder buildTitle(I item);
+    public abstract SpannableBuilder buildTitle(T item);
 
     @NonNull
-    public abstract SpannableBuilder buildDescription(I item);
+    public abstract SpannableBuilder buildDescription(T item);
 }

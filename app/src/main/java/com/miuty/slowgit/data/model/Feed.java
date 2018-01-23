@@ -21,7 +21,7 @@ public class Feed {
     private String id;
 
     @SerializedName("type")
-    private FeedsType type;
+    private FeedsType type = FeedsType.NO_DEFINE;
 
     @SerializedName("actor")
     private Actor actor;

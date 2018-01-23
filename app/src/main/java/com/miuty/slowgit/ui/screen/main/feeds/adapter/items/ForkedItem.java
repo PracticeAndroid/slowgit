@@ -34,9 +34,4 @@ public class ForkedItem extends BaseFeedsItem {
         }
         return "";
     }
-
-    @Override
-    public int getItemViewType() {
-        return FeedsAdapter.ITEM_FEEDS_FORKED;
-    }
 }

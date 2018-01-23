@@ -9,9 +9,4 @@ public class PublicItem extends BaseFeedsItem {
     public PublicItem(Feed feed) {
         super(feed);
     }
-
-    @Override
-    public int getItemViewType() {
-        return FeedsAdapter.ITEM_FEEDS_PUBLIC;
-    }
 }

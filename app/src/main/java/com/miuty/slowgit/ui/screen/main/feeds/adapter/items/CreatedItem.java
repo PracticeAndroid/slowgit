@@ -10,9 +10,4 @@ public class CreatedItem extends BaseFeedsItem {
     public CreatedItem(Feed feed) {
         super(feed);
     }
-
-    @Override
-    public int getItemViewType() {
-        return FeedsAdapter.ITEM_FEEDS_CREATED;
-    }
 }

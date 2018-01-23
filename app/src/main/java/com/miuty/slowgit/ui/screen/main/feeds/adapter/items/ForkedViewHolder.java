@@ -15,12 +15,6 @@ public class ForkedViewHolder extends BaseFeedsViewHolder<ForkedItem> {
         super(context, itemView);
     }
 
-    @Override
-    public void bindData(ForkedItem item) {
-        super.bindData(item);
-
-    }
-
     @NonNull
     @Override
     public int setDrawableTimeIcon() {

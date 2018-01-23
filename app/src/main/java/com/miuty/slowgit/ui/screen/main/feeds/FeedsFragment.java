@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
+import android.util.Log;
 import android.view.View;
 
 import com.miuty.slowgit.R;
@@ -21,6 +22,8 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
 
     private static final String TAG = "FeedsFragment";
 
+    private int page = 1;
+
     @Override
     protected int layoutId() {
         return R.layout.fragment_feeds;
@@ -30,10 +33,9 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mRecyclerView.addItemDecoration(new VerticalSpacingDecoration(50, true));
-        presenter.getFeeds(1);
-
         mAdapter.initLoadMore(() -> {
-
+            Log.d(TAG, "loadmore" + page);
+            presenter.getFeeds(page);
         }, mRecyclerView);
     }
 
@@ -44,7 +46,10 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
 
     @Override
     protected void doRefresh() {
-        presenter.getFeeds(1);
+        mAdapter.setLoadMore(true);
+        page = 1;
+        mAdapter.clear();
+        presenter.getFeeds(page);
     }
 
     @Override
@@ -69,6 +74,12 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
 
     @Override
     public void showFeedsOnRecyclerView(List<BaseFeedsItem> items) {
+        if (items == null || items.size() == 0) { // end of loadmore
+            mAdapter.setLoadMore(false);
+            mAdapter.notifyItemChanged(mAdapter.getItems().size());
+        }
+        mAdapter.setLoaded();
+        page++;
         mAdapter.addItems(items);
     }
 }

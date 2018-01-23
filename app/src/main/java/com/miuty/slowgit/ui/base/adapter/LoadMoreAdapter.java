@@ -16,10 +16,9 @@ import butterknife.BindView;
  * Created by Asus on 1/19/2018.
  */
 
-public abstract class LoadMoreAdapter<I extends DisplayableItem> extends BaseAdapter<I> {
+public abstract class LoadMoreAdapter<VH extends BaseViewHolder> extends BaseAdapter {
 
     private static final int TYPE_LOAD_MORE = -1;
-    private static final int TYPE_ITEM = 0;
 
     //Load more
     private boolean isLoadMore = false;
@@ -35,6 +34,7 @@ public abstract class LoadMoreAdapter<I extends DisplayableItem> extends BaseAda
 
     public void initLoadMore(OnLoadMoreListener loadMoreListener, RecyclerView recyclerView) {
         this.loadMoreListener = loadMoreListener;
+        this.isLoadMore = true;
 
         final LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -55,8 +55,16 @@ public abstract class LoadMoreAdapter<I extends DisplayableItem> extends BaseAda
         });
     }
 
+    public void setLoadMore(boolean loadMore) {
+        isLoadMore = loadMore;
+    }
+
+    public void setLoaded() {
+        this.isLoading = false;
+    }
+
     @Override
-    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = null;
         switch (viewType) {
             case TYPE_LOAD_MORE:
@@ -68,22 +76,24 @@ public abstract class LoadMoreAdapter<I extends DisplayableItem> extends BaseAda
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
-
+        if (holder instanceof LoadMoreAdapter.LoadMoreViewHolder) {
+            ((LoadMoreViewHolder) holder).onBind();
+        }
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (getItemCount() == position) {
+        if (getItemCount() - 1 == position) {
             return TYPE_LOAD_MORE;
         } else {
             return super.getItemViewType(position);
         }
     }
 
-    @Override
+    /*@Override
     public int getItemCount() {
-        return super.getItemCount() + (isLoadMore ? 1 : 0);
-    }
+        return isLoadMore ? 1 : 0;
+    }*/
 
     public class LoadMoreViewHolder extends BaseViewHolder {
 
@@ -92,6 +102,14 @@ public abstract class LoadMoreAdapter<I extends DisplayableItem> extends BaseAda
 
         public LoadMoreViewHolder(Context context, View itemView) {
             super(context, itemView);
+        }
+
+        public void onBind() {
+            if (isLoadMore) {
+                progressBar.setVisibility(View.VISIBLE);
+            } else {
+                progressBar.setVisibility(View.GONE);
+            }
         }
     }
 

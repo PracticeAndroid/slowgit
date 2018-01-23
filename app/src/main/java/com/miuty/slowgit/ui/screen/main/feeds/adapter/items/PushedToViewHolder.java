@@ -21,7 +21,6 @@ public class PushedToViewHolder extends BaseFeedsViewHolder<PushedToItem> {
         super(context, itemView);
     }
 
-    @NonNull
     @Override
     public int setDrawableTimeIcon() {
         return R.drawable.ic_commit;

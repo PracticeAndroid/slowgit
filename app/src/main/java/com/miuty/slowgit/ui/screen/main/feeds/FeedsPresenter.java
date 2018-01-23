@@ -1,5 +1,7 @@
 package com.miuty.slowgit.ui.screen.main.feeds;
 
+import android.util.Log;
+
 import com.miuty.slowgit.data.model.Feed;
 import com.miuty.slowgit.data.repository.FeedsRepository;
 import com.miuty.slowgit.data.repository.FeedsRepositoryImpl;
@@ -19,6 +21,8 @@ import javax.inject.Inject;
 import io.reactivex.disposables.Disposable;
 
 public class FeedsPresenter extends BasePresenter<FeedsMvpView> {
+
+    private static final String TAG = "FeedsPresenter";
 
     private FeedsRepository feedsRepository;
     private SchedulerProvider schedulerProvider;
@@ -40,6 +44,7 @@ public class FeedsPresenter extends BasePresenter<FeedsMvpView> {
                     }
                 })
                 .subscribe(this::processFeedsResponse, throwable -> {
+                    Log.e(TAG, "getFeeds: " + throwable.getMessage());
                 });
         disposeOnDestroy(disposable);
     }
@@ -47,21 +52,28 @@ public class FeedsPresenter extends BasePresenter<FeedsMvpView> {
     public void processFeedsResponse(List<Feed> feeds) {
         List<BaseFeedsItem> feedsItems = new ArrayList<>();
         for (Feed feed : feeds) {
-            switch (feed.getType()) {
-                case PUSH_EVENT:
-                    feedsItems.add(new PushedToItem(feed));
-                    break;
-                case FORK_EVENT:
-                    feedsItems.add(new ForkedItem(feed));
-                    break;
-                case WATCH_EVENT:
-//                    feedsItems.add();
-                    break;
-                case CREATE_EVENT:
-                    feedsItems.add(new CreatedItem(feed));
-                    break;
-                case PUBLIC_EVENT:
-                    break;
+            if (feed.getType() != null) {
+                switch (feed.getType()) {
+                    case PUSH_EVENT:
+                        feedsItems.add(new PushedToItem(feed));
+                        break;
+                    case FORK_EVENT:
+                        feedsItems.add(new ForkedItem(feed));
+                        break;
+                    case WATCH_EVENT:
+
+                        break;
+                    case CREATE_EVENT:
+                        feedsItems.add(new CreatedItem(feed));
+                        break;
+                    case PUBLIC_EVENT:
+                        break;
+                    case NO_DEFINE:
+                        break;
+                    default:
+                        Log.e(TAG, "Dont have Feed with type: " + feed.getType());
+                        break;
+                }
             }
         }
         // convert model to displayable item
