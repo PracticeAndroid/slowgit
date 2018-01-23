@@ -55,7 +55,7 @@ public class FeedsPresenter extends BasePresenter<FeedsMvpView> {
                     feedsItems.add(new ForkedItem(feed));
                     break;
                 case WATCH_EVENT:
-
+//                    feedsItems.add();
                     break;
                 case CREATE_EVENT:
                     feedsItems.add(new CreatedItem(feed));

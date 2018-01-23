@@ -15,15 +15,24 @@ public class CreatedViewHolder extends BaseFeedsViewHolder<CreatedItem> {
         super(context, itemView);
     }
 
-    @NonNull
     @Override
     public int setDrawableTimeIcon() {
         return R.drawable.ic_github_icon;
     }
 
+    @NonNull
     @Override
     public SpannableBuilder buildTitle(CreatedItem item) {
-        return null;
+        SpannableBuilder spannableBuilder = SpannableBuilder.builder();
+
+        spannableBuilder
+                .append(item.getActorName())
+                .bold(" created ")
+                .append(" repository ")
+                .bold(" at ")
+                .append(item.getRepoNamePushTo());
+
+        return spannableBuilder;
     }
 
     @Override
