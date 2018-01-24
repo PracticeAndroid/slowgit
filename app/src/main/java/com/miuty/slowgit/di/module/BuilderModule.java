@@ -10,6 +10,8 @@ import com.miuty.slowgit.ui.screen.profile.ProfileActivity;
 import com.miuty.slowgit.ui.screen.profile.ProfileModule;
 import com.miuty.slowgit.ui.screen.profile.overview.ProfileOverviewFragmentProvider;
 import com.miuty.slowgit.ui.screen.main.pull_requests.PullRequestsFragmentProvider;
+import com.miuty.slowgit.ui.screen.repo.RepoActivity;
+import com.miuty.slowgit.ui.screen.repo.RepoModule;
 import com.miuty.slowgit.ui.screen.splash.SplashActivity;
 import com.miuty.slowgit.ui.screen.splash.SplashModule;
 
@@ -35,4 +37,7 @@ public abstract class BuilderModule {
 
     @ContributesAndroidInjector(modules = {ProfileModule.class, ProfileOverviewFragmentProvider.class})
     abstract ProfileActivity bindProfileActivity();
+
+    @ContributesAndroidInjector(modules = {RepoModule.class})
+    abstract RepoActivity bindRepoActivity();
 }

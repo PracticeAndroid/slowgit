@@ -4,13 +4,11 @@ package com.miuty.slowgit.ui.screen.main.feeds;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.DividerItemDecoration;
 import android.util.Log;
 import android.view.View;
 
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.adapter.BaseViewHolder;
-import com.miuty.slowgit.ui.base.adapter.LoadMoreAdapter;
 import com.miuty.slowgit.ui.base.adapter.decoration.VerticalSpacingDecoration;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpListFragment;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.BaseFeedsItem;
@@ -18,13 +16,10 @@ import com.miuty.slowgit.ui.screen.main.feeds.adapter.FeedsAdapter;
 
 import java.util.List;
 
-import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
-import jp.wasabeef.recyclerview.animators.LandingAnimator;
-import jp.wasabeef.recyclerview.animators.OvershootInLeftAnimator;
 import jp.wasabeef.recyclerview.animators.ScaleInAnimator;
 
-public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresenter, FeedsAdapter, BaseFeedsItem>
+public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresenter, FeedsAdapter>
         implements FeedsMvpView {
 
     private static final String TAG = "FeedsFragment";
@@ -47,7 +42,7 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
         mRecyclerView.addItemDecoration(new VerticalSpacingDecoration(50, true));
 
         mAdapter.initLoadMore(() -> {
-            Log.d(TAG, "loadmore" + page);
+            Log.d(TAG, "load more" + page);
             presenter.getFeeds(page);
         }, mRecyclerView);
     }
@@ -57,7 +52,8 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
         return new FeedsAdapter(getContext(), new BaseViewHolder.OnItemClickListener() {
             @Override
             public void onItemClick(int position, View v) {
-                mAdapter.remove(position);
+                /*mAdapter.remove(position);*/
+
             }
 
             @Override
@@ -97,7 +93,7 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
 
     @Override
     public void showFeedsOnRecyclerView(List<BaseFeedsItem> items) {
-        if (items == null || items.size() == 0) { // end of loadmore
+        if (items == null || items.size() == 0) { // end of load more
             mAdapter.setLoadMore(false);
             mAdapter.notifyItemChanged(mAdapter.getItems().size());
         }

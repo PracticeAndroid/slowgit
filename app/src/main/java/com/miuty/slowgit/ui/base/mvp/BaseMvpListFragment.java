@@ -11,14 +11,12 @@ import android.view.View;
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.adapter.BaseAdapter;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import butterknife.BindView;
 
 public abstract class BaseMvpListFragment<V extends MvpListView, P extends BasePresenter<V>,
-        A extends BaseAdapter, I> extends BaseMvpFragment<V, P> implements MvpListView {
+        A extends BaseAdapter> extends BaseMvpFragment<V, P> implements MvpListView {
 
     @BindView(R.id.swipe_refresh_layout)
     protected SwipeRefreshLayout mSwipeRefreshLayout;
@@ -28,7 +26,6 @@ public abstract class BaseMvpListFragment<V extends MvpListView, P extends BaseP
 
     @Inject
     protected RecyclerView.LayoutManager mLayoutManager;
-    protected List<I> mItems;
     protected A mAdapter;
 
     @Override
@@ -39,9 +36,7 @@ public abstract class BaseMvpListFragment<V extends MvpListView, P extends BaseP
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
-        mSwipeRefreshLayout.setOnRefreshListener(() -> {
-            doRefresh();
-        });
+        mSwipeRefreshLayout.setOnRefreshListener(this::doRefresh);
     }
 
     protected abstract A createAdapter();

@@ -21,6 +21,13 @@ import javax.inject.Inject;
 
 import io.reactivex.disposables.Disposable;
 
+import static com.miuty.slowgit.util.FeedsType.CREATE_EVENT;
+import static com.miuty.slowgit.util.FeedsType.FORK_EVENT;
+import static com.miuty.slowgit.util.FeedsType.NO_DEFINE;
+import static com.miuty.slowgit.util.FeedsType.PUBLIC_EVENT;
+import static com.miuty.slowgit.util.FeedsType.PUSH_EVENT;
+import static com.miuty.slowgit.util.FeedsType.WATCH_EVENT;
+
 public class FeedsPresenter extends BasePresenter<FeedsMvpView> {
 
     private static final String TAG = "FeedsPresenter";

@@ -2,7 +2,6 @@ package com.miuty.slowgit.ui.base.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +29,7 @@ public abstract class ArrayAdapter<T, VH extends BaseViewHolder> extends LoadMor
 
     @Override
     public int getItemCount() {
-        return items.size() + 1; // add 1 is to use loadmore item
+        return items.size() + 1; // add 1 is to use load more item
     }
 
     public void addItem(@NonNull T item) {

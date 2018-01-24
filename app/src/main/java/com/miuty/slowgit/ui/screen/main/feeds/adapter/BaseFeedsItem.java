@@ -3,7 +3,7 @@ package com.miuty.slowgit.ui.screen.main.feeds.adapter;
 
 import com.miuty.slowgit.data.model.Feed;
 
-public abstract class BaseFeedsItem {
+public abstract class  BaseFeedsItem {
 
     protected final Feed feed;
 
