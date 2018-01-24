@@ -8,13 +8,19 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
+import com.miuty.slowgit.provider.navigator.FragmentNavigator;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpActivity;
+
+import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
 
 public abstract class BaseFragment extends Fragment {
 
     protected BaseMvpActivity baseActivity;
+
+    @Inject
+    protected FragmentNavigator fragmentNavigator;
 
     @Override
     public void onAttach(Context context) {
