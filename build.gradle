@@ -7,13 +7,12 @@ buildscript {
         daggerVersion = '2.13'
         retrofitVersion = '2.3.0'
         okHttpVersion = '3.9.1'
-        glideVersion = '4.3.0'
+        glideVersion = '4.5.0'
         butterKnifeVersion = '8.8.1'
         rxVersion = '2.1.7'
         rxAndroidVersion = '2.0.1'
         roomVersion = '1.0.0'
-        lifecycleVersion = '1.0.0'
-        glideVersion = '4.5.0'
+        lifecycleVersion = '1.1.0'
     }
 
     repositories {
