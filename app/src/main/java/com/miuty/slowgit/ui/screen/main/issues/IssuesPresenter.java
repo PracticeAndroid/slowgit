@@ -9,5 +9,6 @@ public class IssuesPresenter extends BasePresenter<IssuesMvpView> {
 
     @Inject
     public IssuesPresenter() {
+
     }
 }

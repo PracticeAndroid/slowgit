@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room;
 import android.support.test.InstrumentationRegistry;
 
 import com.miuty.slowgit.data.model.User;
-import com.miuty.slowgit.data.repository.local.AppDatabase;
+import com.miuty.slowgit.data.repository.AppDatabase;
 
 import org.junit.After;
 import org.junit.Before;

@@ -1,9 +1,11 @@
-package com.miuty.slowgit.data.repository;
+package com.miuty.slowgit.data.repository.feed;
 
 
 import com.miuty.slowgit.data.model.Feed;
-import com.miuty.slowgit.data.repository.local.FeedsLocalServiceImpl;
-import com.miuty.slowgit.data.repository.remote.FeedsRemoteServiceImpl;
+import com.miuty.slowgit.data.repository.feed.local.FeedsLocalService;
+import com.miuty.slowgit.data.repository.feed.local.FeedsLocalServiceImpl;
+import com.miuty.slowgit.data.repository.feed.remote.FeedsRemoteService;
+import com.miuty.slowgit.data.repository.feed.remote.FeedsRemoteServiceImpl;
 
 import java.util.List;
 
@@ -13,8 +15,8 @@ import io.reactivex.Observable;
 
 public class FeedsRepositoryImpl implements FeedsRepository {
 
-    private FeedsRepository feedsRemoteService;
-    private FeedsRepository feedsLocalService;
+    private FeedsRemoteService feedsRemoteService;
+    private FeedsLocalService feedsLocalService;
 
     @Inject
     public FeedsRepositoryImpl(FeedsRemoteServiceImpl feedsRemoteService, FeedsLocalServiceImpl feedsLocalService) {

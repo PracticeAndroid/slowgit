@@ -1,10 +1,8 @@
-package com.miuty.slowgit.data.repository.remote;
+package com.miuty.slowgit.data.repository.auth.remote;
 
 import com.miuty.slowgit.BuildConfig;
-import com.miuty.slowgit.data.model.User;
 import com.miuty.slowgit.data.model.request.BasicAuthRequest;
 import com.miuty.slowgit.data.model.response.BasicAuthResponse;
-import com.miuty.slowgit.data.repository.AuthRepository;
 import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
 import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
 import com.miuty.slowgit.provider.network.NetworkProvider;
@@ -13,8 +11,6 @@ import java.util.Arrays;
 
 import javax.inject.Inject;
 
-import io.reactivex.Completable;
-import io.reactivex.Maybe;
 import io.reactivex.Observable;
 import okhttp3.Credentials;
 
@@ -22,7 +18,7 @@ import okhttp3.Credentials;
  * Created by Asus on 1/13/2018.
  */
 
-public class AuthRemoteServiceImpl implements AuthRepository {
+public class AuthRemoteServiceImpl implements AuthRemoteService {
 
     protected NetworkProvider networkProvider;
 
@@ -46,20 +42,4 @@ public class AuthRemoteServiceImpl implements AuthRepository {
                 networkProvider.provideApi(BuildConfig.REST_URL, AuthRestService.class)
                         .doBasicLogin(basicAuthRequest));
     }
-
-    @Override
-    public Observable<BasicAuthResponse> saveToken(BasicAuthResponse authResponse) {
-        return null;
-    }
-
-    @Override
-    public Maybe<User> getUser() {
-        return null;
-    }
-
-    @Override
-    public Completable saveUser(User user) {
-        return null;
-    }
-
 }

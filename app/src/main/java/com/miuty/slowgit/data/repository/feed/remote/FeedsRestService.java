@@ -1,4 +1,4 @@
-package com.miuty.slowgit.data.repository.remote;
+package com.miuty.slowgit.data.repository.feed.remote;
 
 
 import com.miuty.slowgit.data.model.Feed;

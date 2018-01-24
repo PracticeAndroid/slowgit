@@ -2,8 +2,8 @@ package com.miuty.slowgit.ui.screen.login;
 
 import android.support.annotation.NonNull;
 
-import com.miuty.slowgit.data.repository.AuthRepository;
-import com.miuty.slowgit.data.repository.AuthRepositoryImpl;
+import com.miuty.slowgit.data.repository.auth.AuthRepository;
+import com.miuty.slowgit.data.repository.auth.AuthRepositoryImpl;
 import com.miuty.slowgit.provider.network.DefaultApiException;
 import com.miuty.slowgit.provider.scheduler.SchedulerProvider;
 import com.miuty.slowgit.provider.scheduler.SchedulerProviderImpl;

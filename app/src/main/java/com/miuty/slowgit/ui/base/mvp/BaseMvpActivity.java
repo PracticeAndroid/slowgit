@@ -32,8 +32,7 @@ public abstract class BaseMvpActivity<V extends MvpView, P extends BasePresenter
     protected CommonProgressDialogFragment progressDialogFragment;
     private Unbinder unbinder;
 
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
+    protected Toolbar mToolbar;
 
     @LayoutRes
     protected abstract int layoutId();
@@ -47,6 +46,7 @@ public abstract class BaseMvpActivity<V extends MvpView, P extends BasePresenter
         super.onCreate(savedInstanceState);
         if (layoutId() != 0) {
             setContentView(layoutId());
+            mToolbar = findViewById(R.id.toolbar);
             unbinder = ButterKnife.bind(this);
         }
 

@@ -1,8 +1,8 @@
-package com.miuty.slowgit.data.repository.local;
+package com.miuty.slowgit.data.repository.auth.local;
 
 import com.miuty.slowgit.data.model.User;
 import com.miuty.slowgit.data.model.response.BasicAuthResponse;
-import com.miuty.slowgit.data.repository.AuthRepository;
+import com.miuty.slowgit.data.repository.AppDatabase;
 
 import javax.inject.Inject;
 
@@ -14,18 +14,13 @@ import io.reactivex.Observable;
  * Created by Asus on 1/13/2018.
  */
 
-public class AuthLocalServiceImpl implements AuthRepository {
+public class AuthLocalServiceImpl implements AuthLocalService {
 
     private AppDatabase appDatabase;
 
     @Inject
     public AuthLocalServiceImpl(AppDatabase appDatabase) {
         this.appDatabase = appDatabase;
-    }
-
-    @Override
-    public Observable<BasicAuthResponse> doBasicLogin(String user, String password) throws UnsupportedOperationException {
-        throw new UnsupportedOperationException();
     }
 
     @Override

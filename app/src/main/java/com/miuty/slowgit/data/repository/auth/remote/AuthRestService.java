@@ -1,4 +1,4 @@
-package com.miuty.slowgit.data.repository.remote;
+package com.miuty.slowgit.data.repository.auth.remote;
 
 import com.miuty.slowgit.data.model.User;
 import com.miuty.slowgit.data.model.request.BasicAuthRequest;

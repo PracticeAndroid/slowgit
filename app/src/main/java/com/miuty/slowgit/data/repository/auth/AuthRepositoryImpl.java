@@ -1,9 +1,11 @@
-package com.miuty.slowgit.data.repository;
+package com.miuty.slowgit.data.repository.auth;
 
 import com.miuty.slowgit.data.model.User;
 import com.miuty.slowgit.data.model.response.BasicAuthResponse;
-import com.miuty.slowgit.data.repository.local.AuthLocalServiceImpl;
-import com.miuty.slowgit.data.repository.remote.AuthRemoteServiceImpl;
+import com.miuty.slowgit.data.repository.auth.local.AuthLocalService;
+import com.miuty.slowgit.data.repository.auth.local.AuthLocalServiceImpl;
+import com.miuty.slowgit.data.repository.auth.remote.AuthRemoteService;
+import com.miuty.slowgit.data.repository.auth.remote.AuthRemoteServiceImpl;
 
 import javax.inject.Inject;
 
@@ -17,8 +19,8 @@ import io.reactivex.Observable;
 
 public class AuthRepositoryImpl implements AuthRepository {
 
-    private AuthRepository authRemoteService;
-    private AuthRepository authLocalService;
+    private AuthRemoteService authRemoteService;
+    private AuthLocalService authLocalService;
 
     @Inject
     public AuthRepositoryImpl(AuthRemoteServiceImpl authRemoteService, AuthLocalServiceImpl authLocalService) {

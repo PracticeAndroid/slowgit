@@ -1,8 +1,7 @@
-package com.miuty.slowgit.data.repository.remote;
+package com.miuty.slowgit.data.repository.feed.remote;
 
 
 import com.miuty.slowgit.data.model.Feed;
-import com.miuty.slowgit.data.repository.FeedsRepository;
 import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
 import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
 import com.miuty.slowgit.provider.network.NetworkProvider;
@@ -15,7 +14,7 @@ import javax.inject.Named;
 
 import io.reactivex.Observable;
 
-public class FeedsRemoteServiceImpl implements FeedsRepository {
+public class FeedsRemoteServiceImpl implements FeedsRemoteService {
 
     private NetworkProvider networkProvider;
     private String apiUrl;

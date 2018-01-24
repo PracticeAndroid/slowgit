@@ -3,8 +3,8 @@ package com.miuty.slowgit.ui.screen.main.feeds;
 import android.util.Log;
 
 import com.miuty.slowgit.data.model.Feed;
-import com.miuty.slowgit.data.repository.FeedsRepository;
-import com.miuty.slowgit.data.repository.FeedsRepositoryImpl;
+import com.miuty.slowgit.data.repository.feed.FeedsRepository;
+import com.miuty.slowgit.data.repository.feed.FeedsRepositoryImpl;
 import com.miuty.slowgit.provider.scheduler.SchedulerProvider;
 import com.miuty.slowgit.provider.scheduler.SchedulerProviderImpl;
 import com.miuty.slowgit.ui.base.mvp.BasePresenter;

@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room;
 import android.content.Context;
 
 import com.miuty.slowgit.SlowGitApplication;
-import com.miuty.slowgit.data.repository.local.AppDatabase;
+import com.miuty.slowgit.data.repository.AppDatabase;
 import com.miuty.slowgit.di.qualifier.ApplicationContext;
 
 import dagger.Module;

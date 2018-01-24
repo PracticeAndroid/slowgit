@@ -113,12 +113,12 @@ public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpV
 
     @Override
     public void showProgress(String msg, boolean isCancelable) {
-        baseActivity.showProgress(msg, isCancelable);
+
     }
 
     @Override
     public void hideProgress() {
-        baseActivity.hideProgress();
+
     }
 
     @Override
@@ -135,7 +135,7 @@ public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpV
         btnFollowers.setText(String.format(Locale.ENGLISH, "Followers (%d)", basicProfile.getFollowers()));
         btnFollowing.setText(String.format(Locale.ENGLISH, "Following (%d)", basicProfile.getFollowing()));
 
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM d, yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM d, yyyy", Locale.ENGLISH);
         InputUtils.goneViewIfEmpty(rlOrganization, basicProfile.getCompany());
         InputUtils.goneViewIfEmpty(rlLocation, basicProfile.getLocation());
         InputUtils.goneViewIfEmpty(rlEmail, basicProfile.getEmail());
@@ -165,7 +165,7 @@ public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpV
 
     @Override
     public void onGetContributionsSuccessfully(ResponseBody responseBody) {
-        if(responseBody != null){
+        if (responseBody != null) {
             InputStream inputStream = responseBody.byteStream();
             try {
                 SVG svg = SVG.getFromInputStream(inputStream);

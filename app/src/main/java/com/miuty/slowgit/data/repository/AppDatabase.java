@@ -1,4 +1,4 @@
-package com.miuty.slowgit.data.repository.local;
+package com.miuty.slowgit.data.repository;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;

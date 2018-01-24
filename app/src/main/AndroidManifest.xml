@@ -17,19 +17,21 @@
             android:name=".ui.screen.splash.SplashActivity"
             android:theme="@style/SplashTheme">
 
+
+        </activity>
+        <activity android:name=".ui.screen.main.MainActivity">
+
+        </activity>
+
+        <activity android:name=".ui.screen.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.screen.main.MainActivity">
 
-        </activity>
-
-        <activity android:name=".ui.screen.login.LoginActivity" />
         <activity android:name=".ui.screen.profile.ProfileActivity">
-
 
         </activity>
     </application>
