@@ -1,11 +1,11 @@
 package com.miuty.slowgit.provider.navigator;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 
 /**
  * Created by Asus on 1/16/2018.

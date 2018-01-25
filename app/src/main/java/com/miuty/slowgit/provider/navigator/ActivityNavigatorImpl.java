@@ -1,12 +1,17 @@
 package com.miuty.slowgit.provider.navigator;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 /**
  * Created by Asus on 1/16/2018.
@@ -15,9 +20,11 @@ import android.support.v7.app.AppCompatActivity;
 public class ActivityNavigatorImpl implements ActivityNavigator {
 
     protected final Context context;
+    protected final AppCompatActivity activity;
 
-    public ActivityNavigatorImpl(Context context) {
+    public ActivityNavigatorImpl(Context context, AppCompatActivity activity) {
         this.context = context;
+        this.activity = activity;
     }
 
     @Override
@@ -47,13 +54,33 @@ public class ActivityNavigatorImpl implements ActivityNavigator {
     }
 
     @Override
-    public void replaceFragment(int idResource, @NonNull Fragment fragment) {
-
+    public void replaceFragment(@IdRes int idResource, @NonNull Fragment fragment) {
+        replaceFragment(activity.getSupportFragmentManager(), idResource, fragment,
+                null, null, false, null);
     }
 
     @Override
-    public void replaceFragment(int idResource, @NonNull Fragment fragment, Bundle bundle) {
+    public void replaceFragment(@IdRes int idResource, @NonNull Fragment fragment, Bundle bundle) {
+        replaceFragment(activity.getSupportFragmentManager(), idResource, fragment,
+                null, bundle, false, null);
+    }
 
+    public void replaceFragment(@NonNull FragmentManager fragmentManager, @IdRes int idResource,
+                                @NonNull Fragment fragment, @Nullable String tag,
+                                @Nullable Bundle args, boolean hasAddToBackStack, @Nullable String backStackTag,
+                                @Nullable View... transitionView) {
+        if (args != null) {
+            fragment.setArguments(args);
+        }
+
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(idResource, fragment, tag);
+        if (hasAddToBackStack) {
+            ft.addToBackStack(tag).commit();
+            fragmentManager.executePendingTransactions();
+        } else {
+            ft.commitNow();
+        }
     }
 
     @Override

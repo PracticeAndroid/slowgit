@@ -26,6 +26,11 @@ public class FeedsFragment extends BaseMvpListFragment<FeedsMvpView, FeedsPresen
 
     private int page = 1;
 
+    public static FeedsFragment newInstance() {
+        FeedsFragment fragment = new FeedsFragment();
+        return fragment;
+    }
+
     @Override
     protected int layoutId() {
         return R.layout.fragment_feeds;

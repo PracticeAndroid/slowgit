@@ -10,5 +10,4 @@ public class MainPresenter extends BasePresenter<MainMvpView> {
     @Inject
     public MainPresenter() {
     }
-
 }

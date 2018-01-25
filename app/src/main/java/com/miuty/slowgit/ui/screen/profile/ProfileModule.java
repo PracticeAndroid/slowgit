@@ -3,6 +3,7 @@ package com.miuty.slowgit.ui.screen.profile;
 
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 
 import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
@@ -33,7 +34,7 @@ public abstract class ProfileModule {
 
     @Provides
     public static ActivityNavigator provideActivityNavigator(@ActivityContext Context context) {
-        return new ActivityNavigatorImpl(context);
+        return new ActivityNavigatorImpl(context, (AppCompatActivity) context);
     }
 
    /* @Provides

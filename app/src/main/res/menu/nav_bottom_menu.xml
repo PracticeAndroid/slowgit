@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/bottomNavFeeds"
+        android:id="@+id/bnv_feeds"
         android:icon="@drawable/ic_github"
-        android:title="Feeds" />
+        android:title="@string/feeds" />
 
     <item
-        android:id="@+id/bottomNavIssues"
+        android:id="@+id/bnv_issues"
         android:icon="@drawable/ic_github"
-        android:title="Issues" />
+        android:title="@string/issues" />
 
     <item
-        android:id="@+id/bottomNavPullRequests"
+        android:id="@+id/bnv_pull_request"
         android:icon="@drawable/ic_github"
-        android:title="Pull Requests" />
+        android:title="@string/pull_requests" />
 
 </menu>
