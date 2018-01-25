@@ -34,4 +34,9 @@ public class ForkedViewHolder extends BaseFeedsViewHolder<ForkedItem> {
     public SpannableBuilder buildDescription(ForkedItem item) {
         return null;
     }
+
+    @Override
+    public void onFeedClick(View view) {
+
+    }
 }

@@ -21,6 +21,7 @@ public class StarredViewHolder extends BaseFeedsViewHolder<StarredItem> {
         return R.drawable.ic_star;
     }
 
+    @NonNull
     @Override
     public SpannableBuilder buildTitle(StarredItem item) {
         SpannableBuilder spannableBuilder = SpannableBuilder.builder();
@@ -33,8 +34,14 @@ public class StarredViewHolder extends BaseFeedsViewHolder<StarredItem> {
         return spannableBuilder;
     }
 
+    @NonNull
     @Override
     public SpannableBuilder buildDescription(StarredItem item) {
         return null;
+    }
+
+    @Override
+    public void onFeedClick(View view) {
+
     }
 }

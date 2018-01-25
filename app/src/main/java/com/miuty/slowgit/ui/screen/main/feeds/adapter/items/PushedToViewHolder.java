@@ -72,4 +72,9 @@ public class PushedToViewHolder extends BaseFeedsViewHolder<PushedToItem> {
         }
         return spannableBuilder;
     }
+
+    @Override
+    public void onFeedClick(View view) {
+
+    }
 }

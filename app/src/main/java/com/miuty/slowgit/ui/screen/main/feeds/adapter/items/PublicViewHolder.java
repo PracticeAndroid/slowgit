@@ -30,4 +30,9 @@ public class PublicViewHolder extends BaseFeedsViewHolder<PublicItem> {
     public SpannableBuilder buildDescription(PublicItem item) {
         return null;
     }
+
+    @Override
+    public void onFeedClick(View view) {
+
+    }
 }

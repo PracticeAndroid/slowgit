@@ -40,4 +40,9 @@ public class CreatedViewHolder extends BaseFeedsViewHolder<CreatedItem> {
     public SpannableBuilder buildDescription(CreatedItem item) {
         return null;
     }
+
+    @Override
+    public void onFeedClick(View view) {
+
+    }
 }
