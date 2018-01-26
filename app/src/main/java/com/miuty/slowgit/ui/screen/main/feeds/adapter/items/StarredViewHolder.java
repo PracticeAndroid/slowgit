@@ -2,11 +2,13 @@ package com.miuty.slowgit.ui.screen.main.feeds.adapter.items;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.view.View;
 
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.screen.main.feeds.adapter.BaseFeedsViewHolder;
+import com.miuty.slowgit.ui.screen.repo.RepoActivity;
 import com.miuty.slowgit.util.SpannableBuilder;
 
 public class StarredViewHolder extends BaseFeedsViewHolder<StarredItem> {
@@ -42,6 +44,7 @@ public class StarredViewHolder extends BaseFeedsViewHolder<StarredItem> {
 
     @Override
     public void onFeedClick(View view) {
-
+        // TODO: 25/01/2018 a hack
+        context.startActivity(new Intent(context, RepoActivity.class));
     }
 }

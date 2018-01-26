@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.BottomNavigationView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/view_bottom_navigation"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    app:itemBackground="@color/colorPrimary"
+    app:itemIconTint="@drawable/selector_bottom_navigation_view_main"
+    app:itemTextColor="@drawable/selector_bottom_navigation_view_main"
+    app:layout_behavior="com.miuty.slowgit.ui.widget.behavior.BottomNavigationBehavior"
+    app:menu="@menu/nav_bottom_menu_repo" />

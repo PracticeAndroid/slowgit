@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bnv_code"
+        android:icon="@drawable/ic_github"
+        android:title="@string/code" />
+
+    <item
+        android:id="@+id/bnv_issues"
+        android:icon="@drawable/ic_github"
+        android:title="@string/issues" />
+
+    <item
+        android:id="@+id/bnv_pull_request"
+        android:icon="@drawable/ic_github"
+        android:title="@string/pull_requests" />
+
+    <item
+        android:id="@+id/bnv_project"
+        android:icon="@drawable/ic_github"
+        android:title="@string/projects" />
+
+</menu>

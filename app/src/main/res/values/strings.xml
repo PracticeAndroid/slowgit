@@ -13,4 +13,6 @@
     <string name="feeds">Feeds</string>
     <string name="issues">Issues</string>
     <string name="pull_requests">Pull Requests</string>
+    <string name="code">Code</string>
+    <string name="projects">Projects</string>
 </resources>
