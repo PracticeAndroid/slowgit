@@ -24,4 +24,24 @@ public class Repo {
     @SerializedName("url")
     private String url;
 
+    @SerializedName("fork")
+    private boolean isFork;
+
+    @SerializedName("size")
+    private long size;
+
+    @SerializedName("stargazers_count")
+    private int stargazersCount;
+
+    @SerializedName("watchers_count")
+    private int watchersCount;
+
+    @SerializedName("language")
+    private String language;
+
+    @SerializedName("forks_count")
+    private int forksCount;
+
+    @SerializedName("forks")
+    private int forks;
 }

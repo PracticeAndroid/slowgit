@@ -1,10 +1,13 @@
 package com.miuty.slowgit.data.repository.profile.remote;
 
+import com.miuty.slowgit.data.model.Repo;
 import com.miuty.slowgit.data.model.profile.BasicProfile;
 import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
 import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
 import com.miuty.slowgit.provider.network.NetworkProvider;
 import com.miuty.slowgit.util.ApiConst;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -47,4 +50,13 @@ public class ProfileRemoteServiceImpl implements ProfileRemoteService {
                         .getContributions(loginId)
         );
     }
+
+    @Override
+    public Observable<List<Repo>> getRepos(String loginId, int page) {
+        return networkProvider.makeRequest(
+                networkProvider.provideApi(apiUrl, ProfileRestService.class)
+                        .getRepos(loginId, page)
+        );
+    }
+
 }

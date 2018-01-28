@@ -7,9 +7,14 @@
     <dimen name="default_radius">5dp</dimen>
     <dimen name="default_border_background">1dp</dimen>
 
+    <dimen name="spacing_micro">4dp</dimen>
     <dimen name="spacing_normal">8dp</dimen>
     <dimen name="spacing_xs_large">16dp</dimen>
     <dimen name="spacing_large">32dp</dimen>
+    <dimen name="grid_spacing">0dp</dimen>
+
+    <dimen name="avatar_margin">16dp</dimen>
+    <dimen name="avatar_margin_end">16dp</dimen>
 
     <dimen name="keyline_1">72dp</dimen>
     <dimen name="keyline_2">76dp</dimen>

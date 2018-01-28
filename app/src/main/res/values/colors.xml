@@ -32,4 +32,6 @@
     <color name="default_text_color_gray">#423232</color>
 
     <color name="darkWindowBackground">#22252A</color>
+
+    <color name="material_indigo_700">#303F9F</color>
 </resources>
