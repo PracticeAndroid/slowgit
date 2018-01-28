@@ -1,6 +1,8 @@
 package com.miuty.slowgit.data.repository.issue.remote;
 
 import com.miuty.slowgit.data.model.Issues;
+import com.miuty.slowgit.data.repository.feed.remote.FeedsRestService;
+import com.miuty.slowgit.data.repository.issue.IssuesRepository;
 import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
 import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
 import com.miuty.slowgit.provider.network.NetworkProvider;
@@ -29,7 +31,10 @@ public class IssuesRemoteServiceImpl implements IssuesRemoteService {
 
 
     @Override
-    public Observable<Issues> getIssues(String q, int page) {
-        return null;
+    public Observable<Issues> getCreatedIssues(String q, int page) {
+        return networkProvider.makeRequest(
+                networkProvider.provideApi(apiUrl, IssuesRestService.class)
+                        .getIssues(q, page)
+        );
     }
 }

@@ -66,14 +66,4 @@ public class IssuesFragment extends BaseMvpFragment<IssuesMvpView, IssuesPresent
     public void hideRefreshLayout() {
 
     }
-
-    @Override
-    public void onGetIssuesSuccessfully(Issues issues) {
-
-    }
-
-    @Override
-    public void onGetIssuesFailed(Throwable throwable) {
-
-    }
 }

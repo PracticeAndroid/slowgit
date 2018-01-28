@@ -37,9 +37,9 @@ public class IssuesRepositoryImpl implements IssuesRepository {
     public Observable<Issues> getIssues(int page, IssuesType issuesType) {
         switch (issuesType) {
             case CREATED:
-                issuesRemoteService.getIssues("type:issue+involves:hungpn+is:open", page);
-                break;
+                return issuesRemoteService.getCreatedIssues("type:issue+involves:hungpn+is:open", page);
+            default:
+                return Observable.error(new IllegalArgumentException("issuesType not found"));
         }
-        return null;
     }
 }

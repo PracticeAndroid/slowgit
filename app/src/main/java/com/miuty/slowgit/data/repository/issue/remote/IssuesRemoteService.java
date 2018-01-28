@@ -10,5 +10,5 @@ import io.reactivex.Observable;
 
 public interface IssuesRemoteService {
 
-    Observable<Issues> getIssues(String q, int page);
+    Observable<Issues> getCreatedIssues(String q, int page);
 }
