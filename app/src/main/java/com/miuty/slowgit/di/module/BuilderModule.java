@@ -34,7 +34,8 @@ public abstract class BuilderModule {
     abstract LoginActivity bindLoginActivity();
 
     @ContributesAndroidInjector(modules = {MainModule.class, FeedsFragmentProvider.class,
-            IssuesFragmentProvider.class, PullRequestsFragmentProvider.class})
+            IssuesFragmentProvider.class,
+            PullRequestsFragmentProvider.class})
     abstract MainActivity bindMainActivity();
 
     @ContributesAndroidInjector(modules = {ProfileModule.class, ProfileOverviewFragmentProvider.class, ProfileRepositoriesFragmentProvider.class})

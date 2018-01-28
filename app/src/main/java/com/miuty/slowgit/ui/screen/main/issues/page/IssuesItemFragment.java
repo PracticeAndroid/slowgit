@@ -6,17 +6,17 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.miuty.slowgit.R;
+import com.miuty.slowgit.data.model.Issues;
 import com.miuty.slowgit.ui.base.adapter.BaseViewHolder;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpListFragment;
-import com.miuty.slowgit.ui.screen.main.issues.IssuesMvpView;
-import com.miuty.slowgit.ui.screen.main.issues.IssuesPresenter;
 import com.miuty.slowgit.ui.screen.main.issues.page.adapter.IssuesItemAdapter;
 
 /**
  * Created by Asus on 1/28/2018.
  */
 
-public class IssuesItemFragment extends BaseMvpListFragment<IssuesMvpView, IssuesPresenter, IssuesItemAdapter> {
+public class IssuesItemFragment extends BaseMvpListFragment<IssueItemMvpView, IssueItemPresenter, IssuesItemAdapter>
+        implements IssueItemMvpView {
 
     private IssuesType issuesType;
 
@@ -35,6 +35,7 @@ public class IssuesItemFragment extends BaseMvpListFragment<IssuesMvpView, Issue
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        presenter.getIssues(1, IssuesType.CREATED);
     }
 
     @Override
@@ -78,6 +79,16 @@ public class IssuesItemFragment extends BaseMvpListFragment<IssuesMvpView, Issue
 
     @Override
     public void hideProgress() {
+
+    }
+
+    @Override
+    public void onGetIssuesSuccessfully(Issues issues) {
+
+    }
+
+    @Override
+    public void onGetIssuesFailed(Throwable throwable) {
 
     }
 }

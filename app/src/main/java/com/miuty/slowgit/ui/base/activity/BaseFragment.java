@@ -13,11 +13,17 @@ import com.miuty.slowgit.ui.base.mvp.BaseMvpActivity;
 
 import javax.inject.Inject;
 
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.AndroidSupportInjection;
+import dagger.android.support.HasSupportFragmentInjector;
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment implements HasSupportFragmentInjector {
 
     protected BaseMvpActivity baseActivity;
+
+    @Inject
+    protected DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
 
     @Inject
     protected FragmentNavigator fragmentNavigator;
@@ -44,5 +50,10 @@ public abstract class BaseFragment extends Fragment {
 
     public String getTitle() {
         return "";
+    }
+
+    @Override
+    public AndroidInjector<Fragment> supportFragmentInjector() {
+        return fragmentDispatchingAndroidInjector;
     }
 }

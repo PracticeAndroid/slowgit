@@ -6,7 +6,4 @@ import com.miuty.slowgit.ui.base.mvp.MvpListView;
 
 public interface IssuesMvpView extends MvpListView {
 
-    void onGetIssuesSuccessfully(Issues issues);
-
-    void onGetIssuesFailed(Throwable throwable);
 }
