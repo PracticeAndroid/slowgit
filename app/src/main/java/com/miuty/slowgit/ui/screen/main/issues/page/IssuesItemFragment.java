@@ -8,15 +8,13 @@ import android.view.View;
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.adapter.BaseViewHolder;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpListFragment;
-import com.miuty.slowgit.ui.screen.main.issues.IssuesMvpView;
-import com.miuty.slowgit.ui.screen.main.issues.IssuesPresenter;
 import com.miuty.slowgit.ui.screen.main.issues.page.adapter.IssuesItemAdapter;
 
 /**
  * Created by Asus on 1/28/2018.
  */
 
-public class IssuesItemFragment extends BaseMvpListFragment<IssuesMvpView, IssuesPresenter, IssuesItemAdapter> {
+public class IssuesItemFragment extends BaseMvpListFragment<IssueItemMvpView, IssueItemPresenter, IssuesItemAdapter> {
 
     private IssuesType issuesType;
 
