@@ -2,10 +2,15 @@ package com.miuty.slowgit.ui.screen.main.issues;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.miuty.slowgit.R;
+import com.miuty.slowgit.data.model.Issues;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpFragment;
+import com.miuty.slowgit.ui.screen.main.issues.page.adapter.IssuesPagerAdapter;
 import com.miuty.slowgit.ui.screen.profile.overview.ProfileOverviewFragment;
 import com.miuty.slowgit.util.BundleKeyConst;
 
@@ -15,6 +20,8 @@ public class IssuesFragment extends BaseMvpFragment<IssuesMvpView, IssuesPresent
 
     @BindView(R.id.view_pager)
     ViewPager viewPager;
+
+    private IssuesPagerAdapter pagerAdapter;
 
     public static IssuesFragment newInstance() {
         Bundle args = new Bundle();
@@ -26,6 +33,13 @@ public class IssuesFragment extends BaseMvpFragment<IssuesMvpView, IssuesPresent
     @Override
     protected int layoutId() {
         return R.layout.fragment_issues;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        pagerAdapter = new IssuesPagerAdapter(getChildFragmentManager(), presenter.initListPagerFragment());
+        viewPager.setAdapter(pagerAdapter);
     }
 
     @Override
@@ -45,6 +59,21 @@ public class IssuesFragment extends BaseMvpFragment<IssuesMvpView, IssuesPresent
 
     @Override
     public void hideProgress() {
+
+    }
+
+    @Override
+    public void hideRefreshLayout() {
+
+    }
+
+    @Override
+    public void onGetIssuesSuccessfully(Issues issues) {
+
+    }
+
+    @Override
+    public void onGetIssuesFailed(Throwable throwable) {
 
     }
 }

@@ -2,6 +2,7 @@ package com.miuty.slowgit.ui.base.mvp;
 
 
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -37,6 +38,7 @@ public abstract class BaseMvpFragment<V extends MvpView, P extends BasePresenter
         return inflater.inflate(layoutId(), null, false);
     }
 
+    @CallSuper
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

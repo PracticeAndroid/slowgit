@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpActivity;
 import com.miuty.slowgit.ui.screen.main.feeds.FeedsFragment;
+import com.miuty.slowgit.ui.screen.main.issues.IssuesFragment;
 
 import butterknife.BindView;
 
@@ -64,7 +65,7 @@ public class MainActivity extends BaseMvpActivity<MainMvpView, MainPresenter> im
                 activityNavigator.replaceFragment(R.id.container, FeedsFragment.newInstance());
                 break;
             case R.id.bnv_issues:
-                activityNavigator.replaceFragment(R.id.container, FeedsFragment.newInstance());
+                activityNavigator.replaceFragment(R.id.container, IssuesFragment.newInstance());
                 break;
             case R.id.bnv_pull_request:
                 activityNavigator.replaceFragment(R.id.container, FeedsFragment.newInstance());
