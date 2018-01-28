@@ -1,4 +1,4 @@
-package com.miuty.slowgit.ui.screen.repo.readme;
+package com.miuty.slowgit.ui.screen.repo.commits;
 
 
 import android.os.Bundle;
@@ -6,23 +6,29 @@ import android.os.Bundle;
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpFragment;
 
-public class ReadMeFragment extends BaseMvpFragment<ReadMeMvpView, ReadMePresenter> implements ReadMeMvpView {
+public class CommitsFragment extends BaseMvpFragment<CommitsMvpView, CommitsPresenter>
+        implements CommitsMvpView {
 
-    public static ReadMeFragment newInstance() {
+    public static CommitsFragment newInstance() {
         Bundle args = new Bundle();
-        ReadMeFragment fragment = new ReadMeFragment();
+        CommitsFragment fragment = new CommitsFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     protected int layoutId() {
-        return R.layout.layout_recycler_view;
+        return R.layout.fragment_commits;
     }
 
     @Override
     public String getTitle() {
-        return "Read Me";
+        return "Commits";
+    }
+
+    @Override
+    public void hideRefreshLayout() {
+
     }
 
     @Override

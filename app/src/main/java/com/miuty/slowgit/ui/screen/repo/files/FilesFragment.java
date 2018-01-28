@@ -1,4 +1,4 @@
-package com.miuty.slowgit.ui.screen.repo.readme;
+package com.miuty.slowgit.ui.screen.repo.files;
 
 
 import android.os.Bundle;
@@ -6,11 +6,12 @@ import android.os.Bundle;
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpFragment;
 
-public class ReadMeFragment extends BaseMvpFragment<ReadMeMvpView, ReadMePresenter> implements ReadMeMvpView {
+public class FilesFragment extends BaseMvpFragment<FilesMvpView, FilesPresenter>
+    implements FilesMvpView {
 
-    public static ReadMeFragment newInstance() {
+    public static FilesFragment newInstance() {
         Bundle args = new Bundle();
-        ReadMeFragment fragment = new ReadMeFragment();
+        FilesFragment fragment = new FilesFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -22,7 +23,7 @@ public class ReadMeFragment extends BaseMvpFragment<ReadMeMvpView, ReadMePresent
 
     @Override
     public String getTitle() {
-        return "Read Me";
+        return "Files";
     }
 
     @Override

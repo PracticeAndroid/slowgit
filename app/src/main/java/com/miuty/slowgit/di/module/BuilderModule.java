@@ -12,6 +12,7 @@ import com.miuty.slowgit.ui.screen.profile.overview.ProfileOverviewFragmentProvi
 import com.miuty.slowgit.ui.screen.main.pull_requests.PullRequestsFragmentProvider;
 import com.miuty.slowgit.ui.screen.repo.RepoActivity;
 import com.miuty.slowgit.ui.screen.repo.RepoModule;
+import com.miuty.slowgit.ui.screen.repo.code.CodeFragmentProvider;
 import com.miuty.slowgit.ui.screen.splash.SplashActivity;
 import com.miuty.slowgit.ui.screen.splash.SplashModule;
 
@@ -31,14 +32,26 @@ public abstract class BuilderModule {
     @ContributesAndroidInjector(modules = {LoginModule.class})
     abstract LoginActivity bindLoginActivity();
 
-    @ContributesAndroidInjector(modules = {MainModule.class, FeedsFragmentProvider.class,
+
+    @ContributesAndroidInjector(modules = {
+            MainModule.class,
+            FeedsFragmentProvider.class,
             IssuesFragmentProvider.class,
-            PullRequestsFragmentProvider.class})
+            PullRequestsFragmentProvider.class
+    })
     abstract MainActivity bindMainActivity();
 
-    @ContributesAndroidInjector(modules = {ProfileModule.class, ProfileOverviewFragmentProvider.class})
+
+    @ContributesAndroidInjector(modules = {
+            ProfileModule.class,
+            ProfileOverviewFragmentProvider.class
+    })
     abstract ProfileActivity bindProfileActivity();
 
-    @ContributesAndroidInjector(modules = {RepoModule.class})
+
+    @ContributesAndroidInjector(modules = {
+            RepoModule.class,
+            CodeFragmentProvider.class
+    })
     abstract RepoActivity bindRepoActivity();
 }

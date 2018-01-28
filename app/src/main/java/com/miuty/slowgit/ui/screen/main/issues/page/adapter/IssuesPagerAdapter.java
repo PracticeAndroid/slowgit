@@ -17,7 +17,7 @@ import java.util.List;
 
 public class IssuesPagerAdapter extends FragmentStatePagerAdapter {
 
-    List<IssuesItemFragment> baseFragments;
+    private List<IssuesItemFragment> baseFragments;
 
     public IssuesPagerAdapter(FragmentManager fm, @NonNull List<IssuesItemFragment> baseFragments) {
         super(fm);

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
 import com.miuty.slowgit.di.qualifier.ActivityContext;
+import com.miuty.slowgit.di.qualifier.ActivityFragmentManager;
 import com.miuty.slowgit.provider.navigator.ActivityNavigator;
 import com.miuty.slowgit.provider.navigator.ActivityNavigatorImpl;
 import com.miuty.slowgit.ui.base.activity.BaseFragment;
@@ -27,6 +28,7 @@ public abstract class ProfileModule {
     abstract Context provideActivityContext(ProfileActivity activity);
 
     @Provides
+    @ActivityFragmentManager
     public static FragmentManager provideFragmentManager(@ActivityContext Context context) {
         ProfileActivity activity = (ProfileActivity) context;
         return activity.getSupportFragmentManager();

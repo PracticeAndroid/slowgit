@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
 import com.miuty.slowgit.R;
+import com.miuty.slowgit.di.qualifier.ActivityFragmentManager;
 import com.miuty.slowgit.ui.base.activity.BaseFragment;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpActivity;
 import com.miuty.slowgit.ui.screen.profile.overview.ProfileOverviewFragment;
@@ -28,6 +29,7 @@ public class ProfileActivity extends BaseMvpActivity<ProfileMvpView, ProfilePres
     ViewPager mViewPager;
 
     @Inject
+    @ActivityFragmentManager
     FragmentManager fragmentManager;
 
     private FragmentsPagerAdapter fragmentsPagerAdapter;
