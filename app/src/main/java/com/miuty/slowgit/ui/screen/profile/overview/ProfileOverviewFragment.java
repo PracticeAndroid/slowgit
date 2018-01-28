@@ -135,7 +135,7 @@ public class ProfileOverviewFragment extends BaseMvpFragment<ProfileOverviewMvpV
         btnFollowers.setText(String.format(Locale.ENGLISH, "Followers (%d)", basicProfile.getFollowers()));
         btnFollowing.setText(String.format(Locale.ENGLISH, "Following (%d)", basicProfile.getFollowing()));
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM d, yyyy", Locale.ENGLISH);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH);
         InputUtils.goneViewIfEmpty(rlOrganization, basicProfile.getCompany());
         InputUtils.goneViewIfEmpty(rlLocation, basicProfile.getLocation());
         InputUtils.goneViewIfEmpty(rlEmail, basicProfile.getEmail());

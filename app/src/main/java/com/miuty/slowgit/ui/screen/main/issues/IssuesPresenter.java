@@ -32,27 +32,6 @@ public class IssuesPresenter extends BasePresenter<IssuesMvpView> {
         this.schedulerProvider = schedulerProvider;
     }
 
-    public void getIssues(int page, IssuesType issuesType) {
-        Disposable disposable = issuesRepository.getIssues(page, issuesType)
-                .compose(schedulerProvider.observableComputationScheduler())
-                .doOnSubscribe(disposable1 -> {
-                })
-                .doOnTerminate(() -> {
-                    if (view != null) {
-                        view.hideRefreshLayout();
-                    }
-                })
-                .subscribe(issues -> {
-                    if (view != null) {
-                        view.onGetIssuesSuccessfully(issues);
-                    }
-                }, throwable -> {
-                    Log.e(TAG, "getFeeds: " + throwable.getMessage());
-                });
-
-        disposeOnDestroy(disposable);
-    }
-
     public List<IssuesItemFragment> initListPagerFragment() {
         return Stream.of(
                 IssuesItemFragment.newInstance(),

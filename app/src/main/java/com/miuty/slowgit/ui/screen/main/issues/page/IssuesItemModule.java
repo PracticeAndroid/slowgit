@@ -5,8 +5,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.miuty.slowgit.di.qualifier.ActivityContext;
-import com.miuty.slowgit.provider.navigator.FragmentNavigator;
-import com.miuty.slowgit.provider.navigator.FragmentNavigatorImpl;
 
 import dagger.Module;
 import dagger.Provides;
@@ -17,11 +15,6 @@ import dagger.Provides;
 
 @Module
 public class IssuesItemModule {
-
-//    @Provides
-//    FragmentNavigator provideFragmentNavigator(@ActivityContext Context context) {
-//        return new FragmentNavigatorImpl(context);
-//    }
 
     @Provides
     RecyclerView.LayoutManager provideLayoutManager(@ActivityContext Context context) {
