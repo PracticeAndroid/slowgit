@@ -34,12 +34,23 @@ public class IssuesRepositoryImpl implements IssuesRepository {
     }
 
     @Override
-    public Observable<Issues> getIssues(int page, IssuesType issuesType) {
+    public Observable<Issues> getIssues(int page, IssuesType issuesType, String loginId, String status) {
+        StringBuilder issuesQuery = new StringBuilder();
+        issuesQuery.append("is:issue+")
+                .append("is:").append(status).append("+");
         switch (issuesType) {
             case CREATED:
-                return issuesRemoteService.getCreatedIssues("type:issue+involves:hungpn+is:open", page);
+                issuesQuery.append("author:").append(loginId);
+                break;
+            case ASSIGNED:
+                issuesQuery.append("assignee:").append(loginId);
+                break;
+            case MENTIONED:
+                issuesQuery.append("mentions:").append(loginId);
+                break;
             default:
                 return Observable.error(new IllegalArgumentException("issuesType not found"));
         }
+        return issuesRemoteService.getCreatedIssues(issuesQuery.toString(), page);
     }
 }

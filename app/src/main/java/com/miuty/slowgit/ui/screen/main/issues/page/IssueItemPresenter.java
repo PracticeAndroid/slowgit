@@ -20,14 +20,34 @@ public class IssueItemPresenter extends BasePresenter<IssueItemMvpView> {
     private IssuesRepository issuesRepository;
     private SchedulerProvider schedulerProvider;
 
+    /*Data object*/
+    private IssuesType issuesType = IssuesType.CREATED;
+    private String loginId = "hungpn";
+
+    public IssuesType getIssuesType() {
+        return issuesType;
+    }
+
+    public void setIssuesType(IssuesType issuesType) {
+        this.issuesType = issuesType;
+    }
+
+    public String getLoginId() {
+        return loginId;
+    }
+
+    public void setLoginId(String loginId) {
+        this.loginId = loginId;
+    }
+
     @Inject
     public IssueItemPresenter(IssuesRepositoryImpl issuesRepository, SchedulerProviderImpl schedulerProvider) {
         this.issuesRepository = issuesRepository;
         this.schedulerProvider = schedulerProvider;
     }
 
-    public void getIssues(int page, IssuesType issuesType) {
-        Disposable disposable = issuesRepository.getIssues(page, issuesType)
+    public void getIssues(int page, String status) {
+        Disposable disposable = issuesRepository.getIssues(page, issuesType, loginId, status)
                 .compose(schedulerProvider.observableComputationScheduler())
                 .doOnSubscribe(disposable1 -> {
                 })

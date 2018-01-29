@@ -4,6 +4,7 @@ package com.miuty.slowgit.ui.screen.main.issues;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
@@ -20,6 +21,9 @@ public class IssuesFragment extends BaseMvpFragment<IssuesMvpView, IssuesPresent
 
     @BindView(R.id.view_pager)
     ViewPager viewPager;
+
+    @BindView(R.id.tabs)
+    TabLayout tabLayout;
 
     private IssuesPagerAdapter pagerAdapter;
 
@@ -40,6 +44,11 @@ public class IssuesFragment extends BaseMvpFragment<IssuesMvpView, IssuesPresent
         super.onViewCreated(view, savedInstanceState);
         pagerAdapter = new IssuesPagerAdapter(getChildFragmentManager(), presenter.initListPagerFragment());
         viewPager.setAdapter(pagerAdapter);
+        viewPager.setOffscreenPageLimit(3);
+
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override

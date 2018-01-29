@@ -16,8 +16,9 @@
         android:elevation="4dp"
         android:paddingStart="@dimen/keyline_1"
         app:tabGravity="center"
-        app:tabSelectedTextColor="?colorAccent"
-        app:tabTextColor="?android:textColorTertiary"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabSelectedTextColor="@color/colorAccent"
+        app:tabTextColor="@color/colorBlack"
         tools:ignore="RtlSymmetry" />
 
     <android.support.v4.view.ViewPager

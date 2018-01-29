@@ -19,6 +19,10 @@ import javax.inject.Inject;
 
 import io.reactivex.disposables.Disposable;
 
+import static com.miuty.slowgit.ui.screen.main.issues.page.IssuesType.ASSIGNED;
+import static com.miuty.slowgit.ui.screen.main.issues.page.IssuesType.CREATED;
+import static com.miuty.slowgit.ui.screen.main.issues.page.IssuesType.MENTIONED;
+
 public class IssuesPresenter extends BasePresenter<IssuesMvpView> {
 
     private static final String TAG = "IssuesPresenter";
@@ -34,9 +38,9 @@ public class IssuesPresenter extends BasePresenter<IssuesMvpView> {
 
     public List<IssuesItemFragment> initListPagerFragment() {
         return Stream.of(
-                IssuesItemFragment.newInstance()/*,
-                IssuesItemFragment.newInstance(),
-                IssuesItemFragment.newInstance()*/)
+                IssuesItemFragment.newInstance(CREATED, "hungpn"),
+                IssuesItemFragment.newInstance(ASSIGNED, "hungpn"),
+                IssuesItemFragment.newInstance(MENTIONED, "hungpn"))
                 .collect(Collectors.toList());
     }
 }

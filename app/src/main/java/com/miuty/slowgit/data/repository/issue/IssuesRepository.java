@@ -11,5 +11,13 @@ import io.reactivex.Observable;
 
 public interface IssuesRepository {
 
-    Observable<Issues> getIssues(int page, IssuesType issuesType);
+    /**
+     *
+     * @param page for load more
+     * @param issuesType
+     * @param loginId
+     * @param status: open or closed
+     * @return
+     */
+    Observable<Issues> getIssues(int page, IssuesType issuesType, String loginId, String status);
 }

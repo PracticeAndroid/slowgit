@@ -1,6 +1,7 @@
 package com.miuty.slowgit.ui.screen.main.issues.page.adapter;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -22,6 +23,12 @@ public class IssuesPagerAdapter extends FragmentStatePagerAdapter {
     public IssuesPagerAdapter(FragmentManager fm, @NonNull List<IssuesItemFragment> baseFragments) {
         super(fm);
         this.baseFragments = baseFragments;
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return "hung";
     }
 
     @Override
