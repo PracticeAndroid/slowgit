@@ -32,7 +32,7 @@ public class PublicViewHolder extends BaseFeedsViewHolder<PublicItem> {
     }
 
     @Override
-    public void onFeedClick(View view) {
+    public void onFeedClick(View view, PublicItem item) {
 
     }
 }

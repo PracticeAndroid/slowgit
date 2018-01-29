@@ -2,11 +2,20 @@ package com.miuty.slowgit.ui.screen.repo.readme;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpFragment;
+import com.miuty.slowgit.ui.widget.pretty.PrettifyWebView;
+
+import butterknife.BindView;
 
 public class ReadMeFragment extends BaseMvpFragment<ReadMeMvpView, ReadMePresenter> implements ReadMeMvpView {
+
+    @BindView(R.id.webView)
+    PrettifyWebView webView;
 
     public static ReadMeFragment newInstance() {
         Bundle args = new Bundle();
@@ -17,7 +26,13 @@ public class ReadMeFragment extends BaseMvpFragment<ReadMeMvpView, ReadMePresent
 
     @Override
     protected int layoutId() {
-        return R.layout.layout_recycler_view;
+        return R.layout.fragment_read_me;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        webView.loadUrl("https://github.com/Vita3K/Vita3K/blob/master/README.md");
     }
 
     @Override

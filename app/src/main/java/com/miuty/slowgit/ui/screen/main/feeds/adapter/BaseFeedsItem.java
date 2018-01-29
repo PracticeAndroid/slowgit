@@ -3,7 +3,7 @@ package com.miuty.slowgit.ui.screen.main.feeds.adapter;
 
 import com.miuty.slowgit.data.model.Feed;
 
-public abstract class  BaseFeedsItem {
+public abstract class BaseFeedsItem {
 
     protected final Feed feed;
 
@@ -17,6 +17,10 @@ public abstract class  BaseFeedsItem {
 
     public Feed getFeed() {
         return feed;
+    }
+
+    public String getRepoId() {
+        return feed.getRepo().getName();
     }
 
     // use for common

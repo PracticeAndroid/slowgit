@@ -74,7 +74,7 @@ public class PushedToViewHolder extends BaseFeedsViewHolder<PushedToItem> {
     }
 
     @Override
-    public void onFeedClick(View view) {
+    public void onFeedClick(View view, PushedToItem item) {
 
     }
 }

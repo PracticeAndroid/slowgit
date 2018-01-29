@@ -42,7 +42,7 @@ public class CreatedViewHolder extends BaseFeedsViewHolder<CreatedItem> {
     }
 
     @Override
-    public void onFeedClick(View view) {
+    public void onFeedClick(View view, CreatedItem item) {
 
     }
 }

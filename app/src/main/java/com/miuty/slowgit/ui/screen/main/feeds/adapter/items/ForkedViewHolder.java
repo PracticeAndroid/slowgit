@@ -36,7 +36,7 @@ public class ForkedViewHolder extends BaseFeedsViewHolder<ForkedItem> {
     }
 
     @Override
-    public void onFeedClick(View view) {
+    public void onFeedClick(View view, ForkedItem item) {
 
     }
 }

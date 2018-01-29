@@ -56,7 +56,7 @@ public abstract class BaseFeedsViewHolder<T extends BaseFeedsItem> extends BaseV
         tvTime.setText(DateTimeUtils.getTimeAgo(item.getFeed().getCreatedAt()));
         imvTime.setImageDrawable(context.getDrawable(setDrawableTimeIcon()));
 
-        itemView.setOnClickListener(this::onFeedClick);
+        itemView.setOnClickListener(view -> onFeedClick(view, item));
     }
 
     @DrawableRes
@@ -69,5 +69,5 @@ public abstract class BaseFeedsViewHolder<T extends BaseFeedsItem> extends BaseV
     @NonNull
     public abstract SpannableBuilder buildDescription(T item);
 
-    public abstract void onFeedClick(View view);
+    public abstract void onFeedClick(View view, T item);
 }

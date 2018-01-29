@@ -43,8 +43,8 @@ public class StarredViewHolder extends BaseFeedsViewHolder<StarredItem> {
     }
 
     @Override
-    public void onFeedClick(View view) {
+    public void onFeedClick(View view, StarredItem item) {
         // TODO: 25/01/2018 a hack
-        context.startActivity(new Intent(context, RepoActivity.class));
+        context.startActivity(RepoActivity.createIntent(context, item.getRepoId(), "dutn158"));
     }
 }
