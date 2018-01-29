@@ -34,9 +34,9 @@ public class IssuesPresenter extends BasePresenter<IssuesMvpView> {
 
     public List<IssuesItemFragment> initListPagerFragment() {
         return Stream.of(
+                IssuesItemFragment.newInstance()/*,
                 IssuesItemFragment.newInstance(),
-                IssuesItemFragment.newInstance(),
-                IssuesItemFragment.newInstance())
+                IssuesItemFragment.newInstance()*/)
                 .collect(Collectors.toList());
     }
 }

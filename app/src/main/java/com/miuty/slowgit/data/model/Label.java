@@ -23,5 +23,5 @@ public class Label {
     private String name;
 
     @SerializedName("color")
-    private int color;
+    private String color;
 }

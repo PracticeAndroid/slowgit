@@ -3,6 +3,7 @@ package com.miuty.slowgit.ui.screen.main.issues.page;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 
 import com.miuty.slowgit.R;
@@ -17,6 +18,8 @@ import com.miuty.slowgit.ui.screen.main.issues.page.adapter.IssuesItemAdapter;
 
 public class IssuesItemFragment extends BaseMvpListFragment<IssueItemMvpView, IssueItemPresenter, IssuesItemAdapter>
         implements IssueItemMvpView {
+
+    private static final String TAG = "IssuesItemFragment";
 
     private IssuesType issuesType;
 
@@ -35,6 +38,7 @@ public class IssuesItemFragment extends BaseMvpListFragment<IssueItemMvpView, Is
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Log.d(TAG, "onViewCreated: ");
         presenter.getIssues(1, IssuesType.CREATED);
     }
 
@@ -84,7 +88,7 @@ public class IssuesItemFragment extends BaseMvpListFragment<IssueItemMvpView, Is
 
     @Override
     public void onGetIssuesSuccessfully(Issues issues) {
-
+        mAdapter.addItems(issues.getItems());
     }
 
     @Override

@@ -14,5 +14,5 @@ public interface IssuesRestService {
 
     /*https://api.github.com/search/issues?q=type:issue+involves:hungpn+is:open&page=1*/
     @GET("search/issues")
-    Observable<Issues> getIssues(@Query("q") String q, @Query("page") int page);
+    Observable<Issues> getIssues(@Query(value = "q", encoded = true) String q, @Query("page") int page);
 }
