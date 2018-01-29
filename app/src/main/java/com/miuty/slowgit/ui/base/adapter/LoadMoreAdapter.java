@@ -60,6 +60,10 @@ public abstract class LoadMoreAdapter<VH extends BaseViewHolder> extends BaseAda
         isLoadMore = loadMore;
     }
 
+    public void setLoading() {
+        isLoading = true;
+    }
+
     public void setLoaded() {
         this.isLoading = false;
     }

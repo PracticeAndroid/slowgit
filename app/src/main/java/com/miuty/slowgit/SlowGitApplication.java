@@ -21,6 +21,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class SlowGitApplication extends Application implements HasActivityInjector, HasSupportFragmentInjector {
 
+    private static SlowGitApplication instance;
+
     private AppComponent appComponent;
 
     @Inject
@@ -29,9 +31,14 @@ public class SlowGitApplication extends Application implements HasActivityInject
     @Inject
     protected DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
 
+    public static SlowGitApplication getInstance() {
+        return instance;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
         setupFontSize();
         setUpDependencyInject();
     }

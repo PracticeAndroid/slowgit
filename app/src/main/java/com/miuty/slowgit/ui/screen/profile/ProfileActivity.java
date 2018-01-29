@@ -8,9 +8,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
 import com.miuty.slowgit.R;
+import com.miuty.slowgit.di.qualifier.ActivityFragmentManager;
 import com.miuty.slowgit.ui.base.activity.BaseFragment;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpActivity;
 import com.miuty.slowgit.ui.screen.profile.overview.ProfileOverviewFragment;
+import com.miuty.slowgit.ui.screen.profile.repositories.ProfileRepositoriesFragment;
+import com.miuty.slowgit.ui.screen.profile.repositories.ProfileRepositoriesMvpView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,7 @@ public class ProfileActivity extends BaseMvpActivity<ProfileMvpView, ProfilePres
     ViewPager mViewPager;
 
     @Inject
+    @ActivityFragmentManager
     FragmentManager fragmentManager;
 
     private FragmentsPagerAdapter fragmentsPagerAdapter;
@@ -46,7 +50,7 @@ public class ProfileActivity extends BaseMvpActivity<ProfileMvpView, ProfilePres
         List<BaseFragment> baseFragmentList = new ArrayList<>();
         baseFragmentList.add(ProfileOverviewFragment.newInstance("dutn158"));
         baseFragmentList.add(ProfileOverviewFragment.newInstance("wuchong"));
-//        baseFragmentList.add(ProfileOverviewFragment.newInstance("dutn158"));
+        baseFragmentList.add(ProfileRepositoriesFragment.newInstance("dutn158"));
 
         fragmentsPagerAdapter = new FragmentsPagerAdapter(fragmentManager, baseFragmentList);
         mViewPager.setAdapter(fragmentsPagerAdapter);

@@ -13,6 +13,7 @@ buildscript {
         rxAndroidVersion = '2.0.1'
         roomVersion = '1.0.0'
         lifecycleVersion = '1.1.0'
+        googleServiceVersion = '11.8.0'
     }
 
     repositories {

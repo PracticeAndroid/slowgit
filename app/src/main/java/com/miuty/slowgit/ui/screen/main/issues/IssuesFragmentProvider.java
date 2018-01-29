@@ -9,7 +9,9 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class IssuesFragmentProvider {
 
-    @ContributesAndroidInjector(modules = {IssuesModule.class,
-            IssuesItemFragmentProvider.class})
+    @ContributesAndroidInjector(modules = {
+            IssuesModule.class,
+            IssuesItemFragmentProvider.class
+    })
     abstract IssuesFragment provideIssuesFragmentFactory();
 }
