@@ -55,8 +55,8 @@ public class IssuesItemFragment extends BaseMvpListFragment<IssueItemMvpView, Is
         // setup animation for appearing, additional and removal
         mRecyclerView.setItemAnimator(new ScaleInAnimator());
         mRecyclerView.setAdapter(new ScaleInAnimationAdapter(mAdapter));
-        mRecyclerView.addItemDecoration(new VerticalSpacingDecoration(10, true));
-        //mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        //mRecyclerView.addItemDecoration(new VerticalSpacingDecoration(10, true));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
         mAdapter.initLoadMore(() -> {
             presenter.getIssues(page, status);

@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="10dp">
+    android:paddingBottom="@dimen/default_padding_medium"
+    android:paddingLeft="@dimen/default_padding_xlarge"
+    android:paddingRight="@dimen/default_padding_xlarge"
+    android:paddingTop="@dimen/default_padding_medium">
 
 
     <LinearLayout
@@ -26,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/default_margin"
+            android:textSize="@dimen/font_size_medium"
             tools:text="#41 opened 4 days ago by Henry2o1o " />
 
 

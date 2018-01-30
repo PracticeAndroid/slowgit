@@ -18,4 +18,5 @@
 
     <dimen name="keyline_1">72dp</dimen>
     <dimen name="keyline_2">76dp</dimen>
+    <dimen name="default_witdh_height_floating_button">70dp</dimen>
 </resources>

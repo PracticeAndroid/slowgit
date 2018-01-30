@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
@@ -7,4 +8,20 @@
 
     <include layout="@layout/layout_recycler_view" />
 
-</LinearLayout>
+    <!-- <android.support.design.widget.FloatingActionButton
+         android:id="@+id/fab_filter_issues"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentRight="true"
+         android:layout_marginBottom="@dimen/default_margin_medium"
+         android:layout_marginRight="@dimen/default_margin_medium"
+         android:backgroundTint="@color/colorWhite"
+         android:scaleType="centerInside"
+         android:src="@drawable/ic_filter"
+         fab:borderWidth="1dp"
+         fab:fabSize="normal"
+         fab:layout_anchorGravity="bottom|right|end"
+         fab:pressedTranslationZ="2dp" />-->
+    
+</RelativeLayout>

@@ -2,6 +2,8 @@ package com.miuty.slowgit.ui.screen.main.issues.page.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.net.Uri;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import com.miuty.slowgit.data.model.IssueItem;
 import com.miuty.slowgit.data.model.Issues;
 import com.miuty.slowgit.data.model.Label;
 import com.miuty.slowgit.ui.base.adapter.BaseViewHolder;
+import com.miuty.slowgit.util.DateTimeUtils;
 import com.miuty.slowgit.util.InputUtils;
 import com.miuty.slowgit.util.SpannableBuilder;
 
@@ -51,14 +54,15 @@ public class IssuesViewHolder extends BaseViewHolder {
         SpannableBuilder spannableBuilder = SpannableBuilder.builder();
 
         spannableBuilder
-                .bold("hung/test")
+                .bold(parseRepo(issueItem.getHtmlUrl()))
                 .append(" ")
-                .append(issueItem.getCreatedAt().toString());
+                .append(DateTimeUtils.convertDateToString(issueItem.getCreatedAt(), "dd-MM-yyyy HH:mm:ss"));
 
         return spannableBuilder;
     }
 
     public void initTagsFlow(IssueItem issueItem) {
+        flTags.removeAllViews();
         List<Label> labels = issueItem.getLabels();
         if (labels != null && labels.size() > 0) {
             LayoutInflater inflater = LayoutInflater.from(context);
@@ -67,9 +71,21 @@ public class IssuesViewHolder extends BaseViewHolder {
             for (Label label : labels) {
                 tvTag.setText(label.getName());
                 tvTag.setBackgroundColor(Color.parseColor("#" + label.getColor()));
-                view.removeAllViews();
                 flTags.addView(view);
             }
+        }
+    }
+
+    public String parseRepo(String url) {
+        Uri uri = Uri.parse(url);
+        List<String> segments = uri.getPathSegments();
+        if (segments == null || segments.size() < 3) {
+            return "";
+        } else {
+            String name = segments.get(0);
+            String repoName = segments.get(1);
+            String number = segments.get(3);
+            return name + "/" + repoName + "#" + number;
         }
     }
 }
