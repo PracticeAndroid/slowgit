@@ -9,5 +9,5 @@ import java.util.List;
 public interface ProfileRepositoriesMvpView extends MvpListView {
 
     void showReposOnRecyclerView(List<Repo> items);
-
+    void setVisibleMainView(boolean isLoading);
 }

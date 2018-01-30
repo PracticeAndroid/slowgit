@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:f="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/grid_spacing"
+    android:paddingLeft="@dimen/default_margin_xlarge"
+    android:paddingRight="@dimen/default_margin_xlarge"
     android:foreground="?android:selectableItemBackground"
     android:paddingBottom="@dimen/spacing_normal"
     android:paddingEnd="@dimen/spacing_xs_large"
@@ -31,19 +32,21 @@
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:textColor="?android:textColorPrimary"
-                android:textStyle="bold"
                 tools:text="When one acquires music and afterlife, one is able to capture heaven."/>
 
-            <LinearLayout
+            <org.apmem.tools.layouts.FlowLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_micro"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                f:layoutDirection="ltr">
 
                 <ImageView
                     android:id="@+id/imv_stars"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_gravity="center_vertical"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_un_star"
                     tools:src="@drawable/ic_un_star" />
@@ -52,17 +55,19 @@
                     android:id="@+id/tv_stars"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_gravity="center_vertical"
                     android:textColor="@color/default_text_color_gray"
                     android:textSize="@dimen/font_size_normal"
                     tools:text="1000" />
 
                 <ImageView
                     android:id="@+id/imv_forks"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
                     android:scaleType="centerInside"
-                    android:layout_marginLeft="@dimen/default_margin"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/default_margin"
                     android:src="@drawable/ic_fork"
                     tools:src="@drawable/ic_fork" />
 
@@ -70,17 +75,19 @@
                     android:id="@+id/tv_forks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_gravity="center_vertical"
                     android:textColor="@color/default_text_color_gray"
                     android:textSize="@dimen/font_size_normal"
                     tools:text="2000" />
 
                 <ImageView
                     android:id="@+id/imv_time"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
                     android:scaleType="centerInside"
-                    android:layout_marginLeft="@dimen/default_margin"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/default_margin"
                     android:src="@drawable/ic_time"
                     tools:src="@drawable/ic_time" />
 
@@ -88,17 +95,19 @@
                     android:id="@+id/tv_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_gravity="center_vertical"
                     android:textColor="@color/default_text_color_gray"
                     android:textSize="@dimen/font_size_normal"
                     tools:text="Jul 27, 2017" />
 
                 <ImageView
                     android:id="@+id/imv_size"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
                     android:scaleType="centerInside"
-                    android:layout_marginLeft="@dimen/default_margin"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/default_margin"
                     android:src="@drawable/ic_data_size"
                     tools:src="@drawable/ic_data_size" />
 
@@ -106,7 +115,8 @@
                     android:id="@+id/tv_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_gravity="center_vertical"
                     android:textColor="@color/default_text_color_gray"
                     android:textSize="@dimen/font_size_normal"
                     tools:text="100 MB" />
@@ -115,12 +125,13 @@
                     android:id="@+id/tv_language"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_gravity="center_vertical"
                     android:textColor="@color/default_text_color_gray"
                     android:textSize="@dimen/font_size_normal"
                     tools:text="TypeScript" />
 
-            </LinearLayout>
+            </org.apmem.tools.layouts.FlowLayout>
         </LinearLayout>
     </LinearLayout>
 

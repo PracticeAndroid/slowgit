@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.data.model.Repo;
@@ -17,6 +18,7 @@ import com.miuty.slowgit.util.BundleKeyConst;
 
 import java.util.List;
 
+import butterknife.BindView;
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 import jp.wasabeef.recyclerview.animators.ScaleInAnimator;
 
@@ -28,6 +30,9 @@ public class ProfileRepositoriesFragment extends BaseMvpListFragment<ProfileRepo
     private int page = 1;
 
     private String loginId;
+
+    @BindView(R.id.ln_main)
+    LinearLayout lnMain;
 
     public static ProfileRepositoriesFragment newInstance(String loginId) {
         Bundle args = new Bundle();
@@ -46,8 +51,6 @@ public class ProfileRepositoriesFragment extends BaseMvpListFragment<ProfileRepo
         // setup animation for appearing, additional and removal
         mRecyclerView.setItemAnimator(new ScaleInAnimator());
         mRecyclerView.setAdapter(new ScaleInAnimationAdapter(mAdapter));
-
-        mRecyclerView.addItemDecoration(new VerticalSpacingDecoration(50, true));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
         mAdapter.initLoadMore(() -> {
@@ -86,6 +89,15 @@ public class ProfileRepositoriesFragment extends BaseMvpListFragment<ProfileRepo
             mAdapter.setLoaded();
             page++;
             mAdapter.addItems(items);
+        }
+    }
+
+    @Override
+    public void setVisibleMainView(boolean isLoading) {
+        if (isLoading) {
+            lnMain.setVisibility(View.GONE);
+        } else {
+            lnMain.setVisibility(View.VISIBLE);
         }
     }
 

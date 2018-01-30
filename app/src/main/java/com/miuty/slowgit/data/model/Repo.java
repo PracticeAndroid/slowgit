@@ -6,6 +6,8 @@ import android.arch.persistence.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -44,4 +46,13 @@ public class Repo {
 
     @SerializedName("forks")
     private int forks;
+
+    @SerializedName("created_at")
+    private  Date createdAt;
+
+    @SerializedName("updated_at")
+    private  Date updatedAt;
+
+    @SerializedName("pushed_at")
+    private Date pushedAt;
 }

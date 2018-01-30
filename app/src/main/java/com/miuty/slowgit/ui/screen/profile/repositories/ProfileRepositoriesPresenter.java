@@ -31,12 +31,17 @@ public class ProfileRepositoriesPresenter extends BasePresenter<ProfileRepositor
 
     public void getRepos(String loginId, int page)
     {
+        if (view == null) {
+            return;
+        }
+        view.setVisibleMainView(true);
         Disposable disposable = profileRepository.getRepos(loginId, page)
                 .compose(schedulerProvider.observableComputationScheduler())
                 .doOnSubscribe(disposable1 -> {
                 })
                 .doOnTerminate(() -> {
                     if (view != null) {
+                        view.setVisibleMainView(false);
                         view.hideRefreshLayout();
                     }
                 })

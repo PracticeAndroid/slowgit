@@ -29,7 +29,6 @@ public class RepoAdapter extends ArrayAdapter<Repo, RepositoryViewHolder> {
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
         super.onBindViewHolder(holder, position);
-        super.onBindViewHolder(holder, position);
         if (getItemCount() - 1 != position) {
             Repo item = items.get(position);
             ((RepositoryViewHolder) holder).bind(item);

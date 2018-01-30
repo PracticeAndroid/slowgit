@@ -49,7 +49,7 @@ public class ProfileActivity extends BaseMvpActivity<ProfileMvpView, ProfilePres
 
         List<BaseFragment> baseFragmentList = new ArrayList<>();
         baseFragmentList.add(ProfileOverviewFragment.newInstance("dutn158"));
-        baseFragmentList.add(ProfileOverviewFragment.newInstance("wuchong"));
+        baseFragmentList.add(ProfileRepositoriesFragment.newInstance("wuchong"));
         baseFragmentList.add(ProfileRepositoriesFragment.newInstance("dutn158"));
 
         fragmentsPagerAdapter = new FragmentsPagerAdapter(fragmentManager, baseFragmentList);

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.data.model.Repo;
 import com.miuty.slowgit.ui.base.adapter.BaseViewHolder;
+import com.miuty.slowgit.util.DateTimeUtils;
 import com.miuty.slowgit.util.InputHelper;
 
 import java.text.NumberFormat;
@@ -19,6 +20,7 @@ import butterknife.BindView;
 import lt.neworld.spanner.Spanner;
 
 import static lt.neworld.spanner.Spans.background;
+import static lt.neworld.spanner.Spans.foreground;
 
 /**
  * Created by igneel on 1/27/2018.
@@ -49,9 +51,11 @@ public class RepositoryViewHolder extends BaseViewHolder {
     public void bind(@NonNull Repo repo) {
         if (repo.isFork()) {
             tvTitle.setText(new Spanner()
-                    .append(" Forked ", background(forkColor))
+                    .append(" Forked ", background(forkColor), foreground(Color.WHITE))
                     .append(" ")
                     .append(repo.getName()));
+        } else {
+            tvTitle.setText(repo.getName());
         }
 
         long repoSize = repo.getSize() > 0 ? (repo.getSize() * 1000) : repo.getSize();
@@ -59,6 +63,9 @@ public class RepositoryViewHolder extends BaseViewHolder {
         NumberFormat numberFormat = NumberFormat.getNumberInstance();
         tvStars.setText(numberFormat.format(repo.getStargazersCount()));
         tvForks.setText(numberFormat.format(repo.getForks()));
+
+
+        tvTime.setText(DateTimeUtils.getTimeAgo(repo.getUpdatedAt()));
 
         if (!InputHelper.isEmpty(repo.getLanguage())) {
             tvLanguage.setText(repo.getLanguage());
