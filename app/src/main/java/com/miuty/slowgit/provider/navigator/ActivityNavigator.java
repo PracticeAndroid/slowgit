@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 
 /**
  * Created by Asus on 1/16/2018.
@@ -30,4 +31,6 @@ public interface ActivityNavigator {
     <T extends Fragment> T findFragmentByTag(@NonNull String tag);
 
     <T extends Fragment> T findFragmentById(@IdRes int idResource);
+
+    Fragment getCurrentFragment(FragmentManager fragmentManager);
 }

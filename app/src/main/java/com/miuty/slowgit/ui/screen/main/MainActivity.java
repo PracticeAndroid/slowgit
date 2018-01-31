@@ -62,6 +62,8 @@ public class MainActivity extends BaseMvpActivity<MainMvpView, MainPresenter> im
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment visibleFragment = activityNavigator.getCurrentFragment(getSupportFragmentManager());
+
         switch (item.getItemId()) {
             case R.id.bnv_feeds:
                 activityNavigator.replaceFragment(R.id.container, FeedsFragment.newInstance());
@@ -83,6 +85,7 @@ public class MainActivity extends BaseMvpActivity<MainMvpView, MainPresenter> im
                 .add(R.id.container, show, show.getClass().getSimpleName())
                 .commit();
     }
+
 
     @Override
     public void onNavigationItemReselected(@NonNull MenuItem item) {

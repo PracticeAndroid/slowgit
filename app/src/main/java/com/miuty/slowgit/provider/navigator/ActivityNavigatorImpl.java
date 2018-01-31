@@ -13,6 +13,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import java.util.List;
+
 /**
  * Created by Asus on 1/16/2018.
  */
@@ -90,6 +92,19 @@ public class ActivityNavigatorImpl implements ActivityNavigator {
 
     @Override
     public <T extends Fragment> T findFragmentById(int idResource) {
+        return null;
+    }
+
+    @Override
+    public Fragment getCurrentFragment(FragmentManager fragmentManager) {
+        List<Fragment> fragments = fragmentManager.getFragments();
+        if (fragments != null && !fragments.isEmpty()) {
+            for (Fragment f : fragments) {
+                if (f != null && f.isVisible()) {
+                    return f;
+                }
+            }
+        }
         return null;
     }
 }

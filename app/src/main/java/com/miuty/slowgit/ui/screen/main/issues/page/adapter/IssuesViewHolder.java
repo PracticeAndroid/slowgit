@@ -47,7 +47,7 @@ public class IssuesViewHolder extends BaseViewHolder {
         tvTitle.setText(issueItem.getTitle());
         tvDescription.setText(buildDescription(issueItem));
         InputUtils.goneViewIfEmpty(tvCmtNumber, String.valueOf(issueItem.getComments()));
-        //initTagsFlow(issueItem);
+        initTagsFlow(issueItem);
     }
 
     public SpannableBuilder buildDescription(IssueItem issueItem) {
@@ -66,9 +66,9 @@ public class IssuesViewHolder extends BaseViewHolder {
         List<Label> labels = issueItem.getLabels();
         if (labels != null && labels.size() > 0) {
             LayoutInflater inflater = LayoutInflater.from(context);
-            ViewGroup view = (ViewGroup) inflater.inflate(R.layout.item_tag, null, false);
-            TextView tvTag = view.findViewById(R.id.tv_tag);
             for (Label label : labels) {
+                ViewGroup view = (ViewGroup) inflater.inflate(R.layout.item_tag, null, false);
+                TextView tvTag = view.findViewById(R.id.tv_tag);
                 tvTag.setText(label.getName());
                 tvTag.setBackgroundColor(Color.parseColor("#" + label.getColor()));
                 flTags.addView(view);
