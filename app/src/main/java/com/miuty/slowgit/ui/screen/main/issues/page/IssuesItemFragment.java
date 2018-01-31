@@ -10,6 +10,7 @@ import android.view.View;
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.data.model.Issues;
 import com.miuty.slowgit.ui.base.adapter.BaseViewHolder;
+import com.miuty.slowgit.ui.base.adapter.decoration.DividerDecoration;
 import com.miuty.slowgit.ui.base.adapter.decoration.VerticalSpacingDecoration;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpListFragment;
 import com.miuty.slowgit.ui.screen.main.issues.page.adapter.IssuesItemAdapter;
@@ -56,7 +57,7 @@ public class IssuesItemFragment extends BaseMvpListFragment<IssueItemMvpView, Is
         mRecyclerView.setItemAnimator(new ScaleInAnimator());
         mRecyclerView.setAdapter(new ScaleInAnimationAdapter(mAdapter));
         //mRecyclerView.addItemDecoration(new VerticalSpacingDecoration(10, true));
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        mRecyclerView.addItemDecoration(new DividerDecoration(getContext(), true));
 
         mAdapter.initLoadMore(() -> {
             presenter.getIssues(page, status);
