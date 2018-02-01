@@ -1,6 +1,7 @@
 package com.miuty.slowgit.data.repository.profile.remote;
 
 import com.miuty.slowgit.data.model.Repo;
+import com.miuty.slowgit.data.model.User;
 import com.miuty.slowgit.data.model.profile.BasicProfile;
 
 import java.util.List;
@@ -19,5 +20,9 @@ public interface ProfileRemoteService {
     Observable<ResponseBody> getContributions(String loginId);
 
     Observable<List<Repo>> getRepos(String loginId, int page);
+
+    Observable<List<User>> getFollowers(String loginId, int page);
+
+    Observable<List<User>> getFollowing(String loginId, int page);
 
 }

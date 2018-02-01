@@ -11,6 +11,7 @@ import com.miuty.slowgit.R;
 import com.miuty.slowgit.di.qualifier.ActivityFragmentManager;
 import com.miuty.slowgit.ui.base.activity.BaseFragment;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpActivity;
+import com.miuty.slowgit.ui.screen.profile.followers.ProfileFollowersFragment;
 import com.miuty.slowgit.ui.screen.profile.overview.ProfileOverviewFragment;
 import com.miuty.slowgit.ui.screen.profile.repositories.ProfileRepositoriesFragment;
 import com.miuty.slowgit.ui.screen.profile.repositories.ProfileRepositoriesMvpView;
@@ -49,8 +50,8 @@ public class ProfileActivity extends BaseMvpActivity<ProfileMvpView, ProfilePres
 
         List<BaseFragment> baseFragmentList = new ArrayList<>();
         baseFragmentList.add(ProfileOverviewFragment.newInstance("dutn158"));
-        baseFragmentList.add(ProfileRepositoriesFragment.newInstance("wuchong"));
         baseFragmentList.add(ProfileRepositoriesFragment.newInstance("dutn158"));
+        baseFragmentList.add(ProfileFollowersFragment.newInstance("dutn158"));
 
         fragmentsPagerAdapter = new FragmentsPagerAdapter(fragmentManager, baseFragmentList);
         mViewPager.setAdapter(fragmentsPagerAdapter);

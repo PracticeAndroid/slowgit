@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:paddingLeft="@dimen/default_margin_xlarge"
+    android:paddingRight="@dimen/default_margin_xlarge"
+    android:paddingBottom="@dimen/spacing_normal"
+    android:paddingEnd="@dimen/spacing_xs_large"
+    android:paddingTop="@dimen/spacing_normal"
+    android:orientation="horizontal">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imv_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="@dimen/default_margin_large"
+        android:layout_gravity="center_vertical"
+        tools:src="@drawable/ic_github" />
+
+    <TextView
+        android:id="@+id/tv_login_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/font_size_xmedium"
+        android:layout_gravity="center_vertical"
+        tools:text="When one acquires music and afterlife, one is able to capture heaven." />
+</LinearLayout>

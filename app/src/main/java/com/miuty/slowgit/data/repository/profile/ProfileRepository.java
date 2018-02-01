@@ -1,6 +1,7 @@
 package com.miuty.slowgit.data.repository.profile;
 
 import com.miuty.slowgit.data.model.Repo;
+import com.miuty.slowgit.data.model.User;
 import com.miuty.slowgit.data.model.profile.BasicProfile;
 
 import java.util.List;
@@ -18,5 +19,9 @@ public interface ProfileRepository {
 
     Observable<ResponseBody> getContributions(String loginId);
 
-    public Observable<List<Repo>> getRepos(String loginId, int page);
+    Observable<List<Repo>> getRepos(String loginId, int page);
+
+    Observable<List<User>> getFollowers(String loginId, int page);
+
+    Observable<List<User>> getFollowing(String loginId, int page);
 }

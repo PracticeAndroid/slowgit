@@ -1,6 +1,7 @@
 package com.miuty.slowgit.data.repository.profile;
 
 import com.miuty.slowgit.data.model.Repo;
+import com.miuty.slowgit.data.model.User;
 import com.miuty.slowgit.data.model.profile.BasicProfile;
 import com.miuty.slowgit.data.repository.profile.local.ProfileLocalService;
 import com.miuty.slowgit.data.repository.profile.local.ProfileLocalServiceImpl;
@@ -42,6 +43,16 @@ public class ProfileRepositoryImpl implements ProfileRepository {
     @Override
     public Observable<List<Repo>> getRepos(String loginId, int page) {
         return profileRemoteService.getRepos(loginId, page);
+    }
+
+    @Override
+    public Observable<List<User>> getFollowers(String loginId, int page) {
+        return profileRemoteService.getFollowers(loginId, page);
+    }
+
+    @Override
+    public Observable<List<User>> getFollowing(String loginId, int page) {
+        return profileRemoteService.getFollowing(loginId, page);
     }
 
 }

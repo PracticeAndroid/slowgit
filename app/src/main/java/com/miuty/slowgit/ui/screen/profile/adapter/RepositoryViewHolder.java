@@ -1,4 +1,4 @@
-package com.miuty.slowgit.ui.screen.profile.repositories.adapter;
+package com.miuty.slowgit.ui.screen.profile.adapter;
 
 import android.content.Context;
 import android.graphics.Color;

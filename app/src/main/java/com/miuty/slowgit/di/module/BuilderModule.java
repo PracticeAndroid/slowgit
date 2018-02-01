@@ -8,6 +8,8 @@ import com.miuty.slowgit.ui.screen.main.feeds.FeedsFragmentProvider;
 import com.miuty.slowgit.ui.screen.main.issues.IssuesFragmentProvider;
 import com.miuty.slowgit.ui.screen.profile.ProfileActivity;
 import com.miuty.slowgit.ui.screen.profile.ProfileModule;
+import com.miuty.slowgit.ui.screen.profile.followers.ProfileFollowersFragment;
+import com.miuty.slowgit.ui.screen.profile.followers.ProfileFollowersFragmentProvider;
 import com.miuty.slowgit.ui.screen.profile.overview.ProfileOverviewFragmentProvider;
 import com.miuty.slowgit.ui.screen.main.pull_requests.PullRequestsFragmentProvider;
 import com.miuty.slowgit.ui.screen.profile.repositories.ProfileRepositoriesFragment;
@@ -47,7 +49,8 @@ public abstract class BuilderModule {
     @ContributesAndroidInjector(modules = {
             ProfileModule.class,
             ProfileOverviewFragmentProvider.class,
-            ProfileRepositoriesFragmentProvider.class})
+            ProfileRepositoriesFragmentProvider.class,
+            ProfileFollowersFragmentProvider.class})
     abstract ProfileActivity bindProfileActivity();
 
 

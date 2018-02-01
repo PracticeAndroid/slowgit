@@ -1,6 +1,7 @@
 package com.miuty.slowgit.data.repository.profile.remote;
 
 import com.miuty.slowgit.data.model.Repo;
+import com.miuty.slowgit.data.model.User;
 import com.miuty.slowgit.data.model.profile.BasicProfile;
 import com.miuty.slowgit.di.qualifier.DefaultNetworkProviderContext;
 import com.miuty.slowgit.provider.network.DefaultNetworkProvider;
@@ -56,6 +57,22 @@ public class ProfileRemoteServiceImpl implements ProfileRemoteService {
         return networkProvider.makeRequest(
                 networkProvider.provideApi(apiUrl, ProfileRestService.class)
                         .getRepos(loginId, page)
+        );
+    }
+
+    @Override
+    public Observable<List<User>> getFollowers(String loginId, int page) {
+        return networkProvider.makeRequest(
+                networkProvider.provideApi(apiUrl, ProfileRestService.class)
+                        .getFollowers(loginId, page)
+        );
+    }
+
+    @Override
+    public Observable<List<User>> getFollowing(String loginId, int page) {
+        return networkProvider.makeRequest(
+                networkProvider.provideApi(apiUrl, ProfileRestService.class)
+                        .getFollowing(loginId, page)
         );
     }
 

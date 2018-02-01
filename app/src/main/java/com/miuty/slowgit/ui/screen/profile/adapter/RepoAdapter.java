@@ -1,15 +1,15 @@
-package com.miuty.slowgit.ui.screen.profile.repositories.adapter;
+package com.miuty.slowgit.ui.screen.profile.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.data.model.Repo;
 import com.miuty.slowgit.ui.base.adapter.ArrayAdapter;
 import com.miuty.slowgit.ui.base.adapter.BaseViewHolder;
-import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.CreatedViewHolder;
 
 /**
  * Created by igneel on 1/28/2018.
@@ -17,13 +17,30 @@ import com.miuty.slowgit.ui.screen.main.feeds.adapter.items.CreatedViewHolder;
 
 public class RepoAdapter extends ArrayAdapter<Repo, RepositoryViewHolder> {
 
+    private static final int TYPE_ITEM_REPO = 1;
+
     public RepoAdapter(@NonNull Context context, BaseViewHolder.OnItemClickListener listener) {
         super(context, listener);
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new RepositoryViewHolder(context, layoutInflater.inflate(R.layout.item_repository, parent, false));
+        View view;
+        switch (viewType) {
+            case TYPE_ITEM_REPO:
+                view = layoutInflater.inflate(R.layout.item_repository, parent, false);
+                return new RepositoryViewHolder(context, view);
+        }
+        return super.onCreateViewHolder(parent, viewType);
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (getItemCount() - 1 == position) {
+            return super.getItemViewType(position);
+        } else {
+            return TYPE_ITEM_REPO;
+        }
     }
 
     @Override

@@ -11,9 +11,8 @@ import android.widget.LinearLayout;
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.data.model.Repo;
 import com.miuty.slowgit.ui.base.adapter.BaseViewHolder;
-import com.miuty.slowgit.ui.base.adapter.decoration.VerticalSpacingDecoration;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpListFragment;
-import com.miuty.slowgit.ui.screen.profile.repositories.adapter.RepoAdapter;
+import com.miuty.slowgit.ui.screen.profile.adapter.RepoAdapter;
 import com.miuty.slowgit.util.BundleKeyConst;
 
 import java.util.List;
