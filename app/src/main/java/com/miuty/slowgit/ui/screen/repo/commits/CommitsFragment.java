@@ -5,8 +5,9 @@ import android.os.Bundle;
 
 import com.miuty.slowgit.R;
 import com.miuty.slowgit.ui.base.mvp.BaseMvpFragment;
+import com.miuty.slowgit.ui.base.mvp.BaseMvpListFragment;
 
-public class CommitsFragment extends BaseMvpFragment<CommitsMvpView, CommitsPresenter>
+public class CommitsFragment extends BaseMvpListFragment<CommitsMvpView, CommitsPresenter, CommitAdapter>
         implements CommitsMvpView {
 
     public static CommitsFragment newInstance() {
@@ -24,6 +25,16 @@ public class CommitsFragment extends BaseMvpFragment<CommitsMvpView, CommitsPres
     @Override
     public String getTitle() {
         return "Commits";
+    }
+
+    @Override
+    protected CommitAdapter createAdapter() {
+        return null;
+    }
+
+    @Override
+    protected void doRefresh() {
+
     }
 
     @Override

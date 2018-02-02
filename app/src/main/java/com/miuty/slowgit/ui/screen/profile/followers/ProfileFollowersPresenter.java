@@ -3,7 +3,6 @@ package com.miuty.slowgit.ui.screen.profile.followers;
 
 import android.util.Log;
 
-import com.miuty.slowgit.data.model.Repo;
 import com.miuty.slowgit.data.model.User;
 import com.miuty.slowgit.data.repository.profile.ProfileRepository;
 import com.miuty.slowgit.data.repository.profile.ProfileRepositoryImpl;

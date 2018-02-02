@@ -21,6 +21,9 @@ public class Commit {
     @SerializedName("author")
     private Author author;
 
+    @SerializedName("committer")
+    private Author committer;
+
     @SerializedName("update")
     private String update;
 
@@ -32,5 +35,11 @@ public class Commit {
 
     @SerializedName("message")
     private String message;
+
+    @SerializedName("tree")
+    private Tree tree;
+
+    @SerializedName("commit_count")
+    private int commitCount;
 
 }
