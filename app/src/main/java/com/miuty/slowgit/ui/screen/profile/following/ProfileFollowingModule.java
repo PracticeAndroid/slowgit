@@ -2,6 +2,8 @@ package com.miuty.slowgit.ui.screen.profile.following;
 
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.miuty.slowgit.di.qualifier.ActivityContext;
 import com.miuty.slowgit.provider.navigator.FragmentNavigator;
@@ -16,5 +18,10 @@ public class ProfileFollowingModule {
     @Provides
     FragmentNavigator provideFragmentNavigator(@ActivityContext Context context) {
         return new FragmentNavigatorImpl(context);
+    }
+
+    @Provides
+    RecyclerView.LayoutManager provideLayoutManager(@ActivityContext Context context) {
+        return new LinearLayoutManager(context);
     }
 }

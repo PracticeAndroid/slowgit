@@ -10,6 +10,7 @@ import com.miuty.slowgit.ui.screen.profile.ProfileActivity;
 import com.miuty.slowgit.ui.screen.profile.ProfileModule;
 import com.miuty.slowgit.ui.screen.profile.followers.ProfileFollowersFragment;
 import com.miuty.slowgit.ui.screen.profile.followers.ProfileFollowersFragmentProvider;
+import com.miuty.slowgit.ui.screen.profile.following.ProfileFollowingFragmentProvider;
 import com.miuty.slowgit.ui.screen.profile.overview.ProfileOverviewFragmentProvider;
 import com.miuty.slowgit.ui.screen.main.pull_requests.PullRequestsFragmentProvider;
 import com.miuty.slowgit.ui.screen.profile.repositories.ProfileRepositoriesFragment;
@@ -50,7 +51,8 @@ public abstract class BuilderModule {
             ProfileModule.class,
             ProfileOverviewFragmentProvider.class,
             ProfileRepositoriesFragmentProvider.class,
-            ProfileFollowersFragmentProvider.class})
+            ProfileFollowersFragmentProvider.class,
+            ProfileFollowingFragmentProvider.class})
     abstract ProfileActivity bindProfileActivity();
 
 
